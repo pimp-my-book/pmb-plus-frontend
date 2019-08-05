@@ -1,0 +1,10 @@
+{
+  "name": "pmb-plus-frontend",
+  "version": "1.0.0",
+  "description": "PMB-plus frontend ends",
+  "main": "index.js",
+  "repository": "https://github.com/pimp-my-book/pmb-plus-frontend.git",
+  "author": "amodinho <u14284783@tuks.co.za>",
+  "license": "none",
+  "private": true
+}
