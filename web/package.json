@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "deploy": "next build && sls deploy --aws-profile pmbPlus"
   },
   "dependencies": {
     "next": "^9.0.3",
