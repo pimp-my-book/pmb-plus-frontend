@@ -1,0 +1,25 @@
+service: pmb-plus-web
+
+#frameworkVersion: "1.35.1"
+plugins:
+  - serverless-nextjs-plugin
+
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+  
+
+
+
+
+
+package:
+  exclude:
+    - ./**
+
+custom:
+  serverless-nextjs:
+    nextConfigDir: ./
