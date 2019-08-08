@@ -10,7 +10,7 @@
     "deploy": "next build && sls deploy --aws-profile pmbPlus"
   },
   "dependencies": {
-    "next": "^9.0.3",
+    "next": "8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

@@ -1,4 +1,4 @@
-service: pmb-plus-web
+service: pmb-plus-web-2
 
 #frameworkVersion: "1.35.1"
 plugins:
