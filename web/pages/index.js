@@ -1,6 +1,6 @@
 const Home = () =>{
     return (
-        <div>PMB Plus Front-End!</div>
+        <div>PMB Plus Front-End! 🤩 </div>
     )
 }
 
