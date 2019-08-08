@@ -1571,7 +1571,7 @@ debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.1.0:
+debug@^4.1.0, debug@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmjs.org/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
   dependencies:
@@ -2677,6 +2677,10 @@ neo-async@^2.5.0:
   version "2.6.1"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
 
+next-aws-lambda@^2.0.5-alpha.0:
+  version "2.0.5-alpha.0"
+  resolved "https://registry.npmjs.org/next-aws-lambda/-/next-aws-lambda-2.0.5-alpha.0.tgz#09c6893190630356917f45b45181f11c1906ac35"
+
 next-server@9.0.3:
   version "9.0.3"
   resolved "https://registry.npmjs.org/next-server/-/next-server-9.0.3.tgz#b1372df158646ec40118c6e845d9a51764a21d89"
@@ -3459,18 +3463,20 @@ serialize-javascript@1.7.0, serialize-javascript@^1.7.0:
   version "1.7.0"
   resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.7.0.tgz#d6e0dfb2a3832a8c94468e6eb1db97e55a192a65"
 
-serverless-nextjs-plugin@1.5.3:
-  version "1.5.3"
-  resolved "https://registry.npmjs.org/serverless-nextjs-plugin/-/serverless-nextjs-plugin-1.5.3.tgz#08292edce1e8df3c9b6238e10f578ccdf9afeedb"
+serverless-nextjs-plugin@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/serverless-nextjs-plugin/-/serverless-nextjs-plugin-2.3.0.tgz#af8456a4a1eb07d3159233d4ebfc0f5f54a6de47"
   dependencies:
     "@mapbox/s3urls" "^1.5.3"
     chalk "^2.4.2"
+    debug "^4.1.1"
     fs-extra "^7.0.1"
     js-yaml "^3.12.1"
     klaw "^3.0.0"
     lodash.clonedeep "^4.5.0"
     lodash.merge "^4.6.1"
     mime "^2.4.0"
+    next-aws-lambda "^2.0.5-alpha.0"
 
 set-blocking@~2.0.0:
   version "2.0.0"
