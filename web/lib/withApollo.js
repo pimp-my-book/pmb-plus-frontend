@@ -5,4 +5,6 @@ import {getDataFromTree} from '@apollo/react-ssr'
 import Head from 'next/head'
 import initApollo from './initApollo'
 
-function par
+function parseCookie (req, options={}){
+    return cookie.parse(req ? req.headers.cookie || '': document.cookie, options)
+}
