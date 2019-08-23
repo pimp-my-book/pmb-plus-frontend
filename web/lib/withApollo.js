@@ -65,5 +65,17 @@ export default App => {
                 apolloState
             }
         }
+
+        constructor(props){
+            super(props)
+            this.apolloClient = initApollo(props.apolloState,{
+                getToken:() => {
+                    return parseCookies().token
+                }
+            })
+        }
+        render(){
+            return <App apolloClient={this.apolloClient} {...this.props}/>
+        }
     }
 }
