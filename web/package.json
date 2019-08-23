@@ -12,6 +12,7 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@apollo/react-ssr": "^3.0.1",
+    "apollo-boost": "^0.4.4",
     "next": "8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
