@@ -4,6 +4,9 @@ import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
 
 let apolloClient = null
+
+const stage = process.env.REACT_APP_STAGE === "prod";
+
 function create(initialState) {
     // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
     const isBrowser = typeof window !== 'undefined'
