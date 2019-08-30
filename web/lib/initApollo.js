@@ -1,54 +1,35 @@
 import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import { createHttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
 
 let apolloClient = null
-
-// Wee nee to use Polyfill fetch() on the server
-if (typeof window === 'undefined') {
-    global.fetch = fetch
-}
-
-
-function create(initalState) {
-    const httpLink = createHttpLink({
-        uri: 'http://localhost/4000/graphql',
-        credentials: 'same-origin',
-
-    })
-
+function create(initialState) {
+    // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
     const isBrowser = typeof window !== 'undefined'
     return new ApolloClient({
         connectToDevTools: isBrowser,
-        ssrMode: !isBrowser, //this will make sure queires only run once
-        cache: new InMemoryCache().restore(initalState || {}),
-        link: httpLink
+        ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
+        link: new createHttpLink({
+            uri: 'http://localhost:4000/graphql', // Server URL (must be absolute)
+            credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+            // Use fetch() polyfill on the server
+            fetch: !isBrowser && fetch
+        }),
+        cache: new InMemoryCache().restore(initialState || {})
     })
 }
 
-
-export default function initApollo(initalState, options) {
-    //new client is made for every server-side request
+export default function initApollo(initialState) {
+    // Make sure to create a new client for every server-side request so that data
+    // isn't shared between connections (which would be bad)
     if (typeof window === 'undefined') {
-        /*
-        let fetchOptions = {}
-        //fetchOptions is required because its  a server-side only module
-        if (process.env.https_proxy) {
-            fetchOptions = {
-                agent: new (require('https-proxy-agent'))(process.env.https_proxy)
-            }
-        }
-        return create(initialState, {
-            ...options,
-            fetchOptions
-        })
-        */
-        return create(initalState)
+        return create(initialState)
     }
 
-    ///use the client on the client-side
+    // Reuse client on the client-side
     if (!apolloClient) {
-        apolloClient = create(initalState, options)
+        apolloClient = create(initialState)
     }
 
     return apolloClient
