@@ -8,6 +8,7 @@ function Home() {
     if (loading) return <p>...loading</p>
     if (error) return <p>Something went wrong</p>
     console.log(data)
+
     return (
         <>
             <div>PMB Plus Front-End! 🤩 </div>

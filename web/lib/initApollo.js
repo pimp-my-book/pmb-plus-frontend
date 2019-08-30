@@ -2,7 +2,9 @@ import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
-
+import getConfig from 'next/config'
+// Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 let apolloClient = null
 
 const stage = process.env.REACT_APP_STAGE === "prod";
@@ -14,13 +16,14 @@ function create(initialState) {
         connectToDevTools: isBrowser,
         ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
         link: new createHttpLink({
-            uri: process.env.NODE_ENV === 'development' ? endpoint : devEndpoint, // Server URL (must be absolute)
+            uri: serverRuntimeConfig.localEndpoint, // Server URL (must be absolute)
             credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
             // Use fetch() polyfill on the server
             fetch: !isBrowser && fetch
         }),
         cache: new InMemoryCache().restore(initialState || {})
     })
+
 }
 
 export default function initApollo(initialState) {
