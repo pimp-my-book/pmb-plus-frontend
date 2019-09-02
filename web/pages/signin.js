@@ -1,6 +1,7 @@
 import Signin from '../components/auth/Signin'
 
 const SigninPage = props => (
+
     <Signin />
 )
 
