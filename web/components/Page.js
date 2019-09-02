@@ -5,7 +5,9 @@ class Page extends Component {
     render() {
         return (
             <>
-                <NavigationBar />
+                <NavigationBar
+
+                />
                 {this.props.children}
                 <Footer />
             </>
