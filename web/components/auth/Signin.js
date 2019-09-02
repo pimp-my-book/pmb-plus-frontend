@@ -17,33 +17,35 @@ const Signin = ({
                         text="Welcome Back"
                     />
                     <div
-                        className="flex flex-col"
+                        className="flex  justify-center"
                     >
 
-                        <div>
-                            <BodyText
-                                text="Email Address"
-                            />
-                            <Input
-                                placeholder="email@example.com"
-                            />
+                        <div className="flex flex-col">
+                            <div>
+                                <BodyText
+                                    text="Email Address"
+                                />
+                                <Input
+                                    placeholder="email@example.com"
+                                />
 
-                        </div>
-                        <div>
-                            <BodyText
-                                text="Password "
-                            />
-                            <Input
-                                type="password"
-                                placeholder="email@example.com"
-                            />
+                            </div>
+                            <div>
+                                <BodyText
+                                    text="Password "
+                                />
+                                <Input
+                                    type="password"
+                                    placeholder="email@example.com"
+                                />
 
-                        </div>
-                        <div>
-                            <DarkPinkButton
-                                text='Login'
+                            </div>
+                            <div>
+                                <DarkPinkButton
+                                    text='Login'
 
-                            />
+                                />
+                            </div>
                         </div>
                     </div>
 
