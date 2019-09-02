@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HeadingOne, Input, LinkButton, BodyText } from 'umqombothi-component-library'
+import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 const Signin = ({
 
@@ -38,6 +38,12 @@ const Signin = ({
                                 placeholder="email@example.com"
                             />
 
+                        </div>
+                        <div>
+                            <DarkPinkButton
+                                text='Login'
+
+                            />
                         </div>
                     </div>
 
