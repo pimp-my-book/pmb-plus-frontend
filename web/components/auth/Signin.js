@@ -17,7 +17,7 @@ const Signin = ({
                         text="Welcome Back"
                     />
                     <div
-                        className="flex  justify-center"
+                        className="flex  justify-center p-10"
                     >
 
                         <div className="flex flex-col">
@@ -40,7 +40,7 @@ const Signin = ({
                                 />
 
                             </div>
-                            <div>
+                            <div className="mt-4">
                                 <DarkPinkButton
                                     text='Login'
 
