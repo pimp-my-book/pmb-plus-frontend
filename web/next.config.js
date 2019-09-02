@@ -7,7 +7,13 @@ module.exports = withCSS(
     withTM({
         transpileModules: ["umqombothi-component-library"]
     })
+
 );
+
+
+
+
+/*
 
 module.exports = {
     serverRuntimeConfig: {
@@ -15,8 +21,7 @@ module.exports = {
     }
 }
 
-module
-/*
+
 module.exports = phase => {
     //get the dev stage
     const isDev = phase = process.env.NODE_ENV === 'development' && process.env.NODE_ENV !== 'production'

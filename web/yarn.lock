@@ -6736,6 +6736,11 @@ next-aws-lambda@^2.0.5-alpha.0:
   version "2.0.5-alpha.0"
   resolved "https://registry.npmjs.org/next-aws-lambda/-/next-aws-lambda-2.0.5-alpha.0.tgz#09c6893190630356917f45b45181f11c1906ac35"
 
+next-compose@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/next-compose/-/next-compose-0.0.2.tgz#fa26aa6430bc4e34d72fe9e5bca780aef53cf191"
+  integrity sha1-+iaqZDC8TjTXL+nlvKeArvU88ZE=
+
 next-server@8.1.0:
   version "8.1.0"
   resolved "https://registry.npmjs.org/next-server/-/next-server-8.1.0.tgz#50a9f248ede69fb33d83aa5274ec6c66f421556e"
@@ -9960,13 +9965,11 @@ uglify-js@^3.1.4:
     commander "~2.20.0"
     source-map "~0.6.1"
 
-umqombothi-component-library@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/umqombothi-component-library/-/umqombothi-component-library-1.0.0.tgz#c80bfb05db5f4940780121a9ac9aecee9fc71ea2"
-  integrity sha512-jRbVzSszH9paGWqI/LWc9zNlAxKBWDW+PDWAU2HjxwgQ6zG5CRWsxXBdQ5mttPo51ZYmTSyiurqe27PUpyKrLg==
+umqombothi-component-library@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/umqombothi-component-library/-/umqombothi-component-library-1.0.1.tgz#d2d89cfa909a5c2da4707348ad8c2224af51e900"
+  integrity sha512-Pdguyafol/lBZ04DeQoAdjLCb65GcfkK3ZoKZKcacNL3m7P66XyCKWYQ1PNiuhk+Oly7SR20AHRQA0bYY/OPrw==
   dependencies:
-    react "^16.8.6"
-    react-dom "^16.8.6"
     react-scripts "3.0.1"
     styled-components "^4.3.2"
 
