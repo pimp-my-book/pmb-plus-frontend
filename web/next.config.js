@@ -1,4 +1,5 @@
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants')
+require('dotenv').config()
 
 module.exports = {
     serverRuntimeConfig: {
