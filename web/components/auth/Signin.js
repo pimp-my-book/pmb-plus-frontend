@@ -16,10 +16,32 @@ const Signin = ({
                     <HeadingOne
                         text="Welcome Back"
                     />
+                    <div
+                        className="flex flex-col"
+                    >
 
-                    <Input
-                        placeholder="email@example.com"
-                    />
+                        <div>
+                            <BodyText
+                                text="Email Address"
+                            />
+                            <Input
+                                placeholder="email@example.com"
+                            />
+
+                        </div>
+                        <div>
+                            <BodyText
+                                text="Password "
+                            />
+                            <Input
+                                type="password"
+                                placeholder="email@example.com"
+                            />
+
+                        </div>
+                    </div>
+
+
 
                 </form>
             </div>
