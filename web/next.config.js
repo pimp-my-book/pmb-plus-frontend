@@ -1,11 +1,21 @@
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants')
 require('dotenv').config()
+const withTM = require("next-transpile-modules");
+const withCSS = require("@zeit/next-css");
+
+module.exports = withCSS(
+    withTM({
+        transpileModules: ["umqombothi-component-library"]
+    })
+);
 
 module.exports = {
     serverRuntimeConfig: {
         localEndpoint: process.env.local
     }
 }
+
+module
 /*
 module.exports = phase => {
     //get the dev stage
