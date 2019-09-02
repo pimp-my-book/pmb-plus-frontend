@@ -40,10 +40,14 @@ const Signin = ({
                                 />
 
                             </div>
-                            <div className="mt-4">
+                            <div className="mt-4 flex flex-col">
                                 <DarkPinkButton
                                     text='Login'
 
+                                />
+                                <LinkButton
+                                    text="Forgot your password?"
+                                    href="/forgot-password"
                                 />
                             </div>
                         </div>
