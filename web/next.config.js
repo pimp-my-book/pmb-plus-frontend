@@ -2,16 +2,65 @@ const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/const
 require('dotenv').config()
 const withTM = require("next-transpile-modules");
 const withCSS = require("@zeit/next-css");
+const compose = require('next-compose')
+
 
 module.exports = withCSS(
     withTM({
-        transpileModules: ["umqombothi-component-library"]
-    })
+        transpileModules: ["umqombothi-component-library"],
+        webpack(config, options) {
+            config.module.rules.push({
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100000
+                    }
+                }
+            });
 
+            return config;
+        },
+        serverRuntimeConfig: {
+            localEndpoint: process.env.local
+        }
+    })
 );
 
 
 
+
+/*
+const cssConfig = {}
+const tmConfig = { transpileModules: ["umqombothi-component-library"] }
+module.exports = compose([
+    [withCSS, cssConfig],
+    [withTM, {
+        transpileModules: ["umqombothi-component-library"]
+    }], {
+        webpack(config, options) {
+            config.module.rules.push({
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100000
+                    }
+                }
+            });
+
+            return config;
+        }
+    }
+])
+
+module.exports = {
+    serverRuntimeConfig: {
+        localEndpoint: process.env.local
+    }
+}
+
+*/
 
 /*
 

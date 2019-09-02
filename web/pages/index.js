@@ -6,8 +6,8 @@ function Home() {
 
     const { loading, error, data } = useQuery(HELLO)
 
-    if (loading) return <><p>...loading</p> <BodyText text="me" />  </>
-    if (error) return <p>Something went wrong</p>
+    if (loading) return <><p>...loading</p>  </>
+    if (error) return <> <p>Something went wrong</p> <BodyText text="me" /> </>
     console.log(data)
 
     return (
