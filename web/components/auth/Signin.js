@@ -16,7 +16,9 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
+            console.log(values.email)
             await Auth.signIn(values.email, values.password)
+                .then(user => console.log(user))
             alert('Succees!')
         } catch (e) {
             alert(e.message)
