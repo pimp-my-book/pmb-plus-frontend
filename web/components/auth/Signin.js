@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
@@ -6,7 +6,12 @@ const Signin = ({
 
 }) => {
 
+    const [values, setValues] = useState({ email: '', password: '' })
 
+    const hanldeChange = (event) => {
+        event.preventDefault();
+        setValues(values => ({ ...values, [event.target.name]: event.target.value }))
+    }
     return (
         <>
             <div className="flex justify-center">
