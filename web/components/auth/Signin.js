@@ -9,8 +9,18 @@ const Signin = ({
     const [values, setValues] = useState({ email: '', password: '' })
 
     const hanldeChange = (event) => {
-        event.preventDefault();
+
         setValues(values => ({ ...values, [event.target.name]: event.target.value }))
+    }
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        try {
+            await Auth.signIn(this.values.email, this.values.password)
+            alert('Succees!')
+        } catch (e) {
+            alert(e.message)
+        }
     }
     return (
         <>
