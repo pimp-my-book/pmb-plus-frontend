@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import { Auth } from "aws-amplify";
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 const Signin = ({
