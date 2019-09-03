@@ -37,7 +37,51 @@ module.exports = withCSS(
         },
         env: {
             Cognito: (() => {
-                if (isDev) return {
+                if (isDev) return
+
+                'HELLO'
+
+
+
+                if (isProd) {
+                    return {
+
+                        REGION: process.env.REACT_APP_REGION,
+                        USER_POOL_ID: process.env.REACT_APP_UserPoolID_PROD,
+                        APP_CLIENT_ID: process.env.REACT_APP_UserPoolClientID_PROD,
+                        IDENTITY_POOL_ID: process.env.REACT_APP_IdentityPoolId_PROD,
+
+                    }
+                }
+            })
+        }
+
+    }),
+);
+
+
+/*
+,
+
+ publicRuntimeConfig: {
+
+            [isDev]: {
+                REGION: process.env.REACT_APP_REGION,
+                USER_POOL_ID: process.env.REACT_APP_UserPoolID_Dev,
+                APP_CLIENT_ID: process.env.REACT_APP_UserPoolClientID_Dev,
+                IDENTITY_POOL_ID: process.env.REACT_APP_IdentityPoolId_Dev,
+            },
+            [isProd]: {
+                REGION: process.env.REACT_APP_REGION,
+                USER_POOL_ID: process.env.REACT_APP_UserPoolID_PROD,
+                APP_CLIENT_ID: process.env.REACT_APP_UserPoolClientID_PROD,
+                IDENTITY_POOL_ID: process.env.REACT_APP_IdentityPoolId_PROD,
+            }
+        }
+
+        env: {
+            Cognito: (() => {
+                if (PHASE_DEVELOPMENT_SERVER) return {
                     cognito: {
                         REGION: process.env.REACT_APP_REGION,
                         USER_POOL_ID: process.env.REACT_APP_UserPoolID_Dev,
@@ -46,7 +90,7 @@ module.exports = withCSS(
 
                     }
                 }
-                if (isProd) {
+                if (PHASE_PRODUCTION_BUILD) {
                     return {
                         cognito: {
                             REGION: process.env.REACT_APP_REGION,
@@ -59,10 +103,4 @@ module.exports = withCSS(
             })
         }
 
-    }),
-);
-
-
-
-
-
+        */

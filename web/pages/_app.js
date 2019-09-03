@@ -5,7 +5,6 @@ import withApollo from '../lib/withApollo'
 import Page from '../components/Page'
 
 
-
 class MyApp extends App {
     static displayName = 'PMB Plus'
 

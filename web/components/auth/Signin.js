@@ -1,29 +1,71 @@
 import React, { useState } from 'react'
-import { Auth } from "aws-amplify";
+import Amplify, { Auth } from "aws-amplify";
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import getConfig from 'next/config'
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+import config from '../../config'
+
+console.log(config.cognito.REGION)
+Amplify.configure({
+    Auth: {
+        mandatorySignIn: true,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    },
+})
+
 
 const Signin = ({
 
 }) => {
 
-    const [values, setValues] = useState({ email: "", password: "" })
 
     const hanldeChange = (e) => {
-        console.log(values)
-        setValues({ [e.target.id]: e.target.value })
+
+
+        setEmail({
+            email,
+
+            [e.target.name]: e.target.value
+        });
+
+
     }
 
+    const hanldeChange2 = (e) => {
+
+
+        setpassword({
+
+            password,
+            [e.target.name]: e.target.value
+        });
+
+
+    }
+
+
+
+
+
     const handleSubmit = async event => {
-        event.preventDefault();
+        //event.preventDefault();
         try {
             console.log(values.email)
-            await Auth.signIn(values.email, values.password)
+            await Auth.signIn(email, password)
                 .then(user => console.log(user))
             alert('Succees!')
         } catch (e) {
             alert(e.message)
         }
+
+
     }
+
+    const [email, setEmail] = useState("")
+    const [password, setpassword] = useState("")
     return (
         <>
             <div className="flex justify-center">
@@ -44,7 +86,7 @@ const Signin = ({
                                     text="Email Address"
                                 />
                                 <Input
-                                    value={values.email}
+                                    value={email}
                                     onChange={hanldeChange}
                                     placeholder="email@example.com"
                                 />
@@ -56,8 +98,8 @@ const Signin = ({
                                 />
                                 <Input
                                     type="password"
-                                    onChange={hanldeChange}
-                                    value={values.password}
+                                    onChange={hanldeChange2}
+                                    value={password}
                                     placeholder="email@example.com"
                                 />
 
