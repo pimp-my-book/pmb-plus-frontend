@@ -16,7 +16,7 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
-            await Auth.signIn(this.values.email, this.values.password)
+            await Auth.signIn(values.email, values.password)
             alert('Succees!')
         } catch (e) {
             alert(e.message)
@@ -26,6 +26,7 @@ const Signin = ({
         <>
             <div className="flex justify-center">
                 <form
+                    onSubmit={handleSubmit}
                     className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                 >
                     <HeadingOne
@@ -41,6 +42,8 @@ const Signin = ({
                                     text="Email Address"
                                 />
                                 <Input
+                                    value={values.email}
+                                    onChange={hanldeChange}
                                     placeholder="email@example.com"
                                 />
 
@@ -51,6 +54,8 @@ const Signin = ({
                                 />
                                 <Input
                                     type="password"
+                                    onChange={hanldeChange}
+                                    value={values.password}
                                     placeholder="email@example.com"
                                 />
 
@@ -58,7 +63,7 @@ const Signin = ({
                             <div className="mt-4 flex flex-col">
                                 <DarkPinkButton
                                     text='Login'
-
+                                    type="submit"
                                 />
                                 <LinkButton
                                     text="Forgot your password?"
