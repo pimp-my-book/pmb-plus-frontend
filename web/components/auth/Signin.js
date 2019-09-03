@@ -6,11 +6,11 @@ const Signin = ({
 
 }) => {
 
-    const [values, setValues] = useState({ email: '', password: '' })
+    const [values, setValues] = useState({ email: "", password: "" })
 
-    const hanldeChange = (event) => {
-
-        setValues(values => ({ ...values, [event.target.name]: event.target.value }))
+    const hanldeChange = (e) => {
+        console.log(values)
+        setValues({ [e.target.id]: e.target.value })
     }
 
     const handleSubmit = async event => {
