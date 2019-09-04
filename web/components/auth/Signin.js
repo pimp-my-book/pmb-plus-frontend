@@ -1,20 +1,9 @@
 import React, { useState } from 'react'
-import Amplify, { Auth } from "aws-amplify";
+import Auth from "@aws-amplify/auth";
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 import getConfig from 'next/config'
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
-import config from '../../config'
 
-console.log(config.cognito.REGION)
-Amplify.configure({
-    Auth: {
-        mandatorySignIn: true,
-        region: config.cognito.REGION,
-        userPoolId: config.cognito.USER_POOL_ID,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        userPoolWebClientId: config.cognito.APP_CLIENT_ID
-    },
-})
 
 
 const Signin = ({
@@ -25,11 +14,11 @@ const Signin = ({
     const hanldeChange = (e) => {
 
 
-        setEmail({
-            email,
+        setEmail(
 
-            [e.target.name]: e.target.value
-        });
+
+            e.target.value
+        );
 
 
     }
@@ -37,11 +26,10 @@ const Signin = ({
     const hanldeChange2 = (e) => {
 
 
-        setpassword({
+        setpassword(
 
-            password,
-            [e.target.name]: e.target.value
-        });
+            e.target.value
+        );
 
 
     }
@@ -50,11 +38,11 @@ const Signin = ({
 
 
 
-    const handleSubmit = async event => {
+    const handleSubmit = event => {
         //event.preventDefault();
         try {
-            console.log(values.email)
-            await Auth.signIn(email, password)
+            console.log(email, password)
+            Auth.signIn(email, password)
                 .then(user => console.log(user))
             alert('Succees!')
         } catch (e) {
