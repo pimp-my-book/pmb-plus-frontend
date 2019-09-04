@@ -3,10 +3,7 @@ import cookie from 'cookie'
 import PropTypes from 'prop-types'
 import { getDataFromTree } from '@apollo/react-ssr'
 import Head from 'next/head'
-import Auth from "@aws-amplify/auth";
-import Amplify from "aws-amplify";
 import initApollo from './initApollo'
-import config from '../config'
 
 
 
@@ -25,24 +22,20 @@ export default App => {
                 appProps = await App.getInitialProps(ctx)
             }
 
+
+
             // Run all GraphQL queries in the component tree
             // and extract the resulting data
             const apollo = initApollo()
             if (typeof window === 'undefined') {
                 try {
 
-                    Amplify.configure({
-                        Auth: {
-                            mandatorySignIn: false,
-                            region: config.cognito.REGION,
-                            userPoolId: config.cognito.USER_POOL_ID,
-                            identityPoolId: config.cognito.IDENTITY_POOL_ID,
-                            userPoolWebClientId: config.cognito.APP_CLIENT_ID
-                        },
-                    })
+
 
                     // Run all GraphQL queries
                     await getDataFromTree(
+
+
                         <App
                             {...appProps}
                             Component={Component}
