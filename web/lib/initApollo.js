@@ -3,6 +3,8 @@ import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
 import getConfig from 'next/config'
+
+
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 let apolloClient = null
@@ -27,6 +29,9 @@ function create(initialState) {
 }
 
 export default function initApollo(initialState) {
+
+
+
     // Make sure to create a new client for every server-side request so that data
     // isn't shared between connections (which would be bad)
     if (typeof window === 'undefined') {
