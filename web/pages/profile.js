@@ -1,3 +1,5 @@
+import WithAuth from '../lib/WithAuth'
+
 const profile = () => {
     return (
         <div>
@@ -6,4 +8,4 @@ const profile = () => {
     )
 }
 
-export default profile
+export default WithAuth(profile)
