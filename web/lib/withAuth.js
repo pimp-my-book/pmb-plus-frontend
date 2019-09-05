@@ -5,7 +5,7 @@ import Router from 'next/router'
 export default WithAuth => {
     return class AuthComponent extends React.Component {
        
-ser data from cognito via amplify
+//user data from cognito via amplify
                 
  componentDidMount(){
             await Auth.currentSes sion()
