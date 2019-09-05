@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
+import Router from 'next/router'
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 import getConfig from 'next/config'
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
@@ -57,7 +58,7 @@ const Signin = ({
         event.preventDefault();
         try {
             Auth.signIn(email, password)
-                .then(user => console.log(user))
+                .then(Router.push('/profile'))
                 .catch(e => console.log(e))
 
         } catch (e) {
