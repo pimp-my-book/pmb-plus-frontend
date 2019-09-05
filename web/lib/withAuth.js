@@ -1,44 +1,32 @@
 import React from 'react'
 import redirect from './redirect'
 import Auth from "@aws-amplify/auth";
-
-export default withAuth => {
+import Router from 'next/router'
+export default WithAuth => {
     return class AuthComponent extends React.Component {
         static async getIntialProps(ctx) {
-            let authProps = {
-                isAuthenticated: false
-            }
-
-            if (withAuth.getIntialProps) {
-
-                try {
-                    if (await Auth.currentSession()) {
-                        appProps.isAuthenticated = true
-                    } else {
-                        redirect(ctx, '/')
-                    }
-
-                }
-                catch (e) {
-                    return e.message
-                }
-            }
-
-
-            return {
-                ...authProps
-            }
-
-
+            //Get User data from cognito via amplify
+            const userData = Auth.currentSession()
+                                .then(user => user)
+                        .catch(e => console.log(e)
+    
+    ///Check if the data is present, if not redirect
+     if (userData ){
+        return {
+            data: userData
         }
-
-        constructor(props) {
-            super(props)
-
-        }
-
-        render() {
-            return <withAuth {...this.props} />
-        }
+    } else {
+        Router.push('/')
     }
+}
+
+
+// return the props into the withAuth component
+          render(){
+return <WithAuth {...props} />
+
+}
+                
+    
+
 }
