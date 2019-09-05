@@ -15,7 +15,15 @@ class Page extends Component {
         return (
             <>
                 <NavigationBar
-
+                    content={
+                        <>
+                            <span
+                                onClick={this.handleLogout}
+                            >
+                                Logout
+                    </span>
+                        </>
+                    }
                 />
                 {this.props.children}
                 <Footer />
