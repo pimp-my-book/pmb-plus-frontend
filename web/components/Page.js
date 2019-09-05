@@ -14,8 +14,7 @@ const amplifyConfig = {
     }
 }
 
-console.log(config.cognito.USER_POOL_ID)
-console.log(amplifyConfig)
+
 Amplify.configure(
     amplifyConfig
 )
