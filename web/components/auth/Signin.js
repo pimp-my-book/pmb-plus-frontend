@@ -16,6 +16,9 @@ const amplifyConfig = {
         userPoolWebClientId: config.cognito.APP_CLIENT_ID
     }
 }
+
+console.log(config.cognito.USER_POOL_ID)
+console.log(amplifyConfig)
 Amplify.configure(
     amplifyConfig
 )
@@ -55,13 +58,14 @@ const Signin = ({
 
 
 
-    const handleSubmit = event => {
-        //event.preventDefault();
+    const handleSubmit = async event => {
+        event.preventDefault();
         try {
             console.log(email, password)
-            Auth.signIn(email, password)
+            await Auth.signIn('admin@example.com', 'password')
                 .then(user => console.log(user))
-            alert('Succees!')
+                .catch(e => console.log(e))
+
         } catch (e) {
             alert(e.message)
         }
