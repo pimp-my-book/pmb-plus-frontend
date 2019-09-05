@@ -23,8 +23,20 @@ export default withAuth => {
             }
 
 
+            return {
+                ...authProps
+            }
 
 
+        }
+
+        constructor(props) {
+            super(props)
+
+        }
+
+        render() {
+            return <withAuth {...this.props} />
         }
     }
 }
