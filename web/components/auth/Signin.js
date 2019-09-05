@@ -4,8 +4,22 @@ import Auth from "@aws-amplify/auth";
 import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 import getConfig from 'next/config'
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+import config from '../../config'
+
+const amplifyConfig = {
+    Auth: {
+        mandatorySignIn: false,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    }
+}
 
 
+Amplify.configure(
+    amplifyConfig
+)
 
 const Signin = ({
 
