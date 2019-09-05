@@ -10,9 +10,9 @@ const amplifyConfig = {
     Auth: {
         mandatorySignIn: false,
         region: config.cognito.REGION,
-        userPoolId: config.cognito.USER_POOL_ID,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+        userPoolId: "us-east-1_OQfgqHOIe",
+        identityPoolId: "us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07",
+        userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
     }
 }
 
@@ -29,12 +29,12 @@ const Signin = ({
     const hanldeChange = (e) => {
 
 
-        setEmail(
-
-
-            e.target.value
-        );
-
+        // e.persist()
+        const { name, value } = e.target
+        setValues({
+            ...values, [name]: value
+        })
+        // setValues(values => ({ ...values, [e.target.name]: e.target.value }))
 
     }
 
@@ -53,11 +53,10 @@ const Signin = ({
 
 
 
-    const handleSubmit = async event => {
+    const handleSubmit = event => {
         event.preventDefault();
         try {
-            console.log(email, password)
-            await Auth.signIn(email, password)
+            Auth.signIn(email, password)
                 .then(user => console.log(user))
                 .catch(e => console.log(e))
 
@@ -70,6 +69,7 @@ const Signin = ({
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
+
     return (
         <>
             <div className="flex justify-center">
@@ -91,7 +91,7 @@ const Signin = ({
                                 />
                                 <Input
                                     value={email}
-                                    onChange={hanldeChange}
+                                    onChange={e => setEmail(e.target.value)}
                                     placeholder="email@example.com"
                                 />
 
@@ -102,7 +102,7 @@ const Signin = ({
                                 />
                                 <Input
                                     type="password"
-                                    onChange={hanldeChange2}
+                                    onChange={e => setpassword(e.target.value)}
                                     value={password}
                                     placeholder="email@example.com"
                                 />
