@@ -10,9 +10,9 @@ const amplifyConfig = {
     Auth: {
         mandatorySignIn: false,
         region: config.cognito.REGION,
-        userPoolId: "us-east-1_OQfgqHOIe",
-        identityPoolId: "us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07",
-        userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
     }
 }
 
