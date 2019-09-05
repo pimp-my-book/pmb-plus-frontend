@@ -14,6 +14,8 @@ export default withAuth => {
                 try {
                     if (await Auth.currentSession()) {
                         appProps.isAuthenticated = true
+                    } else {
+                        redirect(ctx, '/')
                     }
 
                 }
