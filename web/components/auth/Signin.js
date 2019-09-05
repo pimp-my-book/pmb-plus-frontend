@@ -57,7 +57,7 @@ const Signin = ({
         event.preventDefault();
         try {
             console.log(email, password)
-            await Auth.signIn('admin@example.com', 'password')
+            await Auth.signIn(email, password)
                 .then(user => console.log(user))
                 .catch(e => console.log(e))
 
