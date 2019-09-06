@@ -34,7 +34,7 @@ class Page extends Component {
     }
 
     constructor(pageProps) {
-        super(props)
+        super(pageProps)
         this.state = {
             isAuthenticated: false,
             isAuthenticating: true
@@ -50,7 +50,7 @@ class Page extends Component {
     handleLogout = async event => {
         await Auth.signOut()
         this.userHasAuthenticated(false)
-        router.push('/')
+        Router.push('/')
     }
 
     async componentDidMount() {
@@ -83,9 +83,10 @@ class Page extends Component {
                     </span>
                         </>
                     }
+                    {...pageProps}
                 />
                 {this.props.children}
-                {...pageProps}
+
                 <Footer />
             </>
         )
