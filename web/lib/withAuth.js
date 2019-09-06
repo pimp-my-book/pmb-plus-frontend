@@ -15,6 +15,15 @@ export default WithAuth => {
             return { pageProps }
         }
 
+        constructor(pageProps) {
+            super(props)
+            this.state = {
+                isAuthenticated: false,
+            }
+        }
+
+        userHasAuthenticated = auth
+
 
         // return the props into the withAuth component
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Router from 'next/router'
 import { Footer, NavigationBar } from 'umqombothi-component-library'
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
@@ -21,12 +22,54 @@ Amplify.configure(
 
 class Page extends Component {
 
+
+    //initilize the getInitialProps func and props data
+    static async getInitalProps({ Component, router, ctx }) {
+        let pageProps = {}
+        if (Component.getInitalProps) {
+            pageProps = await Component.getInitalProps(ctx)
+        }
+
+        return { pageProps }
+    }
+
+    constructor(pageProps) {
+        super(props)
+        this.state = {
+            isAuthenticated: false,
+            isAuthenticating: true
+        }
+    }
+
+
+
+    userHasAuthenticated = authenticated => {
+        this.setState({ isAuthenticated: authenticated })
+    }
+
     handleLogout = async event => {
         await Auth.signOut()
+        this.userHasAuthenticated(false)
+        router.push('/')
+    }
 
+    async componentDidMount() {
+        try {
+            if (await Auth.currentSession()) {
+                this.userHasAuthenticated(true)
+            }
+        }
+        catch (e) {
+            if (e !== 'No current user') {
+                alert(e)
+            }
+        }
+
+        this.setState({ isAuthenticating: false })
     }
     render() {
 
+        const { pageProps } = this.props
 
         return (
             <>
@@ -42,6 +85,7 @@ class Page extends Component {
                     }
                 />
                 {this.props.children}
+                {...pageProps}
                 <Footer />
             </>
         )
