@@ -4,21 +4,22 @@ import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
 export default WithAuth => {
     return class AuthComponent extends React.Component {
-       
-//user data from cognito via amplify
-                
- componentDidMount(){
-            await Auth.currentSes sion()
-            then.(data => {
 
-            })
-            
-    ///Check if the data is present, if not redirect
-        
+        //initilize the getInitialProps func and props data
+        static async getInitalProps({ Component, router, ctx }) {
+            let pageProps = {}
+            if (Component.getInitalProps) {
+                pageProps = await Component.getInitalProps(ctx)
+            }
+
+            return { pageProps }
+        }
 
 
-// return the props into the withAuth component
-  
-             
-            
-}
+        // return the props into the withAuth component
+
+        render() {
+            return <WithAuth />
+        }
+
+    }
