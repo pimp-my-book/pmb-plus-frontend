@@ -9,9 +9,9 @@ const amplifyConfig = {
     Auth: {
         mandatorySignIn: false,
         region: config.cognito.REGION,
-        userPoolId: config.cognito.USER_POOL_ID,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+        userPoolId: 'us-east-1_OQfgqHOIe',
+        identityPoolId: 'us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07',
+        userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
     }
 }
 
@@ -25,19 +25,21 @@ class Page extends Component {
 
     //initilize the getInitialProps func and props data
     static async getInitalProps({ Component, router, ctx }) {
-        let pageProps = {}
+        let props = {}
         if (Component.getInitalProps) {
-            pageProps = await Component.getInitalProps(ctx)
+            props = await Component.getInitalProps(ctx)
         }
 
-        return { pageProps }
+
+
+        return { props }
     }
 
-    constructor(pageProps) {
-        super(pageProps)
+    constructor(props) {
+        super(props)
         this.state = {
-            isAuthenticated: false,
-            isAuthenticating: true
+            isAuthenticated: props.isAuthenticated,
+            isAuthenticating: props.isAuthenticating
         }
     }
 
@@ -69,7 +71,10 @@ class Page extends Component {
     }
     render() {
 
-        const { pageProps } = this.props
+        const pageProps = {
+            isAuthenticated: this.state.isAuthenticated,
+            userHasAuthenticated: this.userHasAuthenticated
+        }
 
         return (
             <>
@@ -83,10 +88,14 @@ class Page extends Component {
                     </span>
                         </>
                     }
-                    {...pageProps}
-                />
-                {this.props.children}
 
+                />
+                <div
+                    {...this.pageProps}
+                >
+
+                    {this.props.children}
+                </div>
                 <Footer />
             </>
         )
