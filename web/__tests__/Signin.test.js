@@ -1,9 +1,14 @@
+import { render, fireEvent } from '@testing-library/react'
+import Signin from '../components/auth/Signin'
+
 describe('<Signin/>', () => {
-    it('Renders the page', () => {
 
-    })
-
+    const handleSubmit = jest.fn()
     it('Logs the user in', () => {
+        const { getByText, findByText } = render(
+            <Signin />
+        )
+
 
     })
 
