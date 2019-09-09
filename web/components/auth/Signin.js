@@ -36,16 +36,18 @@ const Signin = ({
 
 
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         try {
-            Auth.signIn(email, password)
-                .then(Router.push('/profile'))
-                .catch(e => console.log(e))
+            const signInDetails = await Auth.signIn(email, password)
+            if (Object.keys(signInDetails).length > 0) {
+                Router.push('/profile')
+            }
 
         } catch (e) {
             setError(e.message)
-            alert(e.message)
+            console.log(error)
+
         }
 
 

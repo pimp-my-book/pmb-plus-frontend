@@ -91,7 +91,7 @@ class Page extends Component {
 
                 />
                 <div
-                    {...this.pageProps}
+
                 >
 
                     {this.props.children}
