@@ -58,12 +58,17 @@ const Signin = ({
     const [error, setError] = useState("error")
     return (
         <>
-            <div className="flex justify-center mb-20">
+
+            <div
+                className="flex mt-5 justify-center">
                 {error &&
                     <Alert
                         message={error}
                         error />
                 }
+            </div>
+            <div className="flex justify-center mb-20">
+
                 <form
                     onSubmit={handleSubmit}
                     className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
