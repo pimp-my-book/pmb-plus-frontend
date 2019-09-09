@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
-import { HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const Signin = ({
@@ -55,11 +55,15 @@ const Signin = ({
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
-    const [error, setError] = useState("")
+    const [error, setError] = useState("error")
     return (
         <>
             <div className="flex justify-center mb-20">
-                {error}
+                {error &&
+                    <Alert
+                        message={error}
+                        error />
+                }
                 <form
                     onSubmit={handleSubmit}
                     className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
@@ -79,6 +83,8 @@ const Signin = ({
                                 />
                                 <Input
                                     value={email}
+                                    type="email"
+                                    required
                                     onChange={e => setEmail(e.target.value)}
                                     placeholder="email@example.com"
                                 />
@@ -90,6 +96,7 @@ const Signin = ({
                                 />
                                 <Input
                                     type="password"
+                                    required
                                     onChange={e => setpassword(e.target.value)}
                                     value={password}
                                     placeholder="something secret"
