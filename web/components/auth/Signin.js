@@ -44,6 +44,7 @@ const Signin = ({
                 .catch(e => console.log(e))
 
         } catch (e) {
+            setError(e.message)
             alert(e.message)
         }
 
@@ -56,6 +57,7 @@ const Signin = ({
     return (
         <>
             <div className="flex justify-center">
+                {error}
                 <form
                     onSubmit={handleSubmit}
                     className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
