@@ -39,6 +39,7 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
+            setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
             if (Object.keys(signInDetails).length > 0) {
                 Router.push('/profile')
@@ -47,6 +48,7 @@ const Signin = ({
         } catch (e) {
             setError(e.message)
             console.log(error)
+            setLoading(false)
 
         }
 
@@ -55,7 +57,8 @@ const Signin = ({
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
-    const [error, setError] = useState("error")
+    const [error, setError] = useState("")
+    const [isLoading, setLoading] = useState(false)
     return (
         <>
 
@@ -112,6 +115,7 @@ const Signin = ({
                                 <DarkPinkButton
                                     text='Login'
                                     type="submit"
+                                    isLoading={isLoading}
                                 />
                                 <LinkButton
                                     text="Forgot your password?"
