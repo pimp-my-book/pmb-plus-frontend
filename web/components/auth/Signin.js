@@ -58,7 +58,7 @@ const Signin = ({
     const [error, setError] = useState("")
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-20">
                 {error}
                 <form
                     onSubmit={handleSubmit}
@@ -91,7 +91,7 @@ const Signin = ({
                                     type="password"
                                     onChange={e => setpassword(e.target.value)}
                                     value={password}
-                                    placeholder="email@example.com"
+                                    placeholder="something secret"
                                 />
 
                             </div>
