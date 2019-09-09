@@ -52,7 +52,7 @@ const Signin = ({
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
-
+    const [error, setError] = useState("")
     return (
         <>
             <div className="flex justify-center">
