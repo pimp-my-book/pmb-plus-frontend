@@ -33,7 +33,7 @@ module.exports = withCSS(
             return config;
         },
         serverRuntimeConfig: {
-            localEndpoint: process.env.local
+            localEndpoint: 'localhost://4000/graphql'
         },
         env: {
             Cognito: (() => {
