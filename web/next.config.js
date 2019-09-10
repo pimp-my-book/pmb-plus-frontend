@@ -19,6 +19,7 @@ console.log(`isDev:${isDev} isProd:${isProd} isStaging:${isStaging}`)
 module.exports = withCSS(
     withTM({
         transpileModules: ["umqombothi-component-library"],
+        target: 'serverless',
         webpack(config, options) {
             config.module.rules.push({
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
