@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "test": "jest",
     "build": "next build",
     "deploy": "next build && sls deploy --aws-profile pmbPlus"
   },
