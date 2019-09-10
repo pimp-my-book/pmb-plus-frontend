@@ -6,7 +6,6 @@ import getConfig from 'next/config'
 
 
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 let apolloClient = null
 
 const stage = process.env.REACT_APP_STAGE === "prod";
