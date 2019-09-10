@@ -4,7 +4,7 @@ import Signin from '../components/auth/Signin'
 describe('<Signin/>', () => {
 
     const handleSubmit = jest.fn()
-    it('Logs the user in', () => {
+    it.skip('Logs the user in', () => {
         const { getByText, findByText, getBy } = render(
             <Signin />
         )
@@ -16,7 +16,7 @@ describe('<Signin/>', () => {
         expect(handleSubmit).toHaveBeenCalledTimes(1)
     })
 
-    it('Sends error message when not logged in', () => {
+    it.skip('Sends error message when not logged in', () => {
         const { getByText, findByText, getBy } = render(
             <Signin />
         )
