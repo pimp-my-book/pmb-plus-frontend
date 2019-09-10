@@ -31,8 +31,11 @@
     "umqombothi-component-library": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
     "@testing-library/dom": "^6.2.0",
     "@testing-library/react": "^9.1.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "next-compose": "^0.0.2",
     "serverless-nextjs-plugin": "^2.3.0"
   }
