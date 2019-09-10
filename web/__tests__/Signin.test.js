@@ -13,9 +13,10 @@ describe('<Signin/>', () => {
         fireEvent.change(getByLabelText(/password/i), { target: { value: 'rassword!' } })
 
         fireEvent.click(getByText(/login/i))
+        expectExport(handleSubmit).toHaveBeenCalledTimes(1)
     })
 
-    it('Sends error message when not logged in', () => {
+    it.skip('Sends error message when not logged in', () => {
 
     })
 })
