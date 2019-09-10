@@ -18,7 +18,7 @@ function create(initialState) {
         connectToDevTools: isBrowser,
         ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
         link: new createHttpLink({
-            uri: serverRuntimeConfig.localEndpoint, // Server URL (must be absolute)
+            uri: 'https://localhost/4000/graphql', // Server URL (must be absolute)
             credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
             // Use fetch() polyfill on the server
             fetch: !isBrowser && fetch
