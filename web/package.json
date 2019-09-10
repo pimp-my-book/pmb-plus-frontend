@@ -39,5 +39,8 @@
     "jest": "^24.9.0",
     "next-compose": "^0.0.2",
     "serverless-nextjs-plugin": "^2.3.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js"
   }
 }
