@@ -24,4 +24,5 @@ package:
 custom:
   serverless-nextjs:
     nextConfigDir: ./
-    assetPrefix: 'https://s3.amazonaws.com/pmb-plus-web-2-dev-serverlessdeploymentbucket-1q2y8cmf4j11x'
+    assetPrefix: 'https://s3.amazonaws.com/assets.pmbplus'
+    staticDir: ./static

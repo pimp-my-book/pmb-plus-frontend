@@ -20,7 +20,7 @@ module.exports = withCSS(
     withTM({
         transpileModules: ["umqombothi-component-library"],
         target: 'serverless',
-        assetPrefix: 'https://s3.amazonaws.com/pmb-plus-web-2-dev-serverlessdeploymentbucket-1q2y8cmf4j11x',
+        assetPrefix: 'https://s3.amazonaws.com/assets.pmbplus',
         webpack(config, options) {
             config.module.rules.push({
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
