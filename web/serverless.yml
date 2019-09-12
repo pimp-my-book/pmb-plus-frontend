@@ -27,4 +27,4 @@ custom:
     
 
 resources:
-  - ${file(assests-pmbplus.yml)}
+  - ${file(assets-pmbplus.yml)}
