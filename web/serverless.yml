@@ -26,3 +26,6 @@ custom:
     nextConfigDir: ./
     assetPrefix: 'https://s3.amazonaws.com/assets.pmbplus2'
     staticDir: ./static
+
+resources:
+  - ${file(assests-pmbplus.yml)}
