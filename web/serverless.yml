@@ -23,7 +23,6 @@ package:
 
 custom:
   serverless-nextjs:
-    nextConfigDir: ./
     assetsBucketName: 'pmb-plus-web-2-dev-attachmentsbucket-1jeigd7yk56z1'
     staticDir: ./static
     createAssetBucket: false
