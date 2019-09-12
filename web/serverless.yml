@@ -26,7 +26,7 @@ custom:
     nextConfigDir: ./
     assetsBucketName: 'pmb-plus-web-2-dev-attachmentsbucket-1jeigd7yk56z1'
     staticDir: ./static
-    createAssestBucket: false
+    createAssetBucket: false
 
 resources:
   - ${file(assets-pmbplus.yml)}
