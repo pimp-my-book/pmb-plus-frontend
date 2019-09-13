@@ -11,3 +11,5 @@ const SignUp = ({ }) => {
         </div>
     )
 }
+
+exprot default SignUp
