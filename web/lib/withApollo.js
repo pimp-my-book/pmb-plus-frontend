@@ -3,10 +3,17 @@ import cookie from 'cookie'
 import PropTypes from 'prop-types'
 import { getDataFromTree } from '@apollo/react-ssr'
 import Head from 'next/head'
+import Auth from "@aws-amplify/auth";
 import initApollo from './initApollo'
 
+
+
 export default App => {
+
     return class Apollo extends React.Component {
+
+
+
         static displayName = 'withApollo(App)'
         static async getInitialProps(ctx) {
             const { Component, router } = ctx
@@ -16,13 +23,20 @@ export default App => {
                 appProps = await App.getInitialProps(ctx)
             }
 
+
+
             // Run all GraphQL queries in the component tree
             // and extract the resulting data
             const apollo = initApollo()
             if (typeof window === 'undefined') {
                 try {
+
+
+
                     // Run all GraphQL queries
                     await getDataFromTree(
+
+
                         <App
                             {...appProps}
                             Component={Component}
@@ -44,20 +58,24 @@ export default App => {
 
             // Extract query data from the Apollo store
             const apolloState = apollo.cache.extract()
-
+            const isAuthenticated = Auth.currentSession()
             return {
                 ...appProps,
-                apolloState
+                apolloState,
+                isAuthenticated
             }
         }
 
         constructor(props) {
             super(props)
             this.apolloClient = initApollo(props.apolloState)
+            this.authState = props.isAuthenticated
         }
 
+
         render() {
-            return <App {...this.props} apolloClient={this.apolloClient} />
+
+            return <App {...this.props} authState={this.authState} apolloClient={this.apolloClient} />
         }
     }
 }

@@ -6,12 +6,16 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "test": "jest",
     "build": "next build",
     "deploy": "next build && sls deploy --aws-profile pmbPlus"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@apollo/react-ssr": "^3.0.1",
+    "@aws-amplify/auth": "1.2.31",
+    "@aws-amplify/core": "1.1.0",
+    "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.4.4",
     "apollo-link-context": "^1.0.18",
     "cookie": "^0.4.0",
@@ -20,11 +24,23 @@
     "https-proxy-agent": "^2.2.2",
     "isomorphic-unfetch": "^3.0.0",
     "next": "8.1.0",
+    "next-transpile-modules": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2",
+    "umqombothi-component-library": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@testing-library/dom": "^6.2.0",
+    "@testing-library/react": "^9.1.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "next-compose": "^0.0.2",
     "serverless-nextjs-plugin": "^2.3.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js"
   }
 }
