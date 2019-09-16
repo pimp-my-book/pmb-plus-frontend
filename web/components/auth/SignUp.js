@@ -19,7 +19,7 @@ const SignUp = ({ }) => {
             </div>
             <div className="flex justify-center mb-20">
                 <form
-                    className="w-full xl:h-500 shadow-lg mt-10"
+                    className=" xl:h-500  mt-10"
                 >
                     <HeadingOne
                         className="text-center"
