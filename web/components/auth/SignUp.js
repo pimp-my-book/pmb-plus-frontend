@@ -116,6 +116,18 @@ const SignUp = ({ }) => {
 
                                 </div>
 
+                                {/* password*/}
+                                <div>
+                                    <BodyText
+                                        text="Password "
+                                    />
+                                    <Input
+                                        type="password"
+                                        required
+                                        placeholder="a secret"
+                                    />
+
+                                </div>
                             </div>
                         </div>
                     </div>
