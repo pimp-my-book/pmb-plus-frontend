@@ -38,7 +38,17 @@ const SignUp = ({ }) => {
                             {/* form components*/}
                             <div>
                                 {/* Full name*/}
+                                <div>
+                                    <BodyText
+                                        text="Full Name"
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        placeholder="Sizzla Kalonje"
+                                    />
 
+                                </div>
                                 {/* University*/}
 
                                 {/* degree*/}
