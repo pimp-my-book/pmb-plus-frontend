@@ -128,6 +128,19 @@ const SignUp = ({ }) => {
                                     />
 
                                 </div>
+
+                                {/* Confirm password*/}
+                                <div>
+                                    <BodyText
+                                        text="Confirm Password "
+                                    />
+                                    <Input
+                                        type="password"
+                                        required
+                                        placeholder="a secret"
+                                    />
+
+                                </div>
                             </div>
                         </div>
                     </div>
