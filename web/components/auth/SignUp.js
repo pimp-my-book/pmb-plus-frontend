@@ -101,6 +101,22 @@ const SignUp = ({ }) => {
                             <HeadingFive
                                 text="Account Info"
                             />
+                            <div
+                                className="lg:ml-20"
+                            >{/* Email*/}
+                                <div>
+                                    <BodyText
+                                        text="Email address "
+                                    />
+                                    <Input
+                                        type="email"
+                                        required
+                                        placeholder="sizzla@example.com"
+                                    />
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
