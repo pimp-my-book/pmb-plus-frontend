@@ -12,4 +12,4 @@ const SignUp = ({ }) => {
     )
 }
 
-exprot default SignUp
+export default SignUp
