@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
-import { Alert, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const SignUp = ({ }) => {
@@ -75,6 +75,17 @@ const SignUp = ({ }) => {
                                 </div>
 
                                 {/*delivery address*/}
+                                <div>
+                                    <BodyText
+                                        text="Location "
+                                    />
+                                    <Textarea
+                                        type="text"
+                                        required
+                                        placeholder="BSC Geophysics"
+                                    />
+
+                                </div>
                             </div>
 
                         </div>
