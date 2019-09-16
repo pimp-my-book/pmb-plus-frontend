@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
-import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const SignUp = ({ }) => {
@@ -30,6 +30,24 @@ const SignUp = ({ }) => {
                         <hr
                             className="border-greyDark"
                         />
+
+                        <div className="flex flex-col">
+                            <HeadingFive
+                                text="Personal Info"
+                            />
+                            {/* form components*/}
+                            <div>
+                                {/* Full name*/}
+
+                                {/* University*/}
+
+                                {/* degree*/}
+
+
+                                {/*delivery address*/}
+                            </div>
+
+                        </div>
 
                     </div>
 
