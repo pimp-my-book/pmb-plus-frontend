@@ -94,7 +94,14 @@ const SignUp = ({ }) => {
 
                     {/* Account  Info*/}
                     <div>
-
+                        <hr
+                            className="border-greyDark"
+                        />
+                        <div className="flex  justify-center">
+                            <HeadingFive
+                                text="Account Info"
+                            />
+                        </div>
                     </div>
 
 
