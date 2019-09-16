@@ -62,7 +62,17 @@ const SignUp = ({ }) => {
 
                                 </div>
                                 {/* degree*/}
+                                <div>
+                                    <BodyText
+                                        text="Degree "
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        placeholder="BSC Geophysics"
+                                    />
 
+                                </div>
 
                                 {/*delivery address*/}
                             </div>
