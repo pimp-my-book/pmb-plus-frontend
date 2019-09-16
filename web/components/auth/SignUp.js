@@ -91,6 +91,7 @@ const SignUp = ({ }) => {
                         </div>
 
                     </div>
+                    {/*End of  Personal Info*/}
 
                     {/* Account  Info*/}
                     <div>
@@ -144,7 +145,7 @@ const SignUp = ({ }) => {
                             </div>
                         </div>
                     </div>
-
+                    {/*End of  Account  Info*/}
 
                 </form>
 
