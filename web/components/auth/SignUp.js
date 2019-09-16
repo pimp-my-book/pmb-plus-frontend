@@ -50,7 +50,17 @@ const SignUp = ({ }) => {
 
                                 </div>
                                 {/* University*/}
+                                <div>
+                                    <BodyText
+                                        text="Univeristy "
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        placeholder="UFS"
+                                    />
 
+                                </div>
                                 {/* degree*/}
 
 
