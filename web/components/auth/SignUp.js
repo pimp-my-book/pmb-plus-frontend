@@ -6,9 +6,17 @@ import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from '
 
 const SignUp = ({ }) => {
     return (
-        <div>
-            Sign Up
-        </div>
+        <>
+            <div
+                className="flex mt-5 justify-center">
+                {error &&
+                    <Alert
+                        message={error}
+                        error />
+                }
+            </div>
+
+        </>
     )
 }
 
