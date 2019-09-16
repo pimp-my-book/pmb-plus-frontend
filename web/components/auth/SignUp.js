@@ -31,12 +31,12 @@ const SignUp = ({ }) => {
                             className="border-greyDark"
                         />
 
-                        <div className="flex flex-col">
+                        <div className="flex  justify-center">
                             <HeadingFive
                                 text="Personal Info"
                             />
                             {/* form components*/}
-                            <div>
+                            <div className="lg:ml-20">
                                 {/* Full name*/}
                                 <div>
                                     <BodyText
