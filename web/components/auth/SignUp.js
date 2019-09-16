@@ -5,6 +5,8 @@ import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from '
 
 
 const SignUp = ({ }) => {
+    const [error, setError] = useState("")
+
     return (
         <>
             <div
