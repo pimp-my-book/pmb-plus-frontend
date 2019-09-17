@@ -25,138 +25,15 @@ const SignUp = ({ }) => {
                         className="text-center"
                         text="Lets get you set up!"
                     />
-                    {/* Personal Info*/}
-                    <div>
-                        <hr
-                            className="border-greyDark"
-                        />
 
-                        <div className="flex  p-5 justify-center">
-                            <HeadingFive
-                                text="Personal Info"
-                                className="text-left"
-                            />
-                            {/* form components*/}
-                            <div className="lg:ml-20">
-                                {/* Full name*/}
-                                <div>
-                                    <BodyText
-                                        text="Full Name"
-                                    />
-                                    <Input
-                                        type="text"
-                                        required
-                                        placeholder="Sizzla Kalonje"
-                                    />
+                    {/* Start of top form container */}
 
-                                </div>
-                                {/* University*/}
-                                <div>
-                                    <BodyText
-                                        text="Univeristy "
-                                    />
-                                    <Input
-                                        type="text"
-                                        required
-                                        placeholder="UFS"
-                                    />
+                    <div className="flex flex-row">
 
-                                </div>
-                                {/* degree*/}
-                                <div>
-                                    <BodyText
-                                        text="Degree "
-                                    />
-                                    <Input
-                                        type="text"
-                                        required
-                                        placeholder="BSC Geophysics"
-                                    />
-
-                                </div>
-
-                                {/*delivery address*/}
-                                <div>
-                                    <BodyText
-                                        text="Location "
-                                    />
-                                    <Textarea
-                                        type="text"
-                                        required
-                                        placeholder="BSC Geophysics"
-                                    />
-
-                                </div>
-                            </div>
-
-                        </div>
 
                     </div>
-                    {/*End of  Personal Info*/}
 
-                    {/* Account  Info*/}
-                    <div>
-                        <hr
-                            className="border-greyDark"
-                        />
-                        <div className="flex  justify-center">
-                            <HeadingFive
-                                text="Account Info"
-                            />
-                            <div
-                                className="lg:ml-20"
-                            >{/* Email*/}
-                                <div>
-                                    <BodyText
-                                        text="Email address "
-                                    />
-                                    <Input
-                                        type="email"
-                                        required
-                                        placeholder="sizzla@example.com"
-                                    />
-
-                                </div>
-
-                                {/* password*/}
-                                <div>
-                                    <BodyText
-                                        text="Password "
-                                    />
-                                    <Input
-                                        type="password"
-                                        required
-                                        placeholder="a secret"
-                                    />
-
-                                </div>
-
-                                {/* Confirm password*/}
-                                <div>
-                                    <BodyText
-                                        text="Confirm Password "
-                                    />
-                                    <Input
-                                        type="password"
-                                        required
-                                        placeholder="a secret"
-                                    />
-
-                                </div>
-                                {/* Buttons*/}
-                                <div class="flex flex-col">
-                                    <DarkPinkButton
-                                        text="Create account"
-                                    />
-                                    <LinkButton
-                                        text="Already have an account?"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/*End of  Account  Info*/}
-
+                    {/* End of top form container */}
                 </form>
 
             </div>
