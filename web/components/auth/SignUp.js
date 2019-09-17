@@ -97,23 +97,70 @@ const SignUp = ({ }) => {
                         </div>
                     </FormGrid>
 
-                    {/* Start of left col */}
-
-                    {/* end of left col */}
-
-
-                    {/* Start of right col */}
-
-
-                    {/* Start of inner-form col */}
-
-
-
-                    {/* end of inner-form col */}
-                    {/* end of left col */}
 
 
                     {/* End of top form container */}
+                    <hr
+                        className="border-greyDark"
+                    />
+                    {/* start of bottom form container */}
+                    <FormGrid>
+                        <HeadingFive
+                            text="Account Info"
+                        />
+                        {/* start of account form elements */}
+                        <div>
+                            {/* Email*/}
+                            <div>
+                                <BodyText
+                                    text="Email address "
+                                />
+                                <Input
+                                    type="email"
+                                    required
+                                    placeholder="sizzla@example.com"
+                                />
+
+                            </div>
+
+                            {/* password*/}
+                            <div>
+                                <BodyText
+                                    text="Password "
+                                />
+                                <Input
+                                    type="password"
+                                    required
+                                    placeholder="a secret"
+                                />
+
+                            </div>
+
+                            {/* Confirm password*/}
+                            <div>
+                                <BodyText
+                                    text="Confirm Password "
+                                />
+                                <Input
+                                    type="password"
+                                    required
+                                    placeholder="a secret"
+                                />
+
+                            </div>
+                            {/* Buttons*/}
+                            <div class="flex flex-col w-48 mt-3">
+                                <DarkPinkButton
+                                    text="Create account"
+                                />
+                                <LinkButton
+                                    text="Already have an account?"
+                                />
+                            </div>
+                            {/* start of account form elements */}
+                        </div>
+                    </FormGrid>
+                    {/* end of bottom form container */}
                 </form>
 
             </div>
