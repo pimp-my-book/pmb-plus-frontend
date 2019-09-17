@@ -143,6 +143,15 @@ const SignUp = ({ }) => {
                                     />
 
                                 </div>
+                                {/* Buttons*/}
+                                <div class="flex flex-col">
+                                    <DarkPinkButton
+                                        text="Create account"
+                                    />
+                                    <LinkButton
+                                        text="Already have an account?"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
