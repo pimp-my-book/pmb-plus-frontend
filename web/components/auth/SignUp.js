@@ -34,27 +34,66 @@ const SignUp = ({ }) => {
                         text="Lets get you set up!"
                     />
 
-                    {/* Start of top form container */}
+
                     <hr
                         className="border-greyDark"
                     />
-
+                    {/* Start of top form container */}
                     <FormGrid>
                         <HeadingFive
                             text="Personal Info"
                             className="text-left"
                         />
-                        {/* Full name*/}
                         <div>
-                            <BodyText
-                                text="Full Name"
-                            />
-                            <Input
-                                type="text"
-                                required
-                                placeholder="Sizzla Kalonje"
-                            />
+                            {/* Full name*/}
+                            <div>
+                                <BodyText
+                                    text="Full Name"
+                                />
+                                <Input
+                                    type="text"
+                                    required
+                                    placeholder="Sizzla Kalonje"
+                                />
 
+                            </div>
+                            {/* University*/}
+                            <div>
+                                <BodyText
+                                    text="Univeristy "
+                                />
+                                <Input
+                                    type="text"
+                                    required
+                                    placeholder="UFS"
+                                />
+
+                            </div>
+                            {/* degree*/}
+                            <div>
+                                <BodyText
+                                    text="Degree "
+                                />
+                                <Input
+                                    type="text"
+                                    required
+                                    placeholder="BSC Geophysics"
+                                />
+
+                            </div>
+
+                            {/*delivery address*/}
+                            <div>
+                                <BodyText
+                                    text="Location "
+                                />
+                                <Textarea
+                                    type="text"
+                                    required
+                                    placeholder="BSC Geophysics"
+                                />
+
+                            </div>
                         </div>
                     </FormGrid>
 
