@@ -30,7 +30,7 @@ const SignUp = ({ }) => {
                     className=" xl:h-500  mt-10"
                 >
                     <HeadingOne
-                        className="text-center"
+                        className="text-center s:text-left s:ml-5"
                         text="Lets get you set up!"
                     />
 
@@ -40,7 +40,7 @@ const SignUp = ({ }) => {
                     />
                     {/* Start of top form container */}
                     <FormGrid
-                        className="s:ml-10"
+                        className="s:ml-10 mb-5"
                     >
                         <HeadingFive
                             text="Personal Info"
