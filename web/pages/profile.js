@@ -3,7 +3,6 @@ import Auth from "@aws-amplify/auth";
 
 const profile = (props) => {
 
-    console.log(props)
     if (Object.keys(props.isAuthenticated).length === 0) {
         return (
             <div>
