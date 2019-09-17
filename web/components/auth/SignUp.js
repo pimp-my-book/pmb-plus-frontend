@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
+import styled from 'styled-components'
 import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const SignUp = ({ }) => {
     const [error, setError] = useState("")
 
+    const formGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 30px;
+    `
     return (
         <>
             <div
@@ -27,11 +33,26 @@ const SignUp = ({ }) => {
                     />
 
                     {/* Start of top form container */}
+                    <hr
+                        className="border-greyDark"
+                    />
 
-                    <div className="flex flex-row">
+
+                    {/* Start of left col */}
+
+                    {/* end of left col */}
 
 
-                    </div>
+                    {/* Start of right col */}
+
+
+                    {/* Start of inner-form col */}
+
+
+
+                    {/* end of inner-form col */}
+                    {/* end of left col */}
+
 
                     {/* End of top form container */}
                 </form>
