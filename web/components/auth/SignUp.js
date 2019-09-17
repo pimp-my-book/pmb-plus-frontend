@@ -10,7 +10,7 @@ const SignUp = ({ }) => {
 
     const FormGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
     grid-gap: 30px;
     `
 
@@ -39,7 +39,9 @@ const SignUp = ({ }) => {
                         className="border-greyDark"
                     />
                     {/* Start of top form container */}
-                    <FormGrid>
+                    <FormGrid
+                        className="s:ml-10"
+                    >
                         <HeadingFive
                             text="Personal Info"
                             className="text-left"
@@ -104,7 +106,9 @@ const SignUp = ({ }) => {
                         className="border-greyDark"
                     />
                     {/* start of bottom form container */}
-                    <FormGrid>
+                    <FormGrid
+                        className="s:ml-10"
+                    >
                         <HeadingFive
                             text="Account Info"
                         />
