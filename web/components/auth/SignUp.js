@@ -13,7 +13,7 @@ const SignUp = ({ }) => {
     const [univeristy, setUniveristy] = useState("")
     const [degree, setDegree] = useState("")
     const [address, setAddress] = useState("")
-    const [newUser, setNewUser] = useState("")
+    const [newUser, setNewUser] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [confirmationCode, setConfirmationCode] = useState("")
     const [resend, setResend] = useState(false)
@@ -230,9 +230,62 @@ const SignUp = ({ }) => {
         )
     }
 
+    const RenderConfirmationForm = () => {
+        return (
+            <>
+                <div
+                    className="flex mt-5 justify-center">
+                    {error &&
+                        <Alert
+                            message={error}
+                            error />
+                    }
+                </div>
+                <div className="flex justify-center mb-20">
+                    <form
+                        className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
+                    >
+                        <HeadingOne
+                            className="text-center"
+                            text="Enter Confirmation Code"
+                        />
+                        <div className="flex justify-center p-10">
+                            <div className="flex flex-col">
+                                <div>
+                                    <BodyText
+                                        text="Confirmation Code"
+                                    />
+                                    <Input
+                                        // value={email}
+                                        type="text"
+                                        required
+                                        // onChange={e => setEmail(e.target.value)}
+                                        placeholder="234342"
+                                    />
+
+                                </div>
+                                <div className="mt-4 flex flex-col">
+                                    <DarkPinkButton
+                                        text='Confirm code'
+                                        type="submit"
+                                        isLoading={isLoading}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
-
+            {
+                newUser === true
+                    ? RenderForm()
+                    : RenderConfirmationForm()
+            }
         </>
     )
 }
