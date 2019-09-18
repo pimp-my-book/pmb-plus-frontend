@@ -160,7 +160,7 @@ const SignUp = ({ }) => {
                                     <BodyText
                                         text="Phone Number"
                                     />
-                                    <Textarea
+                                    <Input
                                         type="text"
                                         required
                                         placeholder="083213294"
@@ -229,6 +229,7 @@ const SignUp = ({ }) => {
                                         text="Create account"
                                     />
                                     <LinkButton
+                                        href="/signin"
                                         text="Already have an account?"
                                     />
                                 </div>
