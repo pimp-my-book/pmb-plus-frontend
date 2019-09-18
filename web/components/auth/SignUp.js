@@ -155,6 +155,18 @@ const SignUp = ({ }) => {
                                     />
 
                                 </div>
+                                {/*Phone Number*/}
+                                <div>
+                                    <BodyText
+                                        text="Phone Number"
+                                    />
+                                    <Textarea
+                                        type="text"
+                                        required
+                                        placeholder="083213294"
+                                    />
+
+                                </div>
                             </div>
                         </FormGrid>
 
