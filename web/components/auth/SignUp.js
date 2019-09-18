@@ -11,6 +11,7 @@ const SignUp = ({ }) => {
     const [password, setPassword] = useState("")
     const [fullName, setFullName] = useState("")
     const [univeristy, setUniveristy] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
     const [degree, setDegree] = useState("")
     const [address, setAddress] = useState("")
     const [newUser, setNewUser] = useState(null)
@@ -287,7 +288,7 @@ const SignUp = ({ }) => {
     return (
         <>
             {
-                newUser === true
+                newUser === null
                     ? RenderForm()
                     : RenderConfirmationForm()
             }
