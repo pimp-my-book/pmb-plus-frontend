@@ -21,6 +21,26 @@ const SignUp = ({ }) => {
     grid-gap: 30px;
     `
 
+    //Functions 
+    const handleSubmit = async event => {
+        event.preventDefault()
+
+        try {
+            const newUser = await Auth.signUp({
+                username: email,
+                password: password,
+                attributes: {
+                    'custom:FullName': fullName, 'custom:University': univeristy, 'custom:Degree': degree, 'custom:Address': address
+                }
+            })
+
+            setNewUser(newUser)
+
+        } catch (e) {
+            setError(e.message)
+        }
+    }
+
 
     return (
         <>
