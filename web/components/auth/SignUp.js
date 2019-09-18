@@ -16,7 +16,7 @@ const SignUp = ({ }) => {
     const [newUser, setNewUser] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [confirmationCode, setConfirmationCode] = useState("")
-
+    const [resend, setResend] = useState(false)
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
@@ -61,6 +61,15 @@ const SignUp = ({ }) => {
     }
 
 
+    const resendCode = async event => {
+        try {
+            await Auth.resendCode(email)
+            setResend(true)
+        }
+        catch (e) {
+            setError(e.message)
+        }
+    }
     return (
         <>
             <div
