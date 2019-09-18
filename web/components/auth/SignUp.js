@@ -9,6 +9,7 @@ const SignUp = ({ }) => {
     const [error, setError] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [fullName, setFullName] = useState("")
     const [univeristy, setUniveristy] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
@@ -204,6 +205,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="email"
                                         required
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
                                         placeholder="sizzla@example.com"
                                     />
 
@@ -217,6 +220,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="password"
                                         required
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
                                         placeholder="a secret"
                                     />
 
@@ -230,12 +235,14 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="password"
                                         required
+                                        value={confirmPassword}
+                                        onChange={e => setConfirmPassword(e.target.value)}
                                         placeholder="a secret"
                                     />
 
                                 </div>
                                 {/* Buttons*/}
-                                <div class="flex flex-col w-48 mt-3">
+                                <div className="flex flex-col w-48 mt-3">
                                     <DarkPinkButton
                                         text="Create account"
                                     />
