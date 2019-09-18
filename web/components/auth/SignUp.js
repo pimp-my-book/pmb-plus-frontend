@@ -86,6 +86,7 @@ const SignUp = ({ }) => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
+                        onSubmit={handleSubmit}
                         className=" xl:h-500  mt-10"
                     >
                         <HeadingOne
@@ -114,6 +115,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="text"
                                         required
+                                        value={fullName}
+                                        onChange={e => setFullName(e.target.value)}
                                         placeholder="Sizzla Kalonje"
                                     />
 
@@ -126,6 +129,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="text"
                                         required
+                                        value={univeristy}
+                                        onChange={e => setUniveristy(e.target.value)}
                                         placeholder="UFS"
                                     />
 
@@ -138,6 +143,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="text"
                                         required
+                                        value={degree}
+                                        onChange={e => setDegree(e.target.value)}
                                         placeholder="BSC Geophysics"
                                     />
 
@@ -151,6 +158,8 @@ const SignUp = ({ }) => {
                                     <Textarea
                                         type="text"
                                         required
+                                        value={address}
+                                        onChange={e => setAddress(e.target.value)}
                                         placeholder="BSC Geophysics"
                                     />
 
@@ -163,6 +172,8 @@ const SignUp = ({ }) => {
                                     <Input
                                         type="text"
                                         required
+                                        value={phoneNumber}
+                                        onChange={e => setPhoneNumber(e.target.value)}
                                         placeholder="083213294"
                                     />
 
