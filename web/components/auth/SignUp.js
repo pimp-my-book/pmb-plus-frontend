@@ -48,7 +48,7 @@ const SignUp = ({ }) => {
     //handle confirmation submit 
     const handleConfirmationSubmit = async event => {
         event.preventDefault()
-        setIsLoading(true)
+        //setIsLoading(true)
 
         try {
             await Auth.confirmSignUp(email, confirmationCode)
@@ -57,7 +57,7 @@ const SignUp = ({ }) => {
 
         } catch (e) {
             setError(e.message)
-            setIsLoading(false)
+            //setIsLoading(false)
         }
 
     }
@@ -244,6 +244,7 @@ const SignUp = ({ }) => {
                                 {/* Buttons*/}
                                 <div className="flex flex-col w-48 mt-3">
                                     <DarkPinkButton
+                                        type="submit"
                                         text="Create account"
                                     />
                                     <LinkButton
@@ -275,6 +276,7 @@ const SignUp = ({ }) => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
+                        onSubmit={handleConfirmationSubmit}
                         className="w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                     >
                         <HeadingOne
@@ -288,10 +290,10 @@ const SignUp = ({ }) => {
                                         text="Confirmation Code"
                                     />
                                     <Input
-                                        // value={email}
+                                        value={confirmationCode}
                                         type="text"
                                         required
-                                        // onChange={e => setEmail(e.target.value)}
+                                        onChange={e => setConfirmationCode(e.target.value)}
                                         placeholder="234342"
                                     />
 
