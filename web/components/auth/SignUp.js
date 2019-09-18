@@ -321,7 +321,7 @@ const SignUp = ({ }) => {
     return (
         <>
             {
-                newUser === null
+                newUser === true
                     ? RenderForm()
                     : RenderConfirmationForm()
             }
