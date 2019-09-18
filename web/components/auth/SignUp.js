@@ -14,6 +14,8 @@ const SignUp = ({ }) => {
     const [degree, setDegree] = useState("")
     const [address, setAddress] = useState("")
     const [newUser, setNewUser] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
+    const [confirmationCode, setConfirmationCode] = useState("")
 
     const FormGrid = styled.div`
     display: grid;
@@ -24,7 +26,7 @@ const SignUp = ({ }) => {
     //Functions 
     const handleSubmit = async event => {
         event.preventDefault()
-
+        setIsLoading(true)
         try {
             const newUser = await Auth.signUp({
                 username: email,
@@ -39,6 +41,23 @@ const SignUp = ({ }) => {
         } catch (e) {
             setError(e.message)
         }
+    }
+
+    //handle confirmation submit 
+    const handleConfirmationSubmit = async event => {
+        event.preventDefault()
+        setIsLoading(true)
+
+        try {
+            await Auth.confirmSignUp(email, confirmationCode)
+            await Auth.signIn(email, password)
+            Router.push('/profile')
+
+        } catch (e) {
+            setError(e.message)
+            setIsLoading(false)
+        }
+
     }
 
 
