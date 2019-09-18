@@ -264,11 +264,16 @@ const SignUp = ({ }) => {
                                     />
 
                                 </div>
-                                <div className="mt-4 flex flex-col">
+                                <div className="mt-4 flex flex-col ">
                                     <DarkPinkButton
                                         text='Confirm code'
                                         type="submit"
                                         isLoading={isLoading}
+                                    />
+                                    <LinkButton
+                                        text="Resend code?"
+                                        className="mb-10"
+                                        onChange={resendCode}
                                     />
                                 </div>
                             </div>
