@@ -7,7 +7,12 @@ import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, 
 
 const SignUp = ({ }) => {
     const [error, setError] = useState("")
-
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [fullName, setFullName] = useState("")
+    const [univeristy, setUniveristy] = useState("")
+    const [degree, setDegree] = useState("")
+    const [address, setAddress] = useState("")
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
