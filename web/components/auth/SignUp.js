@@ -13,6 +13,8 @@ const SignUp = ({ }) => {
     const [univeristy, setUniveristy] = useState("")
     const [degree, setDegree] = useState("")
     const [address, setAddress] = useState("")
+    const [newUser, setNewUser] = useState("")
+
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
