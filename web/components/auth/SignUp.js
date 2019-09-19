@@ -26,6 +26,7 @@ const SignUp = ({ }) => {
     `
 
     //Functions 
+    //handleSubmit
     const handleSubmit = async event => {
         event.preventDefault()
         setIsLoading(true)
@@ -321,7 +322,7 @@ const SignUp = ({ }) => {
     return (
         <>
             {
-                newUser === true
+                newUser === null
                     ? RenderForm()
                     : RenderConfirmationForm()
             }
