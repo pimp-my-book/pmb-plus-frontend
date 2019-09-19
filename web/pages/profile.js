@@ -2,8 +2,8 @@ import Router from 'next/router'
 import Auth from "@aws-amplify/auth";
 
 const profile = (props) => {
-
-    if (Object.keys(props.isAuthenticated).length === 0) {
+    console.log(props.isAuthenticated)
+    if (props.isAuthenticated) {
         return (
             <div>
                 You need to be logged in

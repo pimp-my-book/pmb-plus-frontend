@@ -162,7 +162,7 @@ const SignUp = ({ }) => {
                                         required
                                         value={address}
                                         onChange={e => setAddress(e.target.value)}
-                                        placeholder="BSC Geophysics"
+                                        placeholder="10 Downing Street"
                                     />
 
                                 </div>
@@ -303,7 +303,7 @@ const SignUp = ({ }) => {
                                     <DarkPinkButton
                                         text='Confirm code'
                                         type="submit"
-                                        isLoading={isLoading}
+                                    // isLoading={isLoading}
                                     />
                                     <LinkButton
                                         text="Resend code?"
