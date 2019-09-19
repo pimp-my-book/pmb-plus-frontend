@@ -58,7 +58,18 @@ export default App => {
 
             // Extract query data from the Apollo store
             const apolloState = apollo.cache.extract()
-            const isAuthenticated = Auth.currentSession()
+            let isAuthenticated
+            console.log(Auth.currentSession())
+            const authDetails = Auth.currentSession()
+                .then(data => data.idToken)
+            console.log(authDetails)
+            if (authDetails) {
+                isAuthenticated = true
+
+            } else {
+                isAuthenticated = false
+            }
+
             return {
                 ...appProps,
                 apolloState,

@@ -42,7 +42,7 @@ const Signin = ({
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
             if (Object.keys(signInDetails).length > 0) {
-                props.isAuthenticated(true)
+                //props.isAuthenticated(true)
                 Router.push('/profile')
             }
 
