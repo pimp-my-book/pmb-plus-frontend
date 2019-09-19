@@ -63,7 +63,7 @@ export default App => {
             const authDetails = Auth.currentSession()
                 .then(data => data.idToken)
             console.log(authDetails)
-            if (authDetails) {
+            if (authDetails.hasOwnProperty('jwtToken')) {
                 isAuthenticated = true
 
             } else {

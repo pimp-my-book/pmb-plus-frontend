@@ -23,9 +23,60 @@ Amplify.configure(
 class Page extends Component {
 
 
+    //initilize the getInitialProps func and props data
+    static async getInitalProps({ Component, router, ctx }) {
+        let props = {}
+        if (Component.getInitalProps) {
+            props = await Component.getInitalProps(ctx)
+        }
+
+
+
+        return { props }
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            isAuthenticated: props.isAuthenticated,
+            isAuthenticating: props.isAuthenticating
+        }
+
+        this.handleLogout = this.handleLogout.bind(this)
+    }
+
+
+
+    userHasAuthenticated = authenticated => {
+        this.setState({ isAuthenticated: authenticated })
+    }
+
+    handleLogout = async event => {
+        await Auth.signOut()
+        this.userHasAuthenticated(false)
+        Router.push('/')
+    }
+
+    async componentDidMount() {
+        try {
+            if (await Auth.currentSession()) {
+                this.userHasAuthenticated(true)
+            }
+        }
+        catch (e) {
+            if (e !== 'No current user') {
+                alert(e)
+            }
+        }
+
+        this.setState({ isAuthenticating: false })
+    }
     render() {
 
-
+        const pageProps = {
+            isAuthenticated: this.state.isAuthenticated,
+            userHasAuthenticated: this.userHasAuthenticated
+        }
 
         return (
             <>
