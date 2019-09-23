@@ -20,43 +20,58 @@ Amplify.configure(
     amplifyConfig
 )
 
-const Page = props => {
-    console.log(isAuthenticated)
-    return (
-        <>
-            <NavigationBar
-                content={
-                    <>
-                        <span
-                        //onClick={this.handleLogout}
-                        >
-                            Logout
-            </span>
-                    </>
-                }
+class Page extends Component {
 
-            />
-            <div
 
-            >
-
-                {this.props.children}
-            </div>
-            <Footer
-                className="relative"
-            />
-        </>
-    )
-}
+    //initilize the getInitialProps func and props data
+    static async getInitalProps({ Component, router, ctx }) {
+        let props = {}
+        if (Component.getInitalProps) {
+            props = await Component.getInitalProps(ctx)
+        }
 
 
 
+        return { props }
+    }
 
-Page.getInitalProps = async () => {
-    let { isAuthenticated } = props
 
-    return {
-        isAuthenticated
+
+    handleLogout = async event => {
+        await Auth.signOut()
+        Router.push('/')
+    }
+
+
+    render() {
+
+
+
+        return (
+            <>
+                <NavigationBar
+                    content={
+                        <>
+                            <span
+                                onClick={this.handleLogout}
+                            >
+                                Logout
+                    </span>
+                        </>
+                    }
+
+                />
+                <div
+
+                >
+
+                    {this.props.children}
+                </div>
+                <Footer
+                    className="relative"
+                />
+            </>
+        )
     }
 }
 
