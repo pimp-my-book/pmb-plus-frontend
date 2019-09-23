@@ -9,8 +9,13 @@ import getConfig from 'next/config'
 let apolloClient = null
 
 const stage = process.env.REACT_APP_STAGE === "prod";
+const getToken = async () => await Auth.currentSession()
+// Polyfill fetch() on the server (used by apollo-client)
+if (typeof window === 'undefined') {
+    global.fetch = fetch
+}
 
-function create(initialState, { getToken }) {
+function create(initialState, getToken) {
     // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
     const isBrowser = typeof window !== 'undefined'
 
@@ -22,10 +27,8 @@ function create(initialState, { getToken }) {
         fetch: !isBrowser && fetch
     })
 
-    const authLink = setContext(async (_, { headers }) => {
-        const token = await getToken(
-            Auth.currentSession()
-        )
+    const authLink = setContext((_, { headers }) => {
+        const token = getToken()
 
         return {
             headers: {

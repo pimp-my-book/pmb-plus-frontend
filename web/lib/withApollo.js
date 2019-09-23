@@ -19,7 +19,7 @@ export default App => {
 
         static displayName = 'withApollo(App)'
         static async getInitialProps(ctx) {
-            const { Component, router, ctx: { req, res } } = ctx
+            const { AppTree, ctx: { req, res } } = ctx
             const apollo = initApollo({},
                 {
                     getToken: () => parseCookies(req).token.idToken.jwtToken
@@ -49,10 +49,8 @@ export default App => {
                     await getDataFromTree(
 
 
-                        <App
+                        <AppTree
                             {...appProps}
-                            Component={Component}
-                            router={router}
                             apolloClient={apollo}
                         />
                     )
@@ -73,8 +71,7 @@ export default App => {
 
             return {
                 ...appProps,
-                apolloState,
-                isAuthenticated
+                apolloState
             }
         }
 
@@ -82,7 +79,7 @@ export default App => {
             super(props)
             this.apolloClient = initApollo(props.apolloState, {
                 getToken: () => {
-                    return parseCookies().token
+                    return parseCookies().token.idToken.jwtToken
                 }
             })
         }
@@ -90,7 +87,7 @@ export default App => {
 
         render() {
 
-            return <App {...this.props} a apolloClient={this.apolloClient} />
+            return <App {...this.props} apolloClient={this.apolloClient} />
         }
     }
 }
