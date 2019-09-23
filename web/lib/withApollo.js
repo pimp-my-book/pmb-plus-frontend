@@ -19,8 +19,14 @@ export default App => {
 
         static displayName = 'withApollo(App)'
         static async getInitialProps(ctx) {
-            const { Component, router } = ctx
+            const { Component, router, ctx: { req, res } } = ctx
+            const apollo = initApollo({},
+                {
+                    getToken: () => parseCookies(req).token.idToken.jwtToken
+                })
 
+
+            ctx.ctx.apolloClient = apollo
             let appProps = {}
             if (App.getInitialProps) {
                 appProps = await App.getInitialProps(ctx)
@@ -30,7 +36,7 @@ export default App => {
 
             // Run all GraphQL queries in the component tree
             // and extract the resulting data
-            const apollo = initApollo()
+
             if (typeof window === 'undefined') {
                 try {
 

@@ -10,7 +10,7 @@ let apolloClient = null
 
 const stage = process.env.REACT_APP_STAGE === "prod";
 
-function create(initialState) {
+function create(initialState, { getToken }) {
     // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
     const isBrowser = typeof window !== 'undefined'
 
@@ -23,7 +23,10 @@ function create(initialState) {
     })
 
     const authLink = setContext(async (_, { headers }) => {
-        const token = await Auth.currentSession()
+        const token = await getToken(
+            Auth.currentSession()
+        )
+
         return {
             headers: {
                 ...headers,
