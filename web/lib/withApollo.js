@@ -33,6 +33,9 @@ export default App => {
             }
 
 
+            if (res && res.finished) {
+                return {}
+            }
 
             // Run all GraphQL queries in the component tree
             // and extract the resulting data
@@ -67,17 +70,6 @@ export default App => {
 
             // Extract query data from the Apollo store
             const apolloState = apollo.cache.extract()
-            let isAuthenticated
-            console.log(Auth.currentSession())
-            const authDetails = Auth.currentSession()
-                .then(data => data.idToken)
-            console.log(authDetails)
-            if (typeof authDetails.jwtToken) {
-                isAuthenticated = true
-
-            } else {
-                isAuthenticated = false
-            }
 
             return {
                 ...appProps,
@@ -88,14 +80,17 @@ export default App => {
 
         constructor(props) {
             super(props)
-            this.apolloClient = initApollo(props.apolloState)
-            this.authState = props.isAuthenticated
+            this.apolloClient = initApollo(props.apolloState, {
+                getToken: () => {
+                    return parseCookies().token
+                }
+            })
         }
 
 
         render() {
 
-            return <App {...this.props} authState={this.authState} apolloClient={this.apolloClient} />
+            return <App {...this.props} a apolloClient={this.apolloClient} />
         }
     }
 }
