@@ -7,6 +7,9 @@ import Auth from "@aws-amplify/auth";
 import initApollo from './initApollo'
 
 
+function parseCookies(req, options = {}) {
+    return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
+}
 
 export default App => {
 
