@@ -178,7 +178,7 @@ This form shows the user that the reset was successfull
         const ImgURL = "https://s3.amazonaws.com/zansi-static-assest/Illustrations/undraw_finish_line_katerina_limpitsouni_xy20.svg";
         return (
             <>
-                <div className="flex  flex-col items-center ml-32">
+                <div className="flex  flex-col items-center ">
 
                     <HeadingTwo
                         className="text-center"
