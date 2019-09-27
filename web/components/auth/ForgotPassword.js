@@ -189,8 +189,11 @@ This form shows the user that the reset was successfull
                         className="w-1/2"
                         alt="success image"
                     />
-                    <div>
+                    <div
+                        className="p-10"
+                    >
                         <LinkButton
+
                             text="Login"
                         />
                     </div>
