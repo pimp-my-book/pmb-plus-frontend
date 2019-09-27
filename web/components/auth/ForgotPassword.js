@@ -39,9 +39,10 @@ const ForgotPassword = ({ props }) => {
         )
     }
 
-    const
+
     return (
         <>
+            {!codeSent ? RenderRequestCodeForm() : !confirmed ? RenderConfirmationForm() : RenderSuccessMessage()}
 
         </>
     )
