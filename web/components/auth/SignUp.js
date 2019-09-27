@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
+import Cookie from 'js-cookie'
 import styled from 'styled-components'
 import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
@@ -54,6 +55,8 @@ const SignUp = ({ }) => {
         try {
             await Auth.confirmSignUp(email, confirmationCode)
             await Auth.signIn(email, password)
+            const token = await Auth.currentSession()
+            Cookie.set('token', token.idToken.jwtToken)
             Router.push('/profile')
 
         } catch (e) {
