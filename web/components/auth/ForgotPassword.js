@@ -36,9 +36,35 @@ request a reset.
                             error />
                     }
                 </div>
-                <form>
+                <div className="flex justify-center mb-20">
+                    <form
+                        className=" xl:h-500  mt-10"
+                    >
+                        <HeadingOne
+                            className="text-center s:text-left s:ml-5"
+                            text="Wanna reset your password?"
+                        />
 
-                </form>
+                        <div className="flex flex-col">
+
+                            <div>
+                                <BodyText
+                                    text="Email Address"
+                                />
+                                <Input
+                                    value={email}
+                                    type="email"
+                                    required
+                                    onChange={e => setEmail(e.target.value)}
+                                    placeholder="email@example.com"
+                                />
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
 
             </>
         )
