@@ -1,5 +1,5 @@
 import React from 'react'
-import cookie from 'cookie'
+import Cookie from 'js-cookie'
 import PropTypes from 'prop-types'
 import { getDataFromTree } from '@apollo/react-ssr'
 import Head from 'next/head'
@@ -22,7 +22,7 @@ export default App => {
             const { AppTree, ctx: { req, res } } = ctx
             const apollo = initApollo({},
                 {
-                    getToken: () => parseCookies(req)
+                    getToken: () => Cookie.get('token')
                 })
 
 
@@ -81,7 +81,7 @@ export default App => {
             super(props)
             this.apolloClient = initApollo(props.apolloState, {
                 getToken: () => {
-                    return parseCookies().token
+                    return Cookie.get('token')
                 }
             })
         }
