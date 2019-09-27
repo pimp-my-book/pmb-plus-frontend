@@ -178,22 +178,23 @@ This form shows the user that the reset was successfull
         const ImgURL = "https://s3.amazonaws.com/zansi-static-assest/Illustrations/undraw_finish_line_katerina_limpitsouni_xy20.svg";
         return (
             <>
-                <div className="flex justify-center">
-                    <div className="flex flex-col">
-                        <HeadingTwo
-                            text="You have successfully reset your password"
+                <div className="flex  flex-col items-center ml-32">
+
+                    <HeadingTwo
+                        className="text-center"
+                        text="You have successfully reset your password"
+                    />
+                    <img
+                        src={ImgURL}
+                        className="w-1/2"
+                        alt="success image"
+                    />
+                    <div>
+                        <LinkButton
+                            text="Login"
                         />
-                        <img
-                            src={ImgURL}
-                            className="w"
-                            alt="success image"
-                        />
-                        <div>
-                            <LinkButton
-                                text="Login"
-                            />
-                        </div>
                     </div>
+
                 </div>
             </>
         )
