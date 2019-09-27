@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Auth from '@aws-amplify/auth'
 import styled from 'styled-components'
-import { Alert, HeadingTwo, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, HeadingTwo, Input, LinkButton, BodyText, DarkPinkButton, HeadingOne } from 'umqombothi-component-library'
 
 const ForgotPassword = ({ props }) => {
     const [error, setError] = useState("")
@@ -9,7 +9,7 @@ const ForgotPassword = ({ props }) => {
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
     const [codeSent, setCodeSent] = useState(true)
-    const [confirmed, setConfirmed] = useState(false)
+    const [confirmed, setConfirmed] = useState(true)
     //errors to display on RequestCodeForm
     const [emailError, setEmailError] = useState("")
     //errors to display on ConfirmationForm
@@ -177,7 +177,18 @@ This form shows the user that the reset was successfull
     const RenderSuccessMessage = () => {
         return (
             <>
-                RenderSuccessMessage
+                <div>
+                    <HeadingTwo
+                        text="You have successfully reset your password"
+                    />
+                    <img
+                        src=""
+                        alt="success image"
+                    />
+                    <LinkButton
+                        text="Login"
+                    />
+                </div>
             </>
         )
     }
