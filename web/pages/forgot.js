@@ -1,7 +1,8 @@
+import ForgotPassword from '../components/auth/ForgotPassword'
 const Forgot = (props) => {
     return (
         <div>
-            Forgot
+            <ForgotPassword />
         </div>
     )
 }
