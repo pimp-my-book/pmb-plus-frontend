@@ -8,7 +8,7 @@ const ForgotPassword = ({ props }) => {
     const [email, setEmail] = useState("")
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
-    const [codeSent, setCodeSent] = useState(false)
+    const [codeSent, setCodeSent] = useState(true)
     const [confirmed, setConfirmed] = useState(false)
     //errors to display on RequestCodeForm
     const [emailError, setEmailError] = useState("")
@@ -89,7 +89,81 @@ in their inbox and set a new password.
     const RenderConfirmationForm = () => {
         return (
             <>
-                renderConfirmationForm
+
+                <div
+                    className="flex mt-5 justify-center">
+                    {error &&
+                        <Alert
+                            message={error}
+                            error />
+                    }
+                </div>
+                <div className="flex justify-center mb-20">
+                    <form
+                        className=" w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
+                    >
+                        <HeadingTwo
+                            className="text-center s:text-left s:ml-5"
+                            text="Time to hit reset!"
+                        />
+
+                        <div className="flex justify-center p-10">
+                            <div className="flex flex-col">
+
+                                <div>
+                                    <BodyText
+                                        text="Confirmation Code"
+                                    />
+                                    <Input
+                                        value={email}
+                                        type="email"
+                                        required
+                                        onChange={e => setEmail(e.target.value)}
+                                        placeholder="email@example.com"
+                                    />
+
+                                </div>
+                                <div>
+                                    <BodyText
+                                        text="New Password"
+                                    />
+                                    <Input
+                                        value={email}
+                                        type="email"
+                                        required
+                                        onChange={e => setEmail(e.target.value)}
+                                        placeholder="email@example.com"
+                                    />
+
+                                </div>
+                                <div>
+                                    <BodyText
+                                        text="Confirm new password"
+                                    />
+                                    <Input
+                                        value={email}
+                                        type="email"
+                                        required
+                                        onChange={e => setEmail(e.target.value)}
+                                        placeholder="email@example.com"
+                                    />
+
+                                </div>
+                                <div className="mt-4 flex flex-col">
+                                    <DarkPinkButton
+                                        text='Reset password'
+                                        type="submit"
+
+                                    />
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
             </>
         )
     }
