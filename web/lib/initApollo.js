@@ -10,7 +10,7 @@ import getConfig from 'next/config'
 let apolloClient = null
 
 const stage = process.env.REACT_APP_STAGE === "prod";
-const getToken = async () => await Auth.currentSession()
+//function getToken() { return Auth.currentSession() }
 // Polyfill fetch() on the server (used by apollo-client)
 if (typeof window === 'undefined') {
     global.fetch = fetch
@@ -30,11 +30,11 @@ function create(initialState, getToken) {
 
     const authLink = setContext((_, { headers }) => {
         const token = getToken()
-
+        console.log(token)
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token.idToken.jwtToken}` : null
+                authorization: token ? `Bearer ${token}` : null
             }
         }
     })

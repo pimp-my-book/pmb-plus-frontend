@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
+import cookie from 'cookie'
 import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
@@ -41,6 +42,8 @@ const Signin = ({
         try {
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
+            //console.log(signInDetails.signInUserSession.accessToken.jwtToken)
+            // cookie.serialize('token', signInDetails.signInUserSession.accessToken.jwtToken)
             if (Object.keys(signInDetails).length > 0) {
                 //props.isAuthenticated(true)
                 Router.push('/profile')
