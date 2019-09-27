@@ -13,6 +13,15 @@ const ForgotPassword = ({ props }) => {
     const [emailError, setEmailError] = useState("")
     //errors to display on ConfirmationForm
     const [confirmError, setConfirmError] = useState("")
+
+    const renderRequestCodeForm = () => {
+        return (
+            <>
+                renderRequestCodeForm
+    
+            </>
+        )
+    }
     return (
         <>
 
