@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Auth from '@aws-amplify/auth'
+import styled from 'styled-components'
 import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 const ForgotPassword = ({ props }) => {
@@ -38,29 +39,31 @@ request a reset.
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                        className=" xl:h-500  mt-10"
+                        className=" w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                     >
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"
                             text="Wanna reset your password?"
                         />
 
-                        <div className="flex flex-col">
+                        <div className="flex justify-center p-10">
+                            <div className="flex flex-col">
 
-                            <div>
-                                <BodyText
-                                    text="Email Address"
-                                />
-                                <Input
-                                    value={email}
-                                    type="email"
-                                    required
-                                    onChange={e => setEmail(e.target.value)}
-                                    placeholder="email@example.com"
-                                />
+                                <div>
+                                    <BodyText
+                                        text="Email Address"
+                                    />
+                                    <Input
+                                        value={email}
+                                        type="email"
+                                        required
+                                        onChange={e => setEmail(e.target.value)}
+                                        placeholder="email@example.com"
+                                    />
+
+                                </div>
 
                             </div>
-
                         </div>
 
                     </form>
