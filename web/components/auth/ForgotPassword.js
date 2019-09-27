@@ -18,7 +18,15 @@ const ForgotPassword = ({ props }) => {
         return (
             <>
                 renderRequestCodeForm
-    
+
+            </>
+        )
+    }
+
+    const renderConfirmationForm = () => {
+        return (
+            <>
+                renderConfirmationForm
             </>
         )
     }
