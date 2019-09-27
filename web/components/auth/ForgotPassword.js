@@ -62,6 +62,14 @@ request a reset.
                                     />
 
                                 </div>
+                                <div className="mt-4 flex flex-col">
+                                    <DarkPinkButton
+                                        text='Send code'
+                                        type="submit"
+
+                                    />
+
+                                </div>
 
                             </div>
                         </div>
