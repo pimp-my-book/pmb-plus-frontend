@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Auth from '@aws-amplify/auth'
 import styled from 'styled-components'
-import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, HeadingTwo, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 const ForgotPassword = ({ props }) => {
     const [error, setError] = useState("")
@@ -41,7 +41,7 @@ request a reset.
                     <form
                         className=" w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                     >
-                        <HeadingOne
+                        <HeadingTwo
                             className="text-center s:text-left s:ml-5"
                             text="Wanna reset your password?"
                         />
