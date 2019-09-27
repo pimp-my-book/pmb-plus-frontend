@@ -14,7 +14,7 @@ const ForgotPassword = ({ props }) => {
     //errors to display on ConfirmationForm
     const [confirmError, setConfirmError] = useState("")
 
-    const renderRequestCodeForm = () => {
+    const RenderRequestCodeForm = () => {
         return (
             <>
                 renderRequestCodeForm
@@ -23,13 +23,23 @@ const ForgotPassword = ({ props }) => {
         )
     }
 
-    const renderConfirmationForm = () => {
+    const RenderConfirmationForm = () => {
         return (
             <>
                 renderConfirmationForm
             </>
         )
     }
+
+    const RenderSuccessMessage = () => {
+        return (
+            <>
+                RenderSuccessMessage
+            </>
+        )
+    }
+
+    const
     return (
         <>
 
