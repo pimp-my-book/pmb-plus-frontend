@@ -2,6 +2,7 @@ import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
+import Auth from "@aws-amplify/auth";
 import getConfig from 'next/config'
 
 
