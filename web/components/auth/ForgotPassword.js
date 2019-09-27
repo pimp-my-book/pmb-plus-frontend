@@ -175,19 +175,25 @@ in their inbox and set a new password.
 This form shows the user that the reset was successfull
     */
     const RenderSuccessMessage = () => {
+        const ImgURL = "https://s3.amazonaws.com/zansi-static-assest/Illustrations/undraw_finish_line_katerina_limpitsouni_xy20.svg";
         return (
             <>
-                <div>
-                    <HeadingTwo
-                        text="You have successfully reset your password"
-                    />
-                    <img
-                        src=""
-                        alt="success image"
-                    />
-                    <LinkButton
-                        text="Login"
-                    />
+                <div className="flex justify-center">
+                    <div className="flex flex-col">
+                        <HeadingTwo
+                            text="You have successfully reset your password"
+                        />
+                        <img
+                            src={ImgURL}
+                            className="w"
+                            alt="success image"
+                        />
+                        <div>
+                            <LinkButton
+                                text="Login"
+                            />
+                        </div>
+                    </div>
                 </div>
             </>
         )
