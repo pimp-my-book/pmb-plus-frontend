@@ -8,8 +8,8 @@ const ForgotPassword = ({ props }) => {
     const [email, setEmail] = useState("")
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
-    const [codeSent, setCodeSent] = useState(true)
-    const [confirmed, setConfirmed] = useState(true)
+    const [codeSent, setCodeSent] = useState(false)
+    const [confirmed, setConfirmed] = useState(false)
     //errors to display on RequestCodeForm
     const [emailError, setEmailError] = useState("")
     //errors to display on ConfirmationForm
