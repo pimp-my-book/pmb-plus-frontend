@@ -3,6 +3,7 @@ import Router from 'next/router'
 import { Footer, NavigationBar } from 'umqombothi-component-library'
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
+import Cookie from 'js-cookie'
 import config from '../config'
 
 const amplifyConfig = {
@@ -39,6 +40,7 @@ class Page extends Component {
 
     handleLogout = async event => {
         await Auth.signOut()
+        Cookie.remove('token', { path: '' })
         Router.push('/')
     }
 
