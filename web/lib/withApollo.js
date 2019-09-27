@@ -27,7 +27,9 @@ export default App => {
 
 
             ctx.ctx.apolloClient = apollo
-            let appProps = {}
+            let appProps = {
+                isLoggedIn: false
+            }
             if (App.getInitialProps) {
                 appProps = await App.getInitialProps(ctx)
             }
