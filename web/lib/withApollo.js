@@ -1,5 +1,5 @@
 import React from 'react'
-import cookie from 'cookie'
+import Cookie from 'js-cookie'
 import PropTypes from 'prop-types'
 import { getDataFromTree } from '@apollo/react-ssr'
 import Head from 'next/head'
@@ -7,6 +7,9 @@ import Auth from "@aws-amplify/auth";
 import initApollo from './initApollo'
 
 
+function parseCookies(req, options = {}) {
+    return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
+}
 
 export default App => {
 
@@ -16,18 +19,29 @@ export default App => {
 
         static displayName = 'withApollo(App)'
         static async getInitialProps(ctx) {
-            const { Component, router } = ctx
+            const { AppTree, ctx: { req, res } } = ctx
+            const apollo = initApollo({},
+                {
+                    getToken: () => Cookie.get('token')
+                })
 
-            let appProps = {}
+
+            ctx.ctx.apolloClient = apollo
+            let appProps = {
+                isLoggedIn: false
+            }
             if (App.getInitialProps) {
                 appProps = await App.getInitialProps(ctx)
             }
 
 
+            if (res && res.finished) {
+                return {}
+            }
 
             // Run all GraphQL queries in the component tree
             // and extract the resulting data
-            const apollo = initApollo()
+
             if (typeof window === 'undefined') {
                 try {
 
@@ -37,10 +51,8 @@ export default App => {
                     await getDataFromTree(
 
 
-                        <App
+                        <AppTree
                             {...appProps}
-                            Component={Component}
-                            router={router}
                             apolloClient={apollo}
                         />
                     )
@@ -58,24 +70,26 @@ export default App => {
 
             // Extract query data from the Apollo store
             const apolloState = apollo.cache.extract()
-            const isAuthenticated = Auth.currentSession()
+
             return {
                 ...appProps,
-                apolloState,
-                isAuthenticated
+                apolloState
             }
         }
 
         constructor(props) {
             super(props)
-            this.apolloClient = initApollo(props.apolloState)
-            this.authState = props.isAuthenticated
+            this.apolloClient = initApollo(props.apolloState, {
+                getToken: () => {
+                    return Cookie.get('token')
+                }
+            })
         }
 
 
         render() {
 
-            return <App {...this.props} authState={this.authState} apolloClient={this.apolloClient} />
+            return <App {...this.props} apolloClient={this.apolloClient} />
         }
     }
 }

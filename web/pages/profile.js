@@ -1,10 +1,11 @@
 import Router from 'next/router'
 import Auth from "@aws-amplify/auth";
+import Cookie from 'js-cookie'
 
 const profile = (props) => {
-
     console.log(props)
-    if (Object.keys(props.isAuthenticated).length === 0) {
+    const hasCookie = Cookie.get('token')
+    if (!hasCookie) {
         return (
             <div>
                 You need to be logged in

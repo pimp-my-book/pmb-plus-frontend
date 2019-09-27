@@ -3,6 +3,7 @@ import Router from 'next/router'
 import { Footer, NavigationBar } from 'umqombothi-component-library'
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
+import Cookie from 'js-cookie'
 import config from '../config'
 
 const amplifyConfig = {
@@ -35,46 +36,18 @@ class Page extends Component {
         return { props }
     }
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            isAuthenticated: props.isAuthenticated,
-            isAuthenticating: props.isAuthenticating
-        }
-    }
 
-
-
-    userHasAuthenticated = authenticated => {
-        this.setState({ isAuthenticated: authenticated })
-    }
 
     handleLogout = async event => {
         await Auth.signOut()
-        this.userHasAuthenticated(false)
+        Cookie.remove('token', { path: '' })
         Router.push('/')
     }
 
-    async componentDidMount() {
-        try {
-            if (await Auth.currentSession()) {
-                this.userHasAuthenticated(true)
-            }
-        }
-        catch (e) {
-            if (e !== 'No current user') {
-                alert(e)
-            }
-        }
 
-        this.setState({ isAuthenticating: false })
-    }
     render() {
 
-        const pageProps = {
-            isAuthenticated: this.state.isAuthenticated,
-            userHasAuthenticated: this.userHasAuthenticated
-        }
+
 
         return (
             <>
