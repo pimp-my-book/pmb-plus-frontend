@@ -72,6 +72,7 @@ request a reset.
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
+                        onSubmit={handleSendCodeClick}
                         className=" w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                     >
                         <HeadingTwo
@@ -99,7 +100,7 @@ request a reset.
                                     <DarkPinkButton
                                         text='Send code'
                                         type="submit"
-
+                                        isLoading={isSendingCode}
                                     />
 
                                 </div>
