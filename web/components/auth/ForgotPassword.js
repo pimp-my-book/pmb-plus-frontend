@@ -40,7 +40,18 @@ const ForgotPassword = ({ props }) => {
 
     ///Submit event for confirming code and submitting a new password
 
+    const handleConfirmClick = async event => {
+        event.preventDefault()
 
+        setIsConfirming(true)
+
+        try {
+            await Auth.forgotPasswordSubmit(email, code, password)
+            setConfirmed(true)
+        } catch (e) {
+
+        }
+    }
 
     /*
 
