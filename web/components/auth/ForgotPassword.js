@@ -8,6 +8,7 @@ const ForgotPassword = ({ props }) => {
     const [email, setEmail] = useState("")
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [isConfirming, setIsConfirming] = useState(false)
     const [isSendingCode, setIsSendingCode] = useState(false)
     const [codeSent, setCodeSent] = useState(false)
@@ -191,7 +192,7 @@ in their inbox and set a new password.
                                         value={email}
                                         type="email"
                                         required
-                                        onChange={e => setEmail(e.target.value)}
+                                        onChange={e => se(e.target.value)}
                                         placeholder="email@example.com"
                                     />
 
