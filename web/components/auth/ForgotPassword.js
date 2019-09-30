@@ -49,7 +49,8 @@ const ForgotPassword = ({ props }) => {
             await Auth.forgotPasswordSubmit(email, code, password)
             setConfirmed(true)
         } catch (e) {
-
+            setConfirmError(e.message)
+            setIsConfirming(false)
         }
     }
 
