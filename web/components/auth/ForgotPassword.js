@@ -189,10 +189,10 @@ in their inbox and set a new password.
                                         text="Confirm new password"
                                     />
                                     <Input
-                                        value={email}
-                                        type="email"
+                                        value={confirmPassword}
+                                        type="password"
                                         required
-                                        onChange={e => se(e.target.value)}
+                                        onChange={e => setConfirmPassword(e.target.value)}
                                         placeholder="email@example.com"
                                     />
 
@@ -201,7 +201,8 @@ in their inbox and set a new password.
                                     <DarkPinkButton
                                         text='Reset password'
                                         type="submit"
-
+                                        isLoading={isConfirming}
+                                        disabled={!validateResetForm()}
                                     />
 
                                 </div>
