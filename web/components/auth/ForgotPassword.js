@@ -25,7 +25,16 @@ const ForgotPassword = ({ props }) => {
     /// Sumbit event for Sending code to email
     const handleSendCodeClick = async event => {
         event.preventDefault()
+        setIsSendingCode(true)
 
+        try {
+
+            await Auth.forgotPassword(email)
+            setCodeSent(true)
+        } catch (e) {
+            setEmailError(e.message)
+            setIsSendingCode(false)
+        }
 
     }
 
