@@ -66,7 +66,7 @@ request a reset.
                     className="flex mt-5 justify-center">
                     {error &&
                         <Alert
-                            message={error}
+                            message={emailError}
                             error />
                     }
                 </div>
@@ -128,7 +128,7 @@ in their inbox and set a new password.
                     className="flex mt-5 justify-center">
                     {error &&
                         <Alert
-                            message={error}
+                            message={confirmError}
                             error />
                     }
                 </div>
