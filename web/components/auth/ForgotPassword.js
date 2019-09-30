@@ -8,6 +8,8 @@ const ForgotPassword = ({ props }) => {
     const [email, setEmail] = useState("")
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
+    const [isConfirming, setIsConfirming] = useState(false)
+    const [isSendingCode, setIsSendingCode] = useState(false)
     const [codeSent, setCodeSent] = useState(false)
     const [confirmed, setConfirmed] = useState(false)
     //errors to display on RequestCodeForm
@@ -19,6 +21,16 @@ const ForgotPassword = ({ props }) => {
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
     grid-gap: 30px;
     `
+
+    /// Sumbit event for Sending code to email
+    const handleSendCodeClick = async event => {
+        event.preventDefault()
+
+
+    }
+
+    ///Submit event for confirming code and submitting a new password
+
 
 
     /*
