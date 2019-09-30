@@ -54,6 +54,18 @@ const ForgotPassword = ({ props }) => {
         }
     }
 
+
+    //validation of confirmation passwords
+
+    const validateResetForm = () => {
+        return (
+
+            password === confirmPassword
+        )
+    }
+
+
+
     /*
 
 This form shows the initial form for the user to 
@@ -134,6 +146,7 @@ in their inbox and set a new password.
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
+                        onSubmit={handleConfirmClick}
                         className=" w-full max-w-lg h-400 xl:h-500 shadow-lg mt-10"
                     >
                         <HeadingTwo
@@ -149,10 +162,10 @@ in their inbox and set a new password.
                                         text="Confirmation Code"
                                     />
                                     <Input
-                                        value={email}
-                                        type="email"
+                                        value={code}
+                                        type="text"
                                         required
-                                        onChange={e => setEmail(e.target.value)}
+                                        onChange={e => setCode(e.target.value)}
                                         placeholder="email@example.com"
                                     />
 
@@ -162,10 +175,10 @@ in their inbox and set a new password.
                                         text="New Password"
                                     />
                                     <Input
-                                        value={email}
-                                        type="email"
+                                        value={password}
+                                        type="password"
                                         required
-                                        onChange={e => setEmail(e.target.value)}
+                                        onChange={e => setPassword(e.target.value)}
                                         placeholder="email@example.com"
                                     />
 
