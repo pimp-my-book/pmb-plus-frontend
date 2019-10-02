@@ -12,4 +12,4 @@ const AddBook = () => {
     )
 }
 
-exprot default AddBook
+export default AddBook

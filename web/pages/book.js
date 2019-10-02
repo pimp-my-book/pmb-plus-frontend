@@ -1,8 +1,7 @@
+import AddBook from '../components/AddBook'
 const Book = () => {
     return (
-        <div>
-            Hi add your book
-        </div>
+        <AddBook />
     )
 }
 
