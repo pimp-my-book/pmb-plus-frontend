@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
+import { Alert, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const AddBook = () => {
@@ -30,11 +30,21 @@ const AddBook = () => {
                             className="text-center s:text-left s:ml-5"
                             text="Sell your book"
                         />
-
-
                         <hr
                             className="border-greyDark"
                         />
+                        {/* Start of top form container */}
+                        <FormGrid
+                            className="s:ml-10 mb-5"
+                        >
+                            <HeadingFive
+                                text="Starter Info"
+                                className="text-left"
+                            />
+
+                        </FormGrid>
+                        {/* end of top form container */}
+
                     </form>
                 </div>
 
