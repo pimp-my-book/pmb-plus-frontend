@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useMutation } from '@apollo/react-hooks';
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
 import SuccessImage from './fogg-success-1.svg'
-
+import { ADD_BOOK } from '../graphql/Mutations'
 const AddBook = () => {
     const [error, setError] = useState("")
     const [posted, setPosted] = useState(false)
@@ -13,12 +13,12 @@ const AddBook = () => {
     const [grade, setGrade] = useState("")
     const [price, setPrice] = useState("")
     const [image, setImage] = useState("")
-    const [edition, setGrade] = useState("")
     const [location, setLocation] = useState("")
     const [ISBN, setISBN] = useState("")
     const [degree, setDegree] = useState("")
     const [course, setCourse] = useState("")
     const [univeristy, setUniveristy] = useState("")
+    const [addBook, { data }] = useMutation(ADD_BOOK)
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
