@@ -202,39 +202,35 @@ const AddBook = () => {
 
                                 </div>
 
-                                {/* ISBN*/}
+                                {/* dEGREE*/}
                                 <div>
                                     <BodyText
-                                        text="ISBN"
+                                        text="Degree"
                                     />
                                     <Input
                                         type="text"
                                         required
                                         // value={confirmPassword}
                                         // onChange={e => setConfirmPassword(e.target.value)}
-                                        placeholder="978177074859"
-                                    />
-
-                                </div>
-
-                                {/* Edition */}
-                                <div>
-                                    <BodyText
-                                        text="Edition"
-                                    />
-                                    <Input
-                                        type="text"
-                                        required
-                                        // value={confirmPassword}
-                                        // onChange={e => setConfirmPassword(e.target.value)}
-                                        placeholder="4th"
+                                        placeholder="BSC Chem"
                                     />
 
                                 </div>
 
 
+                                {/* Buttons*/}
+                                <div className="flex flex-col w-48 mt-3">
+                                    <DarkPinkButton
+                                        type="submit"
+                                        text="Create account"
+                                    />
+                                    <LinkButton
+                                        href="/signin"
+                                        text="Already have an account?"
+                                    />
+                                </div>
 
-                                {/* end  of book form elements */}
+                                {/* end  of accademic form elements */}
                             </div>
                         </FormGrid>
                         {/* end of bottom form container */}
