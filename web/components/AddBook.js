@@ -23,7 +23,19 @@ const AddBook = () => {
                     }
                 </div>
                 <div className="flex justify-center mb-20">
+                    <form
+                        //onSubmit={handleSubmit}
+                        className=" xl:h-500  mt-10"
+                    ><HeadingOne
+                            className="text-center s:text-left s:ml-5"
+                            text="Sell your book"
+                        />
 
+
+                        <hr
+                            className="border-greyDark"
+                        />
+                    </form>
                 </div>
 
             </>
