@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
 const AddBook = () => {
     const [error, setError] = useState("")
     const [posted, setPosted] = useState(false)
-
+    const FormGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    grid-gap: 30px;
+    `
     const renderPostBook = () => {
         return (
             <>
