@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
-
+import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
+import SuccessImage from './fogg-success-1.svg'
 
 const AddBook = () => {
     const [error, setError] = useState("")
@@ -253,15 +253,39 @@ const AddBook = () => {
     }
 
     const renderConfirmtionForm = () => {
+
         return (
             <>
-                renderConfirmtionForm
+                <div className="flex  flex-col items-center ">
+
+                    <HeadingTwo
+                        className="text-center"
+                        text="Successful Book Post"
+                    />
+                    <img
+                        src={SuccessImage}
+                        className="w-1/2"
+                        alt="success image"
+                    />
+                    <HeadingFive
+                        text="Your book has been posted onto the marketplace and is now avaiable for purchase by other folks."
+                    />
+                    <div
+                        className="p-10"
+                    >
+                        <LinkButton
+                            href="/book"
+                            text="Sell more"
+                        />
+                    </div>
+
+                </div>
             </>
         )
     }
     return (
         <>
-            {!posted ? renderPostBook() : renderConfirmtionForm()}
+            {posted ? renderPostBook() : renderConfirmtionForm()}
         </>
     )
 }
