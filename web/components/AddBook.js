@@ -9,7 +9,18 @@ const AddBook = () => {
     const renderPostBook = () => {
         return (
             <>
-                renderPostBook
+                <div
+                    className="flex mt-5 justify-center">
+                    {error &&
+                        <Alert
+                            message={error}
+                            error />
+                    }
+                </div>
+                <div className="flex justify-center mb-20">
+
+                </div>
+
             </>
         )
     }
