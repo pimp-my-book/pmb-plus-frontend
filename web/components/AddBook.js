@@ -5,7 +5,6 @@ import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton
 import SuccessImage from './fogg-success-1.svg'
 import { addBookMutation } from '../graphql/Mutations'
 const AddBook = () => {
-    const [error, setError] = useState("")
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -20,7 +19,7 @@ const AddBook = () => {
     const [course, setCourse] = useState("")
     const [url, setURL] = useState("")
     const [univeristy, setUniveristy] = useState("")
-    const [addBook, { data }] = useMutation(addBookMutation)
+    const [addBook, { data, error }] = useMutation(addBookMutation)
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
@@ -33,7 +32,7 @@ const AddBook = () => {
                     className="flex mt-5 justify-center">
                     {error &&
                         <Alert
-                            message={error}
+                            message={error.message}
                             error />
                     }
                 </div>
