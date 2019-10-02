@@ -219,9 +219,9 @@ const AddBook = () => {
                             <HeadingFive
                                 text="Academic Info"
                             />
-                            {/* start of account form elements */}
+                            {/* start of Academic form elements */}
                             <div>
-                                {/* Title*/}
+                                {/* univeristy*/}
                                 <div>
                                     <BodyText
                                         text="Select univeristy "
@@ -229,8 +229,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={email}
-                                        // onChange={e => setEmail(e.target.value)}
+                                        value={univeristy}
+                                        onChange={e => setUniveristy(e.target.value)}
                                         placeholder="UCT"
                                     />
 
@@ -244,8 +244,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={password}
-                                        // onChange={e => setPassword(e.target.value)}
+                                        value={course}
+                                        onChange={e => setCourse(e.target.value)}
                                         placeholder="CTV 109"
                                     />
 
@@ -259,8 +259,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={confirmPassword}
-                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        value={degree}
+                                        onChange={e => setDegree(e.target.value)}
                                         placeholder="BSC Chem"
                                     />
 
