@@ -37,7 +37,27 @@ const AddBook = () => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                        // onSubmit={handleSubmit}
+                        onSubmit={e => {
+                            e.preventDefault()
+                            addBook({
+                                variables: {
+                                    input: {
+                                        price: price,
+                                        description: description,
+                                        image: image,
+                                        edition: edition,
+                                        title: title,
+                                        author: author,
+                                        ISBN: ISBN,
+                                        grade: grade,
+                                        location: location,
+                                        univeristy: univeristy,
+                                        course: course,
+                                        degree: degree,
+                                    }
+                                }
+                            })
+                        }}
                         className=" xl:h-500  mt-10"
                     >
                         <HeadingOne
@@ -298,7 +318,7 @@ const AddBook = () => {
     }
     return (
         <>
-            {posted ? renderPostBook() : renderConfirmtionForm()}
+            {!posted ? renderPostBook() : renderConfirmtionForm()}
         </>
     )
 }
