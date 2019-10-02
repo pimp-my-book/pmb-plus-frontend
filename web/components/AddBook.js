@@ -237,10 +237,7 @@ const AddBook = () => {
                                         type="submit"
                                         text="Create account"
                                     />
-                                    <LinkButton
-                                        href="/signin"
-                                        text="Already have an account?"
-                                    />
+
                                 </div>
 
                                 {/* end  of accademic form elements */}
