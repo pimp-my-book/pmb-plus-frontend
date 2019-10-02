@@ -158,6 +158,86 @@ const AddBook = () => {
                             </div>
                         </FormGrid>
                         {/* end of bottom form container */}
+
+                        {/* End of top form container */}
+                        <hr
+                            className="border-greyDark"
+                        />
+                        {/* start of bottom form container */}
+                        <FormGrid
+                            className="s:ml-10"
+                        >
+                            <HeadingFive
+                                text="Academic Info"
+                            />
+                            {/* start of account form elements */}
+                            <div>
+                                {/* Title*/}
+                                <div>
+                                    <BodyText
+                                        text="Select univeristy "
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={email}
+                                        // onChange={e => setEmail(e.target.value)}
+                                        placeholder="UCT"
+                                    />
+
+                                </div>
+
+                                {/* cOURSE */}
+                                <div>
+                                    <BodyText
+                                        text="Course "
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={password}
+                                        // onChange={e => setPassword(e.target.value)}
+                                        placeholder="CTV 109"
+                                    />
+
+                                </div>
+
+                                {/* ISBN*/}
+                                <div>
+                                    <BodyText
+                                        text="ISBN"
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={confirmPassword}
+                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        placeholder="978177074859"
+                                    />
+
+                                </div>
+
+                                {/* Edition */}
+                                <div>
+                                    <BodyText
+                                        text="Edition"
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={confirmPassword}
+                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        placeholder="4th"
+                                    />
+
+                                </div>
+
+
+
+                                {/* end  of book form elements */}
+                            </div>
+                        </FormGrid>
+                        {/* end of bottom form container */}
                     </form>
 
                 </div>
