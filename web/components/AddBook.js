@@ -88,66 +88,73 @@ const AddBook = () => {
                             className="s:ml-10"
                         >
                             <HeadingFive
-                                text="Account Info"
+                                text="Book Info"
                             />
                             {/* start of account form elements */}
                             <div>
-                                {/* Email*/}
+                                {/* Title*/}
                                 <div>
                                     <BodyText
-                                        text="Email address "
+                                        text="Title "
                                     />
                                     <Input
-                                        type="email"
+                                        type="text"
                                         required
                                         // value={email}
                                         // onChange={e => setEmail(e.target.value)}
-                                        placeholder="sizzla@example.com"
+                                        placeholder="How On Earth?"
                                     />
 
                                 </div>
 
-                                {/* password*/}
+                                {/* Author */}
                                 <div>
                                     <BodyText
-                                        text="Password "
+                                        text="Author "
                                     />
                                     <Input
-                                        type="password"
+                                        type="text"
                                         required
                                         // value={password}
                                         // onChange={e => setPassword(e.target.value)}
-                                        placeholder="a secret"
+                                        placeholder="Terence McCathy"
                                     />
 
                                 </div>
 
-                                {/* Confirm password*/}
+                                {/* ISBN*/}
                                 <div>
                                     <BodyText
-                                        text="Confirm Password "
+                                        text="ISBN"
                                     />
                                     <Input
-                                        type="password"
+                                        type="text"
                                         required
                                         // value={confirmPassword}
                                         // onChange={e => setConfirmPassword(e.target.value)}
-                                        placeholder="a secret"
+                                        placeholder="978177074859"
                                     />
 
                                 </div>
-                                {/* Buttons*/}
-                                <div className="flex flex-col w-48 mt-3">
-                                    <DarkPinkButton
-                                        type="submit"
-                                        text="Create account"
+
+                                {/* Edition */}
+                                <div>
+                                    <BodyText
+                                        text="Edition"
                                     />
-                                    <LinkButton
-                                        href="/signin"
-                                        text="Already have an account?"
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={confirmPassword}
+                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        placeholder="4th"
                                     />
+
                                 </div>
-                                {/* start of account form elements */}
+
+
+
+                                {/* end  of book form elements */}
                             </div>
                         </FormGrid>
                         {/* end of bottom form container */}
