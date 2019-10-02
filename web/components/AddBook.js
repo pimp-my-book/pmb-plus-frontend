@@ -6,6 +6,21 @@ const AddBook = () => {
     const [error, setError] = useState("")
     const [posted, setPosted] = useState(false)
 
+    const renderPostBook = () => {
+        return (
+            <>
+                renderPostBook
+            </>
+        )
+    }
+
+    const renderConfirmtionForm = () => {
+        return (
+            <>
+                renderConfirmtionForm
+            </>
+        )
+    }
     return (
         <>
             {posted ? renderPostBook() : renderConfirmtionForm()}
