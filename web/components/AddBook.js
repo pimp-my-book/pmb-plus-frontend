@@ -12,11 +12,13 @@ const AddBook = () => {
     const [author, setAuthor] = useState("")
     const [grade, setGrade] = useState("")
     const [price, setPrice] = useState("")
+    const [edition, setEdition] = useState("")
     const [image, setImage] = useState("")
     const [location, setLocation] = useState("")
     const [ISBN, setISBN] = useState("")
     const [degree, setDegree] = useState("")
     const [course, setCourse] = useState("")
+    const [url, setURL] = useState("")
     const [univeristy, setUniveristy] = useState("")
     const [addBook, { data }] = useMutation(addBookMutation)
     const FormGrid = styled.div`
@@ -57,6 +59,7 @@ const AddBook = () => {
                                     }
                                 }
                             })
+                            setPosted(true)
                         }}
                         className=" xl:h-500  mt-10"
                     >
@@ -86,8 +89,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        //   value={fullName}
-                                        //  onChange={e => setFullName(e.target.value)}
+                                        value={price}
+                                        onChange={e => setPrice(e.target.value)}
                                         placeholder="R4566"
                                     />
 
@@ -100,8 +103,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={univeristy}
-                                        //  onChange={e => setUniveristy(e.target.value)}
+                                        value={location}
+                                        onChange={e => setLocation(e.target.value)}
                                         placeholder="Cape Town"
                                     />
 
@@ -133,8 +136,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={email}
-                                        // onChange={e => setEmail(e.target.value)}
+                                        value={title}
+                                        onChange={e => setTitle(e.target.value)}
                                         placeholder="How On Earth?"
                                     />
 
@@ -148,8 +151,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={password}
-                                        // onChange={e => setPassword(e.target.value)}
+                                        value={author}
+                                        onChange={e => setAuthor(e.target.value)}
                                         placeholder="Terence McCathy"
                                     />
 
@@ -163,8 +166,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={confirmPassword}
-                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        value={ISBN}
+                                        onChange={e => setISBN(e.target.value)}
                                         placeholder="978177074859"
                                     />
 
@@ -178,8 +181,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={confirmPassword}
-                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        value={edition}
+                                        onChange={e => setEdition(e.target.value)}
                                         placeholder="4th"
                                     />
 
@@ -193,8 +196,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={confirmPassword}
-                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        value={url}
+                                        onChange={e => setURL(e.target.value)}
                                         placeholder="IMAGE"
                                     />
 
