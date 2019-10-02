@@ -23,7 +23,7 @@ const AddBook = () => {
     }
     return (
         <>
-            {posted ? renderPostBook() : renderConfirmtionForm()}
+            {!posted ? renderPostBook() : renderConfirmtionForm()}
         </>
     )
 }
