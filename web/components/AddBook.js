@@ -7,6 +7,18 @@ import SuccessImage from './fogg-success-1.svg'
 const AddBook = () => {
     const [error, setError] = useState("")
     const [posted, setPosted] = useState(false)
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [author, setAuthor] = useState("")
+    const [grade, setGrade] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [edition, setGrade] = useState("")
+    const [location, setLocation] = useState("")
+    const [ISBN, setISBN] = useState("")
+    const [degree, setDegree] = useState("")
+    const [course, setCourse] = useState("")
+    const [univeristy, setUniveristy] = useState("")
     const FormGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
