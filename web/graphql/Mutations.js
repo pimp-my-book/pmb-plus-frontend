@@ -1,8 +1,8 @@
 import gql from "graphql-tag"
 
 export const addBookMutation = gql`
-mutation ADD_BOOK($book: addBookInput!){
-    addBook(book:$book){
+mutation ADD_BOOK($input: addBookInput!){
+    addBook(input:$input){
         price
     description
     image
