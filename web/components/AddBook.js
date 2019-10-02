@@ -3,11 +3,12 @@ import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from '
 
 
 const AddBook = () => {
-
+    const [error, setError] = useState("")
+    const [posted, setPosted] = useState(false)
 
     return (
         <>
-            Add a book
+            {posted ? renderPostBook() : renderConfirmtionForm()}
         </>
     )
 }
