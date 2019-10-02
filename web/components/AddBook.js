@@ -41,7 +41,7 @@ const AddBook = () => {
                             className="s:ml-10 mb-5"
                         >
                             <HeadingFive
-                                text="Personal Info"
+                                text="Starter Info"
                                 className="text-left"
                             />
                             <div>
@@ -152,7 +152,20 @@ const AddBook = () => {
 
                                 </div>
 
+                                {/* Picture URL */}
+                                <div>
+                                    <BodyText
+                                        text="URL"
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        // value={confirmPassword}
+                                        // onChange={e => setConfirmPassword(e.target.value)}
+                                        placeholder="IMAGE"
+                                    />
 
+                                </div>
 
                                 {/* end  of book form elements */}
                             </div>
