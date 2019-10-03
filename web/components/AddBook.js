@@ -48,7 +48,7 @@ const AddBook = () => {
                         input: {
                             price: price,
                             description: description,
-                            image: image,
+                            image: attachment,
                             edition: edition,
                             title: title,
                             author: author,
@@ -67,6 +67,10 @@ const AddBook = () => {
                 alert(e)
             }
 
+        }
+
+        const handleFileChange = event => {
+            file = event.target.files[0]
         }
         return (
             <>
@@ -241,10 +245,10 @@ const AddBook = () => {
                                         text="URL"
                                     />
                                     <Input
-                                        type="text"
+                                        type="file"
                                         required
                                         value={image}
-                                        onChange={e => setImage(e.target.value)}
+                                        onChange={handleFileChange}
                                         placeholder="IMAGE"
                                     />
 
