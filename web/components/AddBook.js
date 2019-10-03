@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Storage } from '@aws-amplify/core'
 import { useMutation } from '@apollo/react-hooks';
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
 import SuccessImage from './fogg-success-1.svg'
@@ -30,6 +31,20 @@ const AddBook = () => {
     const [attachmentURL, setAttachmentURL] = useState("")
 
     const renderPostBook = () => {
+
+        const handleSubmit = async (event) => {
+            let attachment
+            event.preventDefault()
+
+            try {
+                if (this.file) {
+                    attachemnt = await 
+}
+            } catch (e) {
+                alert(e)
+            }
+
+        }
         return (
             <>
                 <div
