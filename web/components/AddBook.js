@@ -17,7 +17,6 @@ const AddBook = () => {
     const [ISBN, setISBN] = useState("")
     const [degree, setDegree] = useState("")
     const [course, setCourse] = useState("")
-    const [url, setURL] = useState("")
     const [univeristy, setUniveristy] = useState("")
     const [addBook, { data, error }] = useMutation(addBookMutation)
     const FormGrid = styled.div`
@@ -195,8 +194,8 @@ const AddBook = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={url}
-                                        onChange={e => setURL(e.target.value)}
+                                        value={image}
+                                        onChange={e => setImage(e.target.value)}
                                         placeholder="IMAGE"
                                     />
 

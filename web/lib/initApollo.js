@@ -22,7 +22,7 @@ function create(initialState, getToken) {
 
 
     const httpLink = createHttpLink({
-        uri: 'https://localhost/4000/graphql', // Server URL (must be absolute)
+        uri: 'http://localhost:4000/graphql', // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch
@@ -30,7 +30,7 @@ function create(initialState, getToken) {
 
     const authLink = setContext((_, { headers }) => {
         //const token = getToken()
-        console.log(token)
+        //console.log(token)
         return {
             headers: {
                 ...headers,
