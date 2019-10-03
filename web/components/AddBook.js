@@ -79,6 +79,20 @@ const AddBook = () => {
                                 className="text-left"
                             />
                             <div>
+                                {/* Grade*/}
+                                <div>
+                                    <BodyText
+                                        text="Grade"
+                                    />
+                                    <Input
+                                        type="text"
+                                        required
+                                        value={grade}
+                                        onChange={e => setGrade(e.target.value)}
+                                        placeholder="A"
+                                    />
+
+                                </div>
                                 {/* Price*/}
                                 <div>
                                     <BodyText
