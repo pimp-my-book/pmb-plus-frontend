@@ -121,7 +121,20 @@ const AddBook = () => {
                                     />
 
                                 </div>
+                                {/* Description*/}
+                                <div>
+                                    <BodyText
+                                        text="Describe your book"
+                                    />
+                                    <Textarea
+                                        type="text"
+                                        required
+                                        value={description}
+                                        onChange={e => setDescription(e.target.value)}
+                                        placeholder="Used it for subject made me fail"
+                                    />
 
+                                </div>
                             </div>
                         </FormGrid>
 
