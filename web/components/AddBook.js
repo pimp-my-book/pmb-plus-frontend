@@ -5,6 +5,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
 import SuccessImage from './fogg-success-1.svg'
 import { addBookMutation } from '../graphql/Mutations'
+import { s3Upload } from '../lib/awsLib'
+
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
@@ -38,8 +40,8 @@ const AddBook = () => {
 
             try {
                 if (this.file) {
-                    attachemnt = await 
-}
+                    attachemnt = await s3Upload
+                }
             } catch (e) {
                 alert(e)
             }
