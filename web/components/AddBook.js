@@ -29,49 +29,54 @@ const AddBook = () => {
     `
 
     //File upload state
-    const [file, setFile] = useState("")
+    let [file, setFile] = useState(null)
     const [attachmentURL, setAttachmentURL] = useState("")
+
+
+    const handleFileChange = event => {
+        file = event.target.files[0]
+        setFile(file)
+        console.log(file)
+    }
+
+
+    const handleSubmit = async (event) => {
+        let attachment
+        event.preventDefault()
+
+        try {
+            if (file) {
+                attachemnt = await s3Upload(file)
+            }
+
+            addBook({
+                variables: {
+                    input: {
+                        price: price,
+                        description: description,
+                        image: attachment,
+                        edition: edition,
+                        title: title,
+                        author: author,
+                        ISBN: ISBN,
+                        grade: grade,
+                        location: location,
+                        univeristy: univeristy,
+                        course: course,
+                        degree: degree,
+                    }
+                }
+            })
+            setPosted(true)
+
+        } catch (e) {
+            alert(e)
+        }
+
+    }
 
     const renderPostBook = () => {
 
-        const handleSubmit = async (event) => {
-            let attachment
-            event.preventDefault()
-
-            try {
-                if (this.file) {
-                    attachemnt = await s3Upload(file)
-                }
-
-                addBook({
-                    variables: {
-                        input: {
-                            price: price,
-                            description: description,
-                            image: attachment,
-                            edition: edition,
-                            title: title,
-                            author: author,
-                            ISBN: ISBN,
-                            grade: grade,
-                            location: location,
-                            univeristy: univeristy,
-                            course: course,
-                            degree: degree,
-                        }
-                    }
-                })
-                setPosted(true)
-
-            } catch (e) {
-                alert(e)
-            }
-
-        }
-
-        const handleFileChange = event => {
-            file = event.target.files[0]
-        }
         return (
             <>
                 <div
@@ -246,8 +251,8 @@ const AddBook = () => {
                                     />
                                     <Input
                                         type="file"
-                                        required
-                                        value={image}
+
+
                                         onChange={handleFileChange}
                                         placeholder="IMAGE"
                                     />
