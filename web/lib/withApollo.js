@@ -22,7 +22,7 @@ export default App => {
             const { AppTree, ctx: { req, res } } = ctx
             const apollo = initApollo({},
                 {
-                    getToken: () => Cookie.get('token')
+                    // getToken: () => Cookie.get('token')
                 })
 
 
@@ -80,9 +80,10 @@ export default App => {
         constructor(props) {
             super(props)
             this.apolloClient = initApollo(props.apolloState, {
+                /*
                 getToken: () => {
                     return Cookie.get('token')
-                }
+                } */
             })
         }
 

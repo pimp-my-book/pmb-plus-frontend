@@ -29,12 +29,12 @@ function create(initialState, getToken) {
     })
 
     const authLink = setContext((_, { headers }) => {
-        const token = getToken()
+        //const token = getToken()
         console.log(token)
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : null
+                // authorization: token ? `Bearer ${token}` : null
             }
         }
     })
