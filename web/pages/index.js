@@ -8,7 +8,7 @@ function Home() {
 
             >
             <div
-                className="landing flex flex-col items-center text-center"
+                className="landing flex flex-col items-center text-center p-10"
             >
                 <HeadingOne
                     className="text-white"
