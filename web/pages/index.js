@@ -17,10 +17,10 @@ function Home() {
                     text={`You're here a bit early 😁`}
                 />
                 <HeadingFive
-                    className=" mb-5"
-                    text={`None the less it's great to have you here. Pimp My Book as 
+                    className=" mb-1"
+                    text={`Nonetheless it's great to have you here. Pimp My Book as 
                           been passionate about helping students get their hands on cheap second hand books since forever.
-                          Hence we would like to intoduce a new service to make getting second hand books easier!😀 
+                          Hence we would like to introduce a new service to make getting second hand books easier!😀 
                     `}
                 />
                 <HeadingFive
