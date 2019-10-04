@@ -1,4 +1,4 @@
-import { BodyText } from 'umqombothi-component-library'
+import { BodyText, HeadingOne } from 'umqombothi-component-library'
 
 function Home() {
 
@@ -9,7 +9,13 @@ function Home() {
             >
             <div
                 className="landing "
-            >PMB Plus Front-End! 🤩 </div>
+            >
+                <HeadingOne
+                    className="text-white"
+                    text="Welcome to PMB Plus" />
+
+
+            </div>
 
             <style jsx>
                 {`
