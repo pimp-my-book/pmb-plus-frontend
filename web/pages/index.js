@@ -23,6 +23,10 @@ function Home() {
                           Hence we would like to intoduce a new service to make getting second hand books easier!😀 
                     `}
                 />
+                <HeadingFive
+                    text={`Keep checking back here for when we have awesome news to share with you! 😍 
+                    `}
+                />
             </div>
 
             <style jsx>
