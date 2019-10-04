@@ -15,7 +15,7 @@ const amplifyConfig = {
         userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
     },
     Storage: {
-        region: 'use-east-1',
+        region: 'us-east-1',
         bucket: 'pmb-plus-backend-dev-attachmentsbucket-jd0uqhf65247'
     }
 }

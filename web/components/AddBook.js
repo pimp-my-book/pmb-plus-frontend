@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Storage } from '@aws-amplify/core'
+import { Storage } from 'aws-amplify'
 import { useMutation } from '@apollo/react-hooks';
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
 import SuccessImage from './fogg-success-1.svg'
