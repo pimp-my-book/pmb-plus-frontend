@@ -8,12 +8,12 @@ function Home() {
 
             >
             <div
-                className="container inset-0"
+                className="landing "
             >PMB Plus Front-End! 🤩 </div>
 
             <style jsx>
                 {`
-    .container {
+    .landing {
        
         height: 100vh;
        
