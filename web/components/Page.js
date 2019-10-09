@@ -19,14 +19,7 @@ const amplifyConfig = {
 }
 
 
-Auth.configure({
-    mandatorySignIn: false,
-    region: config.cognito.REGION,
-    userPoolId: 'us-east-1_OQfgqHOIe',
-    identityPoolId: 'us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07',
-    userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
-}
-)
+Auth.configure(amplifyConfig.Auth)
 
 Storage.configure({
     AWSS3: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Auth from "@aws-amplify/auth";
+import { Auth } from "aws-amplify";
 import Router from 'next/router'
 import cookie from 'js-cookie'
 import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
