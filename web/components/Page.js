@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Router from 'next/router'
 import { Footer, NavigationBar } from 'umqombothi-component-library'
 import Amplify from "@aws-amplify/core";
-import Auth from "@aws-amplify/auth";
-import { Storage } from 'aws-amplify'
+//import Auth from "@aws-amplify/auth";
+import { Storage, Auth } from 'aws-amplify'
 import Cookie from 'js-cookie'
 import config from '../config'
 
@@ -19,8 +19,13 @@ const amplifyConfig = {
 }
 
 
-Amplify.configure(
-    amplifyConfig
+Auth.configure({
+    mandatorySignIn: false,
+    region: config.cognito.REGION,
+    userPoolId: 'us-east-1_OQfgqHOIe',
+    identityPoolId: 'us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07',
+    userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
+}
 )
 
 Storage.configure({
