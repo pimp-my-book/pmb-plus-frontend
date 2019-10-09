@@ -46,6 +46,7 @@ const AddBook = () => {
 
         try {
             if (file) {
+                window.LOG_LEVEL = 'DEBUG';
                 attachemnt = await s3Upload(file)
             }
 
