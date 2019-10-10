@@ -23,7 +23,7 @@ function create(initialState, getToken) {
 
 
     const httpLink = createHttpLink({
-        uri: 'http://localhost:4000/graphql', // Server URL (must be absolute)
+        uri: 'https://2m3x5565db.execute-api.us-east-1.amazonaws.com/dev/graphql', // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch

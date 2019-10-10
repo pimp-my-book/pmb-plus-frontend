@@ -42,8 +42,8 @@ const Signin = ({
         try {
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
-            //console.log(signInDetails.signInUserSession.accessToken.jwtToken)
-            cookie.set('token', signInDetails.signInUserSession.accessToken.jwtToken)
+            console.log(signInDetails)
+            cookie.set('token', signInDetails.signInUserSession.idToken.jwtToken)
             if (Object.keys(signInDetails).length > 0) {
                 //props.isAuthenticated(true)
                 Router.push('/profile')

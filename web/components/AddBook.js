@@ -41,21 +41,21 @@ const AddBook = () => {
 
 
     const handleSubmit = async (event) => {
-        let attachment
+
         event.preventDefault()
 
         try {
-            if (file) {
-                window.LOG_LEVEL = 'DEBUG';
-                attachemnt = await s3Upload(file)
-            }
+
+            window.LOG_LEVEL = 'DEBUG';
+            setAttachmentURL(await s3Upload(file))
+
 
             addBook({
                 variables: {
                     input: {
                         price: price,
                         description: description,
-                        image: attachment,
+                        image: attachmentURL,
                         edition: edition,
                         title: title,
                         author: author,
@@ -68,6 +68,7 @@ const AddBook = () => {
                     }
                 }
             })
+            console.log(data)
             setPosted(true)
 
         } catch (e) {

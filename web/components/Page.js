@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
 import { Footer, NavigationBar } from 'umqombothi-component-library'
-import Amplify from "@aws-amplify/core";
+//import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
-import { Storage, Auth } from 'aws-amplify'
+import Amplify, { Auth, Storage } from 'aws-amplify'
 import Cookie from 'js-cookie'
 import config from '../config'
 
+/*
 const amplifyConfig = {
     Auth: {
         mandatorySignIn: false,
@@ -26,6 +27,11 @@ Storage.configure({
         region: 'us-east-1',
         bucket: 'pmb-plus-backend-dev-attachmentsbucket-jd0uqhf65247'
     }
+})
+*/
+
+Amplify.configure({
+
 })
 
 class Page extends Component {
