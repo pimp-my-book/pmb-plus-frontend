@@ -11,6 +11,7 @@
     "deploy": "next build && sls deploy --aws-profile pmbPlus"
   },
   "dependencies": {
+    "@apollo/react-components": "^3.1.2",
     "@apollo/react-hooks": "^3.0.1",
     "@apollo/react-ssr": "^3.0.1",
     "@zeit/next-css": "^1.0.1",

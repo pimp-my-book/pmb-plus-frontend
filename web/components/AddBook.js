@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Storage } from 'aws-amplify'
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, Mutation } from '@apollo/react-hooks';
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
 import SuccessImage from './fogg-success-1.svg'
 import { addBookMutation } from '../graphql/Mutations'
@@ -30,11 +30,32 @@ const AddBook = () => {
 
     //File upload state
     let [file, setFile] = useState(null)
-    const [attachmentURL, setAttachmentURL] = useState("")
+    const [imageURL, setimageURL] = useState("")
 
 
-    const handleFileChange = event => {
+    const handleFileChange = async event => {
         file = event.target.files[0]
+
+        try {
+
+            window.LOG_LEVEL = 'DEBUG';
+            const attachment = file ? await s3Upload(file) : nul
+            const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
+            //console.log(attachment)
+            console.log(s3URI)
+
+            setImage(`${s3URI}`)
+            //console.log(image)
+
+
+            // console.log(data)
+            // setPosted(true)
+
+        } catch (e) {
+            alert(e)
+        }
+
+
         setFile(file)
         console.log(file)
     }
@@ -46,8 +67,7 @@ const AddBook = () => {
 
         try {
 
-            window.LOG_LEVEL = 'DEBUG';
-            setAttachmentURL(await s3Upload(file))
+
 
 
             addBook({
@@ -55,7 +75,7 @@ const AddBook = () => {
                     input: {
                         price: price,
                         description: description,
-                        image: attachmentURL,
+                        image: image,
                         edition: edition,
                         title: title,
                         author: author,
@@ -68,7 +88,7 @@ const AddBook = () => {
                     }
                 }
             })
-            console.log(data)
+            // console.log(data)
             setPosted(true)
 
         } catch (e) {
@@ -91,7 +111,36 @@ const AddBook = () => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                        onSubmit={handleSubmit}
+                        onSubmit={async e => {
+                            e.preventDefault()
+                            const attachment = file ? await s3Upload(file) : nul
+                            const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
+                            //console.log(attachment)
+                            console.log(s3URI)
+
+                            setImage(`${s3URI}`)
+                            console.log(image)
+                            await addBook({
+                                variables: {
+                                    input: {
+                                        price: price,
+                                        description: description,
+                                        image: s3URI,
+                                        edition: edition,
+                                        title: title,
+                                        author: author,
+                                        ISBN: ISBN,
+                                        grade: grade,
+                                        location: location,
+                                        univeristy: univeristy,
+                                        course: course,
+                                        degree: degree,
+                                    }
+                                }
+                            })
+                            setPosted(true)
+
+                        }}
                         className=" xl:h-500  mt-10"
                     >
                         <HeadingOne
@@ -254,8 +303,10 @@ const AddBook = () => {
                                     <Input
                                         type="file"
 
-
-                                        onChange={handleFileChange}
+                                        // value={image}
+                                        onChange={e => {
+                                            file = e.target.files[0]
+                                        }}
                                         placeholder="IMAGE"
                                     />
 
