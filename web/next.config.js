@@ -36,6 +36,13 @@ module.exports = withCSS(
             });
 
             return config;
+        },
+
+        env: {
+            'REGION': process.env.REGION,
+            'UserPoolID_Dev': process.env.UserPoolID_Dev,
+            'UserPoolClientID_Dev': process.env.UserPoolClientID_Dev,
+            'IdentityPoolId_Dev': process.env.IdentityPoolId_Dev
         }
 
     }),
