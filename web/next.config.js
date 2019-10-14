@@ -43,7 +43,14 @@ module.exports = withCSS(
             'UserPoolID_Dev': process.env.UserPoolID_Dev,
             'UserPoolClientID_Dev': process.env.UserPoolClientID_Dev,
             'IdentityPoolId_Dev': process.env.IdentityPoolId_Dev,
-            's3Bucket_dev': process.env.s3Bucket_dev
+            's3Bucket_dev': process.env.s3Bucket_dev,
+            'serviceEndpoint_DEV': process.env.serviceEndpoint_DEV,
+            'serviceEndpoint_PROD': process.env.serviceEndpoint_PROD,
+            'UserPoolID_PROD': process.env.UserPoolID_PROD,
+            'UserPoolClientID_PROD': process.env.UserPoolClientID_PROD,
+            'IdentityPoolId_PROD': process.env.IdentityPoolId_PROD,
+            's3Bucket_PROD': process.env.s3Bucket_PROD
+
         }
 
     }),
