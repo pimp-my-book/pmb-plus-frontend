@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
 import Cookie from 'js-cookie'
-import styled from 'styled-components'
 import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
 
 
@@ -20,11 +19,7 @@ const SignUp = ({ }) => {
     const [isLoading, setIsLoading] = useState(false)
     const [confirmationCode, setConfirmationCode] = useState("")
     const [resend, setResend] = useState(false)
-    const FormGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
-    grid-gap: 30px;
-    `
+
 
     //Functions 
     //handleSubmit
