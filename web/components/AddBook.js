@@ -6,7 +6,7 @@ import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton
 import SuccessImage from './fogg-success-1.svg'
 import { addBookMutation } from '../graphql/Mutations'
 import { s3Upload } from '../lib/awsLib'
-
+import FormGrid from './FormGrid'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
@@ -22,11 +22,6 @@ const AddBook = () => {
     const [course, setCourse] = useState("")
     const [univeristy, setUniveristy] = useState("")
     const [addBook, { data, error }] = useMutation(addBookMutation)
-    const FormGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
-    grid-gap: 30px;
-    `
 
     //File upload state
     let [file, setFile] = useState(null)
