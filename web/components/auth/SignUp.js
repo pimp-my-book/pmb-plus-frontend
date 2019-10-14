@@ -3,7 +3,7 @@ import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
 import Cookie from 'js-cookie'
 import { Alert, Textarea, HeadingOne, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
-
+import FormGrid from '../FormGrid'
 
 const SignUp = ({ }) => {
     const [error, setError] = useState("")
