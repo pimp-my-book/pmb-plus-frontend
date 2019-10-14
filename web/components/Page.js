@@ -5,7 +5,7 @@ import { Footer, NavigationBar } from 'umqombothi-component-library'
 //import Auth from "@aws-amplify/auth";
 import Amplify, { Auth, Storage } from 'aws-amplify'
 import Cookie from 'js-cookie'
-import config from '../config'
+
 
 
 
