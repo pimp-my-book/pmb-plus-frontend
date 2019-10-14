@@ -8,17 +8,24 @@ import Cookie from 'js-cookie'
 import config from '../config'
 
 
+
 Amplify.configure({
     Auth: {
         mandatorySignIn: false,
-        region: config.cognito.REGION,
-        userPoolId: config.cognito.USER_POOL_ID,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+        region: process.env.NODE_ENV === 'development' ? process.env.REGION : 'NOWHERE',
+        userPoolId: process.env.NODE_ENV === 'development' ? process.env.UserPoolID_Dev : 'r44',
+        identityPoolId: process.env.NODE_ENV === 'development' ? process.env.IdentityPoolId_Dev : 'r44',
+        userPoolWebClientId: process.env.NODE_ENV === 'development' ? process.env.UserPoolClientID_Dev : 'r44'
+    },
+    Storage: {
+        region: process.env.NODE_ENV === 'development' ? process.env.REGION : 'NOWHERE',
+        identityPoolId: process.env.NODE_ENV === 'development' ? process.env.IdentityPoolId_Dev : 'r44',
+        bucket: process.env.NODE_ENV === 'development' ? process.env.s3Bucket_dev : 'r44',
     }
 })
 
 class Page extends Component {
+
 
 
     //initilize the getInitialProps func and props data
@@ -43,7 +50,6 @@ class Page extends Component {
 
 
     render() {
-
 
 
         return (

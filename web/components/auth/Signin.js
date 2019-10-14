@@ -40,6 +40,8 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
+            console.log(process.env.STAGING)
+            console.log(process.env.NODE_ENV)
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
             console.log(signInDetails)

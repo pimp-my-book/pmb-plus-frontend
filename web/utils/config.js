@@ -25,10 +25,13 @@ const prod = {
     }
 }
 
-const config = process.env.REACT_APP_STAGE === "prod"
+const config = process.env.NODE_ENV === "production"
     ? prod
     : dev;
 
+console.log(process.env.STAGING)
+console.log(process.env.NODE_ENV)
+console.log(config)
 export default {
     ...config
 };
