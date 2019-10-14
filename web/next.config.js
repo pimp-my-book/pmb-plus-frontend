@@ -42,7 +42,8 @@ module.exports = withCSS(
             'REGION': process.env.REGION,
             'UserPoolID_Dev': process.env.UserPoolID_Dev,
             'UserPoolClientID_Dev': process.env.UserPoolClientID_Dev,
-            'IdentityPoolId_Dev': process.env.IdentityPoolId_Dev
+            'IdentityPoolId_Dev': process.env.IdentityPoolId_Dev,
+            's3Bucket_dev': process.env.s3Bucket_dev
         }
 
     }),
