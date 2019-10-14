@@ -7,36 +7,14 @@ import Amplify, { Auth, Storage } from 'aws-amplify'
 import Cookie from 'js-cookie'
 import config from '../config'
 
-/*
-const amplifyConfig = {
-    Auth: {
-        mandatorySignIn: false,
-        region: config.cognito.REGION,
-        userPoolId: 'us-east-1_OQfgqHOIe',
-        identityPoolId: 'us-east-1:a1479600-c174-4c52-84b4-460ecbfb4a07',
-        userPoolWebClientId: '5uo9kjgbmrtugll1o0hv64c5t5'
-    }
-
-}
-
-
-Auth.configure(amplifyConfig.Auth)
-
-Storage.configure({
-    AWSS3: {
-        region: 'us-east-1',
-        bucket: 'pmb-plus-backend-dev-attachmentsbucket-jd0uqhf65247'
-    }
-})
-*/
 
 Amplify.configure({
     Auth: {
         mandatorySignIn: false,
-        region: process.env.REGION,
-        userPoolId: process.env.UserPoolID_Dev,
-        identityPoolId: process.env.IdentityPoolId_Dev,
-        userPoolWebClientId: process.env.UserPoolClientID_Dev
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
     }
 })
 
