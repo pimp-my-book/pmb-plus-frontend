@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import BooksByCouse from './BooksByCouse'
+import BooksByCourse from './BooksByCourse'
 import BooksByDegree from './BooksByDegree'
 
 const LandingPage = () => {
     return (
         <>
             <BooksByDegree />
-            <BooksByCouse />
+            <BooksByCourse />
         </>
     )
 }
