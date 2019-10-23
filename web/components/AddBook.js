@@ -21,7 +21,7 @@ const AddBook = () => {
     const [degree, setDegree] = useState("")
     const [course, setCourse] = useState("")
     const [univeristy, setUniveristy] = useState("")
-    const [addBook, { data, error }] = useMutation(addBookMutation)
+    const [addBook, { data, error: mutationError }] = useMutation(addBookMutation)
 
     //File upload state
     let [file, setFile] = useState(null)
@@ -98,9 +98,9 @@ const AddBook = () => {
             <>
                 <div
                     className="flex mt-5 justify-center">
-                    {error &&
+                    {mutationError &&
                         <Alert
-                            message={error.message}
+                            message={mutationError.message}
                             error />
                     }
                 </div>
