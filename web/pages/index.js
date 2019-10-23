@@ -5,7 +5,7 @@ function Home() {
 
     return (
         <>
-            <div>PMB Plus Front-End! 🤩 </div>
+
 
         </>
     )

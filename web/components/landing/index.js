@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BooksByCouse from './BooksByCouse'
 import BooksByDegree from './BooksByDegree'
 
-const index = () => {
+const LandingPage = () => {
     return (
         <>
             <BooksByDegree />
@@ -10,3 +10,5 @@ const index = () => {
         </>
     )
 }
+
+export default LandingPage

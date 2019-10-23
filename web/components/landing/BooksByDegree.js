@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const index = () => {
+const BooksByDegree = () => {
     return (
         <>
             <h1>Books by degree</h1>
@@ -8,3 +8,5 @@ const index = () => {
         </>
     )
 }
+
+export default BooksByDegree
