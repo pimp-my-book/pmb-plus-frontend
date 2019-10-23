@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Auth from "@aws-amplify/auth";
+import { Auth } from "aws-amplify";
 import Router from 'next/router'
 import cookie from 'js-cookie'
 import { Alert, HeadingOne, Input, LinkButton, BodyText, DarkPinkButton } from 'umqombothi-component-library'
@@ -40,10 +40,12 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
+            console.log(process.env.STAGING)
+            console.log(process.env.NODE_ENV)
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
-            //console.log(signInDetails.signInUserSession.accessToken.jwtToken)
-            cookie.set('token', signInDetails.signInUserSession.accessToken.jwtToken)
+            console.log(signInDetails)
+            cookie.set('token', signInDetails.signInUserSession.idToken.jwtToken)
             if (Object.keys(signInDetails).length > 0) {
                 //props.isAuthenticated(true)
                 Router.push('/profile')

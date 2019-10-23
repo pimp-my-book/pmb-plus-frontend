@@ -2,6 +2,7 @@ import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
+import Cookie from 'js-cookie'
 import Auth from "@aws-amplify/auth";
 import getConfig from 'next/config'
 
@@ -22,14 +23,14 @@ function create(initialState, getToken) {
 
 
     const httpLink = createHttpLink({
-        uri: 'https://localhost/4000/graphql', // Server URL (must be absolute)
+        uri: process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_DEV : process.env.serviceEndpoint_PROD, // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch
     })
 
     const authLink = setContext((_, { headers }) => {
-        const token = getToken()
+        const token = Cookie.get('token')
         console.log(token)
         return {
             headers: {
