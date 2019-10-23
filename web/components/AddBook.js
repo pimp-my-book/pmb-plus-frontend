@@ -100,6 +100,13 @@ const AddBook = () => {
         if (!hasCookie) {
             return (
 
+                <div>
+                    You need to be logged in
+               </div>
+            )
+        }
+        else {
+            return (
                 <>
                     <div
                         className="flex mt-5 justify-center">
@@ -399,51 +406,45 @@ const AddBook = () => {
             )
         }
 
-    } else {
+    }
+
+
+    const renderConfirmtionForm = () => {
+
         return (
-            <div>
-                You need to be logged in
-        </div>
+            <>
+                <div className="flex  flex-col items-center ">
+
+                    <HeadingTwo
+                        className="text-center"
+                        text="Successful Book Post"
+                    />
+                    <img
+                        src={SuccessImage}
+                        className="w-1/2"
+                        alt="success image"
+                    />
+                    <HeadingFive
+                        text="Your book has been posted onto the marketplace and is now avaiable for purchase by other folks."
+                    />
+                    <div
+                        className="p-10"
+                    >
+                        <LinkButton
+                            href="/book"
+                            text="Sell more"
+                        />
+                    </div>
+
+                </div>
+            </>
         )
-}
-
-
-const renderConfirmtionForm = () => {
-
+    }
     return (
         <>
-            <div className="flex  flex-col items-center ">
-
-                <HeadingTwo
-                    className="text-center"
-                    text="Successful Book Post"
-                />
-                <img
-                    src={SuccessImage}
-                    className="w-1/2"
-                    alt="success image"
-                />
-                <HeadingFive
-                    text="Your book has been posted onto the marketplace and is now avaiable for purchase by other folks."
-                />
-                <div
-                    className="p-10"
-                >
-                    <LinkButton
-                        href="/book"
-                        text="Sell more"
-                    />
-                </div>
-
-            </div>
+            {!posted ? renderPostBook() : renderConfirmtionForm()}
         </>
     )
-}
-return (
-    <>
-        {!posted ? renderPostBook() : renderConfirmtionForm()}
-    </>
-)
 }
 
 export default AddBook
