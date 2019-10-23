@@ -21,6 +21,7 @@ const AddBook = () => {
     const [degree, setDegree] = useState("")
     const [course, setCourse] = useState("")
     const [univeristy, setUniveristy] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
     const [addBook, { data, error: mutationError }] = useMutation(addBookMutation)
 
     //File upload state
@@ -112,7 +113,7 @@ const AddBook = () => {
                             const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
                             //console.log(attachment)
                             console.log(s3URI)
-
+                            setIsLoading(true)
                             setImage(`${s3URI}`)
                             console.log(image)
                             await addBook({
@@ -133,8 +134,9 @@ const AddBook = () => {
                                     }
                                 }
                             })
-                            setPosted(true)
 
+                            setPosted(true)
+                            setIsLoading(false)
                         }}
                         className=" xl:h-500  mt-10"
                     >
@@ -376,6 +378,7 @@ const AddBook = () => {
                                     <DarkPinkButton
                                         type="submit"
                                         text="Create account"
+                                        isLoading={isLoading}
                                     />
 
                                 </div>
