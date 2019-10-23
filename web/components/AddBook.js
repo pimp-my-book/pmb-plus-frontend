@@ -108,7 +108,7 @@ const AddBook = () => {
                     <form
                         onSubmit={async e => {
                             e.preventDefault()
-                            const attachment = file ? await s3Upload(file) : nul
+                            const attachment = file ? await s3Upload(file) : null
                             const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
                             //console.log(attachment)
                             console.log(s3URI)
