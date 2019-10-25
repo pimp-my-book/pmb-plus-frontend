@@ -7,7 +7,7 @@ query HELLO {
 `
 
 
-
+//GET_LATEST_BOOKS
 export const GET_LATEST_BOOKS = gql`
 query GET_LATEST_BOOKS{
     getLatestBooks{
@@ -19,7 +19,7 @@ query GET_LATEST_BOOKS{
     }
 }
 `
-
+//GET_BOOKS_BY_DEGREE
 export const GET_BOOKS_BY_DEGREE = gql`
 query GET_BOOKS_BY_DEGREE{
     getBooksByDegree{
@@ -31,7 +31,7 @@ query GET_BOOKS_BY_DEGREE{
     }
 }
 `
-
+//GET_BOOKS_BY_COURSE
 export const GET_BOOKS_BY_COURSE = gql`
 query GET_BOOKS_BY_COURSE{
     getBooksByCourse{
@@ -43,7 +43,7 @@ query GET_BOOKS_BY_COURSE{
     }
 }
 `
-
+//GET_BOOKS_BY_MIN_PRICE
 export const GET_BOOKS_BY_MIN_PRICE = gql`
 query GET_BOOKS_BY_MIN_PRICE{
     getBooksByMinPrice{
@@ -55,7 +55,7 @@ query GET_BOOKS_BY_MIN_PRICE{
     }
 }
 `
-
+//GET_BOOKS_BY_MAX_PRICE
 export const GET_BOOKS_BY_MAX_PRICE = gql`
 query GET_BOOKS_BY_MAX_PRICE{
     getBooksByMaxPrice{
@@ -67,7 +67,7 @@ query GET_BOOKS_BY_MAX_PRICE{
     }
 }
 `
-
+//GET_BOOKS_BY_UNIVERSITY
 export const GET_BOOKS_BY_UNIVERSITY = gql`
 query GET_BOOKS_BY_UNIVERSITY{
     getBooksByUniversity{
