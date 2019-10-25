@@ -6,16 +6,22 @@ const BooksByCourse = () => {
     if (loading) return 'loading..'
     if (error) return `${error.message}`
 
-    const groupByCourse = data.getBooksByCourse
-    console.log(groupByCourse)
+    let groupByCourse = data.getBooksByCourse.reduce((acc, it) => (acc[it.course] = it, acc), {})
+    // console.log(groupByCourseArray)
     return (
         <>
             <h1>Books by course</h1>
-            {data.getBooksByCourse.map(book => (
-                <div key={book.ID}>
-                    {book.title}
-                </div>
-            ))}
+            {
+                Object.keys(groupByCourse).forEach(key => {
+                    let value = groupByCourse[key]
+                    console.log(`${key}: ${Object.values(value)}`);
+                    return (
+                        <div>
+                            {key} : {Object.values(value)}
+                        </div>
+                    )
+                })
+            }
         </>
     )
 }
