@@ -6,8 +6,12 @@ const BooksByCourse = () => {
     if (loading) return 'loading..'
     if (error) return `${error.message}`
 
-    let groupByCourse = data.getBooksByCourse.reduce((acc, it) => (acc[it.course] = it, acc), {})
+    let groupByCourse = data.getBooksByCourse.reduce((acc, it) => (acc[it.course] = it), {})
+    let course = data.getBooksByCourse.reduce((h, obj) => Object.assign(h, { [obj.key]: (h[obj.key] || []).concat(obj) }), {})
     console.log(groupByCourse)
+    console.log(course)
+    const grouped = data.getBooksByCourse.reduce((acc, it) => acc.set(it.course, [...acc.get(it.course) || [], it]), new Map())
+    console.log(grouped)
     return (
         <>
             <h1>Books by course</h1>
