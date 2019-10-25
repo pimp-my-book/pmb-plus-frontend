@@ -49,3 +49,15 @@ query GET_BOOKS_BY_COURSE{
     }
 }
 `
+
+export const GET_BOOKS_BY_MIN_PRICE = gql`
+query GET_BOOKS_BY_MIN_PRICE{
+    getBooksByMinPrice{
+        ID
+        title
+        grade
+        price
+        image
+    }
+}
+`
