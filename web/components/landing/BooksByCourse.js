@@ -7,7 +7,7 @@ const BooksByCourse = () => {
     if (error) return `${error.message}`
 
     let groupByCourse = data.getBooksByCourse.reduce((acc, it) => (acc[it.course] = it, acc), {})
-    // console.log(groupByCourseArray)
+    console.log(groupByCourse)
     return (
         <>
             <h1>Books by course</h1>
@@ -17,7 +17,7 @@ const BooksByCourse = () => {
                     let values = groupByCourse[item]
                     return (
                         <div key={index}>
-                            {item}: {Object.values(values)}
+                            {item}: {Object.values(values)[1]} {Object.values(values)[4]}
                         </div>
                     )
                 })
