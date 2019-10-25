@@ -7,6 +7,7 @@ const BooksByCourse = () => {
     if (error) return `${error.message}`
 
     const groupByCourse = data.getBooksByCourse
+    console.log(groupByCourse)
     return (
         <>
             <h1>Books by course</h1>

@@ -28,6 +28,7 @@ query GET_BOOKS_BY_DEGREE{
         grade
         price
         image
+        degree
     }
 }
 `
@@ -40,6 +41,7 @@ query GET_BOOKS_BY_COURSE{
         grade
         price
         image
+        course
     }
 }
 `
@@ -76,6 +78,7 @@ query GET_BOOKS_BY_UNIVERSITY{
         grade
         price
         image
+        univeristy
     }
 }
 `
