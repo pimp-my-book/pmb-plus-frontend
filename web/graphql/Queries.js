@@ -61,3 +61,15 @@ query GET_BOOKS_BY_MIN_PRICE{
     }
 }
 `
+
+export const GET_BOOKS_BY_MAX_PRICE = gql`
+query GET_BOOKS_BY_MAX_PRICE{
+    getBooksByMaxPrice{
+        ID
+        title
+        grade
+        price
+        image
+    }
+}
+`
