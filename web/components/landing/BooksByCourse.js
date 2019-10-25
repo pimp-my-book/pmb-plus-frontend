@@ -12,18 +12,32 @@ const BooksByCourse = () => {
         <>
             <h1>Books by course</h1>
             {
-                Object.keys(groupByCourse).forEach(key => {
-                    let value = groupByCourse[key]
-                    console.log(`${key}: ${Object.values(value)}`);
+                Object.keys(groupByCourse).map((item, index) => {
+                    console.log(item, index)
+                    let values = groupByCourse[item]
                     return (
-                        <div>
-                            {key} : {Object.values(value)}
+                        <div key={index}>
+                            {item}: {Object.values(values)}
                         </div>
                     )
                 })
+
             }
         </>
     )
 }
 
 export default BooksByCourse
+/*
+
+ Object.keys(groupByCourse).forEach(key => {
+                    let value = groupByCourse[key]
+                    console.log(`${key}: ${Object.values(value)}`);
+                    return (
+                        <div>
+                            Hello
+                            {key} : {Object.values(value)}
+                        </div>
+                    )
+                })
+*/
