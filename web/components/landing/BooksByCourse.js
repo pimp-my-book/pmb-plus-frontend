@@ -77,10 +77,7 @@ What we want is to group all entries by unquie instance of a course
 
 
         acc[it.course] = it,
-        Object.assign(acc, it)
-
-
-
+        acc
 
 
 
