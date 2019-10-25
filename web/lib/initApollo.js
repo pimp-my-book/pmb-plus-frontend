@@ -23,7 +23,7 @@ function create(initialState, getToken) {
 
 
     const httpLink = createHttpLink({
-        uri: process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_DEV : process.env.serviceEndpoint_PROD, // Server URL (must be absolute)
+        uri: 'http://localhost:4000/graphql',//process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_DEV : process.env.serviceEndpoint_PROD, // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch

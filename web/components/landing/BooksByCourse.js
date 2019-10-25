@@ -6,10 +6,11 @@ const BooksByCourse = () => {
     if (loading) return 'loading..'
     if (error) return `${error.message}`
 
+    const groupByCourse = data.getBooksByCourse
     return (
         <>
             <h1>Books by course</h1>
-            {data.getLatestBooks.map(book => (
+            {data.getBooksByCourse.map(book => (
                 <div key={book.ID}>
                     {book.title}
                 </div>
