@@ -6,13 +6,7 @@ query HELLO {
 }
 `
 
-export const NAME = gql`
-query NAME(){
-    name(){
 
-    }
-}
-`
 
 export const GET_LATEST_BOOKS = gql`
 query GET_LATEST_BOOKS{
@@ -65,6 +59,18 @@ query GET_BOOKS_BY_MIN_PRICE{
 export const GET_BOOKS_BY_MAX_PRICE = gql`
 query GET_BOOKS_BY_MAX_PRICE{
     getBooksByMaxPrice{
+        ID
+        title
+        grade
+        price
+        image
+    }
+}
+`
+
+export const GET_BOOKS_BY_UNIVERSITY = gql`
+query GET_BOOKS_BY_UNIVERSITY{
+    getBooksByUniversity{
         ID
         title
         grade
