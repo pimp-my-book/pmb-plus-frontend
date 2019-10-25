@@ -37,3 +37,15 @@ query GET_BOOKS_BY_DEGREE{
     }
 }
 `
+
+export const GET_BOOKS_BY_COURSE = gql`
+query GET_BOOKS_BY_COURSE{
+    getBooksByCourse{
+        ID
+        title
+        grade
+        price
+        image
+    }
+}
+`
