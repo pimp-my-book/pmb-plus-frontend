@@ -12,15 +12,15 @@ import Cookie from 'js-cookie'
 Amplify.configure({
     Auth: {
         mandatorySignIn: false,
-        region: process.env.NODE_ENV === 'development' ? process.env.REGION : 'NOWHERE',
-        userPoolId: process.env.NODE_ENV === 'development' ? process.env.UserPoolID_Dev : 'r44',
-        identityPoolId: process.env.NODE_ENV === 'development' ? process.env.IdentityPoolId_Dev : 'r44',
-        userPoolWebClientId: process.env.NODE_ENV === 'development' ? process.env.UserPoolClientID_Dev : 'r44'
+        region: process.env.REGION,
+        userPoolId: process.env.UserPoolID_Dev,
+        identityPoolId: process.env.IdentityPoolId_Dev,
+        userPoolWebClientId: process.env.UserPoolClientID_Dev
     },
     Storage: {
-        region: process.env.NODE_ENV === 'development' ? process.env.REGION : 'NOWHERE',
-        identityPoolId: process.env.NODE_ENV === 'development' ? process.env.IdentityPoolId_Dev : 'r44',
-        bucket: process.env.NODE_ENV === 'development' ? process.env.s3Bucket_dev : 'r44',
+        region: process.env.REGION,
+        identityPoolId: process.env.IdentityPoolId_Dev,
+        bucket: process.env.s3Bucket_dev
     }
 })
 
