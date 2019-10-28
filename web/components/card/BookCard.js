@@ -7,9 +7,9 @@ const BookCard = ({
     title
 }) => {
     return (
-        <div>
+        <div className="w-300 h-450 shadow-xl">
             <div>
-                <img src={img} alt="book image" />
+                <img src={img} alt="book image" className="w-full" />
             </div>
             <div>
                 <HeadingFive text={title} />
