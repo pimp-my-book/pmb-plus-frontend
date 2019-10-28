@@ -7,6 +7,14 @@ import { GET_BOOKS_BY_DEGREE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
 
 const BooksByDegree = () => {
+    const { loading, error, data } = useQuery(GET_BOOKS_BY_DEGREE)
+    if (loading) return 'loading...'
+    if (error) return `${error.message}`
+
+    const result = data.getBooksByDegree.reduce(function (r, a) { let key = a.degree; r[key] = r[key] || []; r[key].push(a); return r }, {})
+    console.log(data.getBooksByDegree)
+    console.log(result)
+
     return (
         <>
             <h1>Books by degree</h1>
