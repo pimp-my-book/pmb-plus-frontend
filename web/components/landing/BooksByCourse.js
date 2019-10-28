@@ -72,50 +72,33 @@ What we want is to group all entries by unquie instance of a course
 ```
 
     */
-    let groupByCourse = data.getBooksByCourse.reduce((acc, it) => (
 
-
-
-        acc[it.course] = it,
-        acc
-
-
-
-    ), {})
-
-
-
-
-    let course = data.getBooksByCourse.reduce((h, obj) => Object.assign(h, { [obj.key]: (h[obj.key] || []).concat(obj) }), {})
-    console.log(groupByCourse)
-    console.log(course)
-    const grouped = data.getBooksByCourse.reduce((acc, it) => acc.set(it.course, [...acc.get(it.course) || [], it]), new Map())
     const result = data.getBooksByCourse.reduce(function (r, a) { let key = a.course; r[key] = r[key] || []; r[key].push(a); return r }, {})
-    console.log(grouped)
+
     console.log(result)
 
 
-    //MDN FUNCTION
-    const mdnCourse = data.getBooksByCourse.reduce((acc, obj) => {
-        var key = obj[course];
-        if (!acc[key]) {
-            acc[key] = [];
-        }
-        acc[key].push(obj);
-        return acc;
-    }, {})
-
-    console.log(mdnCourse)
+    /*
+        for (var i = 0, len = result.length; i < len; i++) {
+            for (var j = 0, len2 = result[i].length; j < len2; j++) {
+                console.log(result[i][j])
+            }
+        }*/
     return (
         <>
             <h1>Books by course</h1>
             {
-                Object.keys(groupByCourse).map((item, index) => {
+                Object.keys(result).map((item, index) => {
                     console.log(item, index)
-                    let values = groupByCourse[item]
+                    let values = result[item]
+                    console.log(values)
                     return (
                         <div key={index}>
-                            {item}: {Object.values(values)[1]} {Object.values(values)[4]}
+                            {item}: {values.map(book => (
+                                <div>
+                                    {book.ID}
+                                </div>
+                            ))}
                         </div>
                     )
                 })
@@ -138,4 +121,19 @@ export default BooksByCourse
                         </div>
                     )
                 })
+
+
+
+                 {
+                Object.keys(groupByCourse).map((item, index) => {
+                    console.log(item, index)
+                    let values = groupByCourse[item]
+                    return (
+                        <div key={index}>
+                            {item}: {Object.values(values)[1]} {Object.values(values)[4]}
+                        </div>
+                    )
+                })
+
+            }
 */
