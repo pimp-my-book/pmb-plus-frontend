@@ -56,7 +56,7 @@ const ForgotPassword = ({ props }) => {
     }
 
 
-    //validation of confirmation passwords
+    //validation of confirmation passwords [Not done]
 
     const validateResetForm = () => {
         return (

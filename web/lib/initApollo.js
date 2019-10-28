@@ -32,7 +32,7 @@ function create(initialState, getToken) {
 
     const authLink = setContext((_, { headers }) => {
         const token = Cookie.get('token')
-        console.log(token)
+        //console.log(token)
         return {
             headers: {
                 ...headers,

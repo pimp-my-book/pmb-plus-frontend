@@ -39,7 +39,7 @@ const AddBook = () => {
             const attachment = file ? await s3Upload(file) : null
             const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
             //console.log(attachment)
-            console.log(s3URI)
+            // console.log(s3URI)
 
             setImage(`${s3URI}`)
             //console.log(image)
@@ -54,7 +54,7 @@ const AddBook = () => {
 
 
         setFile(file)
-        console.log(file)
+        // console.log(file)
     }
 
 
