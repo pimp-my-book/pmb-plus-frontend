@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
-
+import BookCard from '../card/BookCard'
 
 const BooksByCourse = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_COURSE)
@@ -96,7 +96,13 @@ What we want is to group all entries by unquie instance of a course
                         <div key={index}>
                             {item}: {values.map(book => (
                                 <div>
-                                    {book.ID}
+
+                                    <BookCard
+                                        grade={book.grade}
+                                        img={book.image}
+                                        price={book.price}
+                                        title={book.title}
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -109,31 +115,3 @@ What we want is to group all entries by unquie instance of a course
 }
 
 export default BooksByCourse
-/*
-
- Object.keys(groupByCourse).forEach(key => {
-                    let value = groupByCourse[key]
-                    console.log(`${key}: ${Object.values(value)}`);
-                    return (
-                        <div>
-                            Hello
-                            {key} : {Object.values(value)}
-                        </div>
-                    )
-                })
-
-
-
-                 {
-                Object.keys(groupByCourse).map((item, index) => {
-                    console.log(item, index)
-                    let values = groupByCourse[item]
-                    return (
-                        <div key={index}>
-                            {item}: {Object.values(values)[1]} {Object.values(values)[4]}
-                        </div>
-                    )
-                })
-
-            }
-*/

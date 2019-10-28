@@ -1,5 +1,5 @@
 import React from 'react'
-import HeadingFour from 'umqombothi-component-library'
+import { HeadingFive } from 'umqombothi-component-library'
 const BookCard = ({
     grade,
     img,
@@ -12,9 +12,9 @@ const BookCard = ({
                 <img src={img} alt="book image" />
             </div>
             <div>
-                <HeadingFour text={title} />
-                <HeadingFour text={price} />
-                <HeadingFour text={grade} />
+                <HeadingFive text={title} />
+                <HeadingFive text={price} />
+                <HeadingFive text={grade} />
             </div>
 
         </div>
