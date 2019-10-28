@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_DEGREE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
-
+import { responsive } from '../../utils/responsive'
 const BooksByDegree = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_DEGREE)
     if (loading) return 'loading...'
@@ -18,6 +18,25 @@ const BooksByDegree = () => {
     return (
         <>
             <h1>Books by degree</h1>
+            {
+                Object.keys(result).map((item, index) => {
+                    let values = result[item]
+                    return (
+                        <div key={index}>
+                            <HeadingFive
+                                text={`${item} books`}
+                            />
+                            <Carousel
+                                ssr
+                                arrows={false}
+                                responsive={responsive}>
+
+
+                            </Carousel>
+                        </div>
+                    )
+                })
+            }
 
         </>
     )
