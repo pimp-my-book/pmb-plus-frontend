@@ -9,7 +9,7 @@ const BookCard = ({
     return (
         <div className="w-300 h-450 shadow-xl">
             <div>
-                <img src={img} alt="book image" className="w-full" />
+                <img src={img} alt="book image" className="w-full h-86 " />
             </div>
             <div className="flex flex-col">
                 <HeadingFive text={title} />
