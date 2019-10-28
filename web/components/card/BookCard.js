@@ -11,10 +11,10 @@ const BookCard = ({
             <div>
                 <img src={img} alt="book image" className="w-full" />
             </div>
-            <div>
+            <div className="flex flex-col">
                 <HeadingFive text={title} />
-                <HeadingFive text={price} />
-                <HeadingFive text={grade} />
+                <HeadingFive text={`R ${price}`} />
+                <HeadingFive text={`Grade ${grade}`} />
             </div>
 
         </div>
