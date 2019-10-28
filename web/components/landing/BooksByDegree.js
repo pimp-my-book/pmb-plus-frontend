@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_DEGREE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
-import { responsive } from '../../utils/responsive'
+import responsive from '../../utils/responsive'
 const BooksByDegree = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_DEGREE)
     if (loading) return 'loading...'
@@ -31,7 +31,16 @@ const BooksByDegree = () => {
                                 arrows={false}
                                 responsive={responsive}>
 
-
+                                {values.map(book => (
+                                    <div key={book.ID}>
+                                        <BookCard
+                                            grade={book.grade}
+                                            img={book.image}
+                                            price={book.price}
+                                            title={book.title}
+                                        />
+                                    </div>
+                                ))}
                             </Carousel>
                         </div>
                     )
