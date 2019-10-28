@@ -80,10 +80,23 @@ What we want is to group all entries by unquie instance of a course
 
     console.log(result)
     const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5,
+        },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 10
-        }
+            items: 3,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        },
     }
     /*
         for (var i = 0, len = result.length; i < len; i++) {
@@ -103,17 +116,24 @@ What we want is to group all entries by unquie instance of a course
                         <div key={index}>
                             <HeadingFive
                                 text={`${item} books`}
-                            /> {values.map(book => (
-                                <div>
+                            />
 
-                                    <BookCard
-                                        grade={book.grade}
-                                        img={book.image}
-                                        price={book.price}
-                                        title={book.title}
-                                    />
-                                </div>
-                            ))}
+                            <Carousel responsive={responsive}>
+                                {values.map(book => (
+                                    <div key={book.ID}>
+                                        <BookCard
+                                            grade={book.grade}
+                                            img={book.image}
+                                            price={book.price}
+                                            title={book.title}
+                                        />
+
+                                    </div>
+                                ))}
+                            </Carousel>
+
+
+
                         </div>
                     )
                 })
