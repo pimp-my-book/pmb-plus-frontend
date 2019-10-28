@@ -31,6 +31,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-multi-carousel": "^2.3.0",
     "styled-components": "^4.3.2",
     "umqombothi-component-library": "^1.0.1"
   },
