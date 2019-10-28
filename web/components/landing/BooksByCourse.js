@@ -118,7 +118,10 @@ What we want is to group all entries by unquie instance of a course
                                 text={`${item} books`}
                             />
 
-                            <Carousel responsive={responsive}>
+                            <Carousel
+                                ssr
+                                arrows={false}
+                                responsive={responsive}>
                                 {values.map(book => (
                                     <div key={book.ID}>
                                         <BookCard
