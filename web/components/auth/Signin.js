@@ -40,11 +40,11 @@ const Signin = ({
     const handleSubmit = async event => {
         event.preventDefault();
         try {
-            console.log(process.env.STAGING)
-            console.log(process.env.NODE_ENV)
+            //console.log(process.env.STAGING)
+            //console.log(process.env.NODE_ENV)
             setLoading(true)
             const signInDetails = await Auth.signIn(email, password)
-            console.log(signInDetails)
+            // console.log(signInDetails)
             cookie.set('token', signInDetails.signInUserSession.idToken.jwtToken)
             if (Object.keys(signInDetails).length > 0) {
                 //props.isAuthenticated(true)
@@ -53,7 +53,7 @@ const Signin = ({
 
         } catch (e) {
             setError(e.message)
-            console.log(error)
+            //    console.log(error)
             setLoading(false)
 
         }
