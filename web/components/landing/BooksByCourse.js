@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { HeadingFive } from 'umqombothi-component-library'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
 
@@ -94,7 +95,9 @@ What we want is to group all entries by unquie instance of a course
                     console.log(values)
                     return (
                         <div key={index}>
-                            {item}: {values.map(book => (
+                            <HeadingFive
+                                text={`${item} books`}
+                            /> {values.map(book => (
                                 <div>
 
                                     <BookCard
