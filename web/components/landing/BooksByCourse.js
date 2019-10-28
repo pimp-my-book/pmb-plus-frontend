@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { HeadingFive } from 'umqombothi-component-library'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
 
@@ -77,8 +79,12 @@ What we want is to group all entries by unquie instance of a course
     const result = data.getBooksByCourse.reduce(function (r, a) { let key = a.course; r[key] = r[key] || []; r[key].push(a); return r }, {})
 
     console.log(result)
-
-
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 10
+        }
+    }
     /*
         for (var i = 0, len = result.length; i < len; i++) {
             for (var j = 0, len2 = result[i].length; j < len2; j++) {
