@@ -123,7 +123,7 @@ What we want is to group all entries by unquie instance of a course
                                 arrows={false}
                                 responsive={responsive}>
                                 {values.map(book => (
-                                    <div key={book.ID}>
+                                    <div key={book.ID} className="mb-5">
                                         <BookCard
                                             grade={book.grade}
                                             img={book.image}
