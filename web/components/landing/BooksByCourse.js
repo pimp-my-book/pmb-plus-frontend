@@ -93,6 +93,19 @@ What we want is to group all entries by unquie instance of a course
     const result = data.getBooksByCourse.reduce(function (r, a) { let key = a.course; r[key] = r[key] || []; r[key].push(a); return r }, {})
     console.log(grouped)
     console.log(result)
+
+
+    //MDN FUNCTION
+    const mdnCourse = data.getBooksByCourse.reduce((acc, obj) => {
+        var key = obj[course];
+        if (!acc[key]) {
+            acc[key] = [];
+        }
+        acc[key].push(obj);
+        return acc;
+    }, {})
+
+    console.log(mdnCourse)
     return (
         <>
             <h1>Books by course</h1>
