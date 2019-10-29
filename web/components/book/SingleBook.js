@@ -15,7 +15,9 @@ const SingleBook = ({ }) => {
 
     return (
         <>
-
+            <div>
+                {data.getOneBook.title}
+            </div>
         </>
     )
 }
