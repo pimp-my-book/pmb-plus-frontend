@@ -9,17 +9,17 @@ const SingleBook = ({ }) => {
     const { id } = router.query
     console.log(id)
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
-        variables: { ID: id }
+        variables: { ID: parseInt(id) }
     })
     if (loading) return 'loading..'
     if (error) return `${error.message}`
 
     return (
-        <>
-            <div>
-                {data.getOneBook.title}
-            </div>
-        </>
+
+        <div>
+            {data.getOneBook.title}
+        </div>
+
     )
 }
 

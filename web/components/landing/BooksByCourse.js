@@ -125,8 +125,8 @@ What we want is to group all entries by unquie instance of a course
                                 responsive={responsive}>
                                 {values.map(book => (
                                     <Link
-                                        href='/viewBook/[ID]'
-                                        as={`/viewBook/${book.ID}`}>
+                                        href={`/viewBook?id=${book.ID}`}
+                                        as={`/viewBook?id=${book.ID}`}>
                                         <div key={book.ID} className="mb-5">
 
                                             <BookCard
