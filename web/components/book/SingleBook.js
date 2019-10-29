@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ViewBook = ({ }) => {
+const SingleBook = ({ }) => {
     return (
         <>
 
@@ -8,4 +8,4 @@ const ViewBook = ({ }) => {
     )
 }
 
-export default ViewBook
+export default SingleBook
