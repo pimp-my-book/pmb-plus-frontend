@@ -3,7 +3,7 @@ import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
 import Cookie from 'js-cookie'
-import Auth from "@aws-amplify/auth";
+import { Auth } from "aws-amplify";
 import getConfig from 'next/config'
 
 
@@ -30,13 +30,15 @@ function create(initialState, getToken) {
         fetch: !isBrowser && fetch
     })
 
-    const authLink = setContext((_, { headers }) => {
+    const authLink = setContext(async (_, { headers }) => {
         const token = Cookie.get('token')
-        //console.log(token)
+        const anonymousUser = await Auth.currentCredentials()
+
+        //console.log(anonymousUser.data.Credentials.SessionToken)
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : null
+                authorization: token ? `Bearer ${token}` : `Bearer ${anonymousUser.data.Credentials.SessionToken}`
             }
         }
     })
