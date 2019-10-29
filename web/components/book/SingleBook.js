@@ -19,7 +19,21 @@ const SingleBook = ({ }) => {
 
         <div>
             <BookGrid>
+                {/*START: */}
+                {/* END:*/}
 
+                {/*START:Top left spot */}
+                {/*END: Top left spot */}
+
+
+                {/*START: Top Right*/}
+                {/* END:Top Right*/}
+
+                {/*START: bottom left*/}
+                {/* END: bottom left*/}
+
+                {/*START: bottom Right*/}
+                {/* END: bottom Right*/}
             </BookGrid>
             {data.getOneBook.title}
         </div>
