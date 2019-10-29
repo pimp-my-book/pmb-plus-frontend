@@ -47,9 +47,20 @@ const SingleBook = ({ }) => {
                 {/* END:Top Right*/}
 
                 {/*START: bottom left*/}
+                <div>
+                    <HeadingOne text={book.author} />
+                    <HeadingFive text={book.ISBN} />
+                    <HeadingFive text={book.edition} />
+
+                </div>
                 {/* END: bottom left*/}
 
                 {/*START: bottom Right*/}
+                <div>
+
+                    <HeadingFive text={book.location} />
+
+                </div>
                 {/* END: bottom Right*/}
             </BookGrid>
 
