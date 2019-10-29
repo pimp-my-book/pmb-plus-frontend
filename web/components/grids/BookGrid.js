@@ -2,6 +2,6 @@ import styled from 'styled-components'
 
 const BookGrid = styled.div`
 display: grid;
-grid-template-rows
+grid-template-columns: repeat(auto-fit,minmax(320px,1fr))
 
 `
