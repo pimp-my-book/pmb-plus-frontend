@@ -39,7 +39,10 @@ const SingleBook = ({ }) => {
 
                 {/*START: Top Right*/}
                 <div>
-                    {book.title}
+                    <HeadingOne text={book.title} />
+                    <HeadingFive text={book.price} />
+                    <HeadingFive text={book.grade} />
+                    <HeadingFive text={book.ownerName} />
                 </div>
                 {/* END:Top Right*/}
 
