@@ -1,3 +1,10 @@
+
+/*
+This component renders an indivual instance of a book
+from the API. It needs an ID which it gets from 
+querying the route path
+
+*/
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/react-hooks'
@@ -19,10 +26,9 @@ const SingleBook = ({ }) => {
 
         <div>
             <BookGrid>
-                {/*START: */}
-                {/* END:*/}
 
                 {/*START:Top left spot */}
+
                 {/*END: Top left spot */}
 
 
