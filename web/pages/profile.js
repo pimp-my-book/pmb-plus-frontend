@@ -3,7 +3,7 @@ import Auth from "@aws-amplify/auth";
 import Cookie from 'js-cookie'
 
 const profile = (props) => {
-    console.log(props)
+    //console.log(props)
     const hasCookie = Cookie.get('token')
     if (!hasCookie) {
         return (
