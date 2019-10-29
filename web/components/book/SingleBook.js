@@ -7,6 +7,7 @@ const SingleBook = ({ }) => {
 
     const router = useRouter()
     const { id } = router.query
+    console.log(id)
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
         variables: { ID: id }
     })

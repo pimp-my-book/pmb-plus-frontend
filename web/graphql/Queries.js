@@ -86,7 +86,7 @@ query GET_BOOKS_BY_UNIVERSITY{
 
 //GET_ONE_BOOK
 export const GET_ONE_BOOK = gql`
- query GET_ONE_BOOK($ID:String! ){
+ query GET_ONE_BOOK($ID: Int! ){
      getOneBook(ID:$ID){
             title
 			description
@@ -104,5 +104,6 @@ export const GET_ONE_BOOK = gql`
 			ownerName
 			owner
 			dateUploaded
+ }
  }
 `
