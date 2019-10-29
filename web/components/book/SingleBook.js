@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
+import BookGrid from '../grids/BookGrid'
 
 const SingleBook = ({ }) => {
 
@@ -17,6 +18,9 @@ const SingleBook = ({ }) => {
     return (
 
         <div>
+            <BookGrid>
+
+            </BookGrid>
             {data.getOneBook.title}
         </div>
 
