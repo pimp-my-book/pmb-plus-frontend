@@ -43,9 +43,14 @@ const SingleBook = ({ }) => {
                     <div className="flex flex-row ">
                         <HeadingFive className="mr-2" text="Price" />  <HeadingFive className="text-green" text={`R ${book.price}`} />
                     </div>
+                    <div className="flex flex-row ">
+                        <HeadingFive text={book.grade} />
+                    </div>
+                    <div className="flex flex-row ">
+                        <HeadingFive text={book.ownerName} />
+                    </div>
 
-                    <HeadingFive text={book.grade} />
-                    <HeadingFive text={book.ownerName} />
+
                 </div>
                 {/* END:Top Right*/}
 
