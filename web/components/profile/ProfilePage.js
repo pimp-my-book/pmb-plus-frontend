@@ -13,18 +13,18 @@ const ProfilePage = ({ }) => {
     return (
         <>
             <div>
-                <div class="flex flex-row p-20">
+                <div className="flex flex-row p-20">
                     <HeadingOne text="User's name" className="mr-10" />
                     <img src={Avatar} alt="Avatar image" />
 
                 </div>
 
-                <div>
-                    <div>
-                        <img src={Bookmark} alt="Avatar image" />     <HeadingTwo text="My books" className="mr-10" />
+                <div className=" p-20">
+                    <div className="flex flex-row">
+                        <img src={Bookmark} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My books" className="mr-10" />
                     </div>
-                    <div>
-                        <img src={Chat} alt="Avatar image" />     <HeadingTwo text="My chats" className="mr-10" />
+                    <div className="flex flex-row mt-10">
+                        <img src={Chat} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My chats" className="mr-10" />
                     </div>
                 </div>
 
