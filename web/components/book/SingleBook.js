@@ -27,7 +27,7 @@ const SingleBook = ({ }) => {
     const book = data.getOneBook
     return (
 
-        <div>
+        <div className="s:flex s:flex-col">
             <BookGrid>
 
                 {/*START:Top left spot */}
