@@ -11,8 +11,8 @@ const ProfilePage = ({ }) => {
     return (
         <>
             <div>
-                <div>
-                    <HeadingOne text="User's name" />
+                <div class="flex flex-row p-20">
+                    <HeadingOne text="User's name" className="mr-10" />
                     <img src={Avatar} alt="Avatar image" />
 
                 </div>
