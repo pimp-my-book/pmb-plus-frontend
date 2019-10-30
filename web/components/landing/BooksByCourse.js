@@ -125,6 +125,7 @@ What we want is to group all entries by unquie instance of a course
                                 responsive={responsive}>
                                 {values.map(book => (
                                     <Link
+                                        className="cursor-pointer"
                                         href={`/viewBook?id=${book.ID}`}
                                         as={`/viewBook?id=${book.ID}`}>
                                         <div key={book.ID} className="mb-5">
