@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { HeadingFive } from 'umqombothi-component-library'
 import Carousel from 'react-multi-carousel'
+import Link from 'next/link'
 import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
@@ -123,15 +124,21 @@ What we want is to group all entries by unquie instance of a course
                                 arrows={false}
                                 responsive={responsive}>
                                 {values.map(book => (
-                                    <div key={book.ID} className="mb-5">
-                                        <BookCard
-                                            grade={book.grade}
-                                            img={book.image}
-                                            price={book.price}
-                                            title={book.title}
-                                        />
+                                    <Link
+                                        className="cursor-pointer"
+                                        href={`/viewBook?id=${book.ID}`}
+                                        as={`/viewBook?id=${book.ID}`}>
+                                        <div key={book.ID} className="mb-5">
 
-                                    </div>
+                                            <BookCard
+                                                grade={book.grade}
+                                                img={book.image}
+                                                price={book.price}
+                                                title={book.title}
+                                            />
+
+                                        </div>
+                                    </Link>
                                 ))}
                             </Carousel>
 

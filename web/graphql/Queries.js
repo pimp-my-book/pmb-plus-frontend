@@ -82,3 +82,28 @@ query GET_BOOKS_BY_UNIVERSITY{
     }
 }
 `
+
+
+//GET_ONE_BOOK
+export const GET_ONE_BOOK = gql`
+ query GET_ONE_BOOK($ID: Int! ){
+     getOneBook(ID:$ID){
+            title
+			description
+			author
+			grade
+			price
+			image
+			edition
+			location
+			ISBN
+			degree
+			course
+			univeristy
+			ownerEmail
+			ownerName
+			owner
+			dateUploaded
+ }
+ }
+`
