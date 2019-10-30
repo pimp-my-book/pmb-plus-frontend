@@ -76,7 +76,7 @@ const SingleBook = ({ }) => {
                 {/*START: bottom Right*/}
                 <div className="d">
 
-                    <HeadingFive text={book.location} />
+                    <HeadingFive text={`This book was posted near ${book.location}`} />
 
                 </div>
                 {/* END: bottom Right*/}
