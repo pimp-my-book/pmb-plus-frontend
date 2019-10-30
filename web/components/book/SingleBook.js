@@ -38,16 +38,16 @@ const SingleBook = ({ }) => {
 
 
                 {/*START: Top Right*/}
-                <div className="b">
+                <div className="p-10">
                     <HeadingOne text={book.title} />
-                    <div className="flex flex-row ">
+                    <div className="flex flex-row mt-5">
                         <HeadingFive className="mr-2" text="Price" />  <HeadingFive className="text-green" text={`R ${book.price}`} />
                     </div>
-                    <div className="flex flex-row ">
+                    <div className="flex flex-row mt-5">
                         <HeadingFive className="mr-2" text="Grade" />      <HeadingFive text={book.grade} />
                     </div>
-                    <div className="flex flex-row ">
-                        <HeadingFive text={book.ownerName} />
+                    <div className="flex flex-row mt-5">
+                        <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerName} />
                     </div>
 
 
