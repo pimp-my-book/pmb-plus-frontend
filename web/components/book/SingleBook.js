@@ -8,7 +8,7 @@ querying the route path
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/react-hooks'
-import { HeadingOne, HeadingFive, BodyText } from 'umqombothi-component-library'
+import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import BookGrid from '../grids/BookGrid'
 import Avatar from '../../assets/Avatar_Shape.svg'
@@ -56,9 +56,10 @@ const SingleBook = ({ }) => {
 
                 {/*START: bottom left*/}
                 <div className="c">
-                    <HeadingOne text={book.author} />
-                    <HeadingFive text={book.ISBN} />
-                    <HeadingFive text={book.edition} />
+                    <HeadingTwo text="Book details" />
+                    <BodyText text={book.author} />
+                    <BodyText text={book.ISBN} />
+                    <BodyText text={book.edition} />
 
                 </div>
                 {/* END: bottom left*/}
