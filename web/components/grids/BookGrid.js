@@ -8,7 +8,10 @@ import styled from 'styled-components'
 
 const BookGrid = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit,minmax(320px,1fr))
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+
+
 
 `
 

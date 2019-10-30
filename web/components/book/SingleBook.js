@@ -31,14 +31,14 @@ const SingleBook = ({ }) => {
             <BookGrid>
 
                 {/*START:Top left spot */}
-                <div>
+                <div className="a">
                     <img src={book.image} alt={`Image of ${book.title}`} />
                 </div>
                 {/*END: Top left spot */}
 
 
                 {/*START: Top Right*/}
-                <div>
+                <div className="b">
                     <HeadingOne text={book.title} />
                     <HeadingFive text={book.price} />
                     <HeadingFive text={book.grade} />
@@ -47,7 +47,7 @@ const SingleBook = ({ }) => {
                 {/* END:Top Right*/}
 
                 {/*START: bottom left*/}
-                <div>
+                <div className="c">
                     <HeadingOne text={book.author} />
                     <HeadingFive text={book.ISBN} />
                     <HeadingFive text={book.edition} />
@@ -56,7 +56,7 @@ const SingleBook = ({ }) => {
                 {/* END: bottom left*/}
 
                 {/*START: bottom Right*/}
-                <div>
+                <div className="d">
 
                     <HeadingFive text={book.location} />
 
