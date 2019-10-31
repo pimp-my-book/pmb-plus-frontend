@@ -12,6 +12,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
+import BookModal from './BookModal'
 const MyBooks = () => {
 
     //state
@@ -28,8 +29,8 @@ const MyBooks = () => {
     const books = data.getMyBooks
 
     //Fucntions to handle closing and opening of modal
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const handleClose = () => { setShow(false) }
+    const handleShow = () => { setShow(true) }
     return (
         <>
             <div>
@@ -39,13 +40,19 @@ const MyBooks = () => {
                     books.map(book => (
                         (
                             <div className="flex flex-row p-10">
-                                <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" />
+                                <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={handleShow} />
                             </div>
                         )
                     )
                     )
                 }
             </div>
+            <BookModal
+                show={show ? show : null}
+                onHide={handleClose}
+            >
+                Hi
+            </BookModal>
 
         </>
     )
