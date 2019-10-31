@@ -4,6 +4,7 @@ to their books and chats
 
 */
 import React from 'react'
+import Link from 'next/link'
 import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
@@ -21,7 +22,9 @@ const ProfilePage = ({ }) => {
 
                 <div className=" p-20">
                     <div className="flex flex-row">
-                        <img src={Bookmark} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My books" className="mr-10" />
+                        <Link href='/mybooks' to={'/mybooks'}>
+                            <img src={Bookmark} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My books" className="mr-10" />
+                        </Link>
                     </div>
                     <div className="flex flex-row mt-10">
                         <img src={Chat} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My chats" className="mr-10" />
