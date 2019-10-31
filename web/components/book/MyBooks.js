@@ -19,6 +19,7 @@ const MyBooks = () => {
     //state
     const [show, setShow] = useState(false)
 
+    const [targetID, setTargetID] = useState(0)
     //query hook
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
         variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
@@ -29,9 +30,13 @@ const MyBooks = () => {
 
     const books = data.getMyBooks
 
+
     //Fucntions to handle closing and opening of modal
     const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const handleShow = (ID) => {
+        setShow(true)
+        setTargetID(ID)
+    }
     return (
         <>
             <div>
@@ -41,7 +46,7 @@ const MyBooks = () => {
                     books.map(book => (
                         (
                             <div className="flex flex-row p-10">
-                                <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={handleShow} />
+                                <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
                             </div>
                         )
                     )
@@ -59,7 +64,7 @@ const MyBooks = () => {
                             text="Time to edit your book"
                         />
 
-
+                        {targetID}
                         <hr
                             className="border-greyDark"
                         />
