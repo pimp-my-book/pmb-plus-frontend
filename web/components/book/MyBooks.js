@@ -19,8 +19,8 @@ const MyBooks = () => {
                 {
                     books.map(book => (
                         (
-                            <div>
-                                <img src={book.image} alt="book image" />  <HeadingFive text={book.title} />  <img src={Edit} alt="edit icon" />
+                            <div className="flex flex-row">
+                                <img className="w-24 h-24" src={book.image} alt="book image" />  <HeadingFive text={book.title} />  <img src={Edit} alt="edit icon" />
                             </div>
                         )
                     )
