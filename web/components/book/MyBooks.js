@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
+import { HeadingOne, HeadingThree, HeadingFive, BodyText } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 const MyBooks = () => {
@@ -20,7 +20,7 @@ const MyBooks = () => {
                     books.map(book => (
                         (
                             <div>
-                                <HeadingTwo text={book.title} />  <img src={Edit} alt="edit icon" />
+                                <HeadingFive text={book.title} />  <img src={Edit} alt="edit icon" />
                             </div>
                         )
                     )
