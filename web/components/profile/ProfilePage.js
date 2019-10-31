@@ -21,11 +21,13 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div className=" p-20">
-                    <div className="flex flex-row">
-                        <Link href='/mybooks' to={'/mybooks'}>
+                    <Link href='/mybooks' to={'/mybooks'}>
+                        <div className="flex flex-row cursor-pointer">
+
                             <img src={Bookmark} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My books" className="mr-10" />
-                        </Link>
-                    </div>
+
+                        </div>
+                    </Link>
                     <div className="flex flex-row mt-10">
                         <img src={Chat} alt="Avatar image" className="mr-10" />     <HeadingTwo text="My chats" className="mr-10" />
                     </div>
