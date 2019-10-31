@@ -5,6 +5,9 @@ books to allow them to edit and deactive their books
 It its the API for the `getMyBooks` query. It has
 state to handle the editing of the book via modal
 
+
+To be able to render the modal the component needs to be split up into two
+
 */
 
 import React, { useState } from 'react'
@@ -289,6 +292,8 @@ const RenderModal = (targetID) => {
         </>
     )
 }
+
+
 const MyBooks = () => {
 
     //state
