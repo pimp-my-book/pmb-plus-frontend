@@ -16,20 +16,14 @@ const MyBooks = () => {
             <div>
                 My books
                 {
-                    Object.keys(books).map((item, index) => {
-                        let values = result[item]
-                        return (
-                            <div key={index}>
-                                {
-                                    values.map(myBooks => (
-                                        <div key={myBooks.ID}>
-                                            {myBooks.title}
-                                        </div>
-                                    ))
-                                }
+                    books.map(book => (
+                        (
+                            <div>
+                                {book.title}
                             </div>
                         )
-                    })
+                    )
+                    )
                 }
             </div>
 
@@ -38,3 +32,4 @@ const MyBooks = () => {
 }
 
 export default MyBooks
+
