@@ -20,7 +20,7 @@ const MyBooks = () => {
                     books.map(book => (
                         (
                             <div>
-                                <HeadingFive text={book.title} />  <img src={Edit} alt="edit icon" />
+                                <img src={book.image} alt="book image" />  <HeadingFive text={book.title} />  <img src={Edit} alt="edit icon" />
                             </div>
                         )
                     )
