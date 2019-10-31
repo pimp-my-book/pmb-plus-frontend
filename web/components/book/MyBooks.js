@@ -9,7 +9,7 @@ state to handle the editing of the book via modal
 
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input } from 'umqombothi-component-library'
+import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 import BookModal from './BookModal'
@@ -80,8 +80,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={grade}
-                                        onChange={e => setGrade(e.target.value)}
+                                        // value={grade}
+                                        //   onChange={e => setGrade(e.target.value)}
                                         placeholder="A"
                                     />
 
@@ -94,8 +94,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={price}
-                                        onChange={e => setPrice(e.target.value)}
+                                        // value={price}
+                                        //  onChange={e => setPrice(e.target.value)}
                                         placeholder="R4566"
                                     />
 
@@ -108,8 +108,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={location}
-                                        onChange={e => setLocation(e.target.value)}
+                                        //  value={location}
+                                        // onChange={e => setLocation(e.target.value)}
                                         placeholder="Cape Town"
                                     />
 
@@ -122,8 +122,8 @@ const MyBooks = () => {
                                     <Textarea
                                         type="text"
                                         required
-                                        value={description}
-                                        onChange={e => setDescription(e.target.value)}
+                                        //value={description}
+                                        // onChange={e => setDescription(e.target.value)}
                                         placeholder="Used it for subject made me fail"
                                     />
 
@@ -154,8 +154,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={title}
-                                        onChange={e => setTitle(e.target.value)}
+                                        // value={title}
+                                        // onChange={e => setTitle(e.target.value)}
                                         placeholder="How On Earth?"
                                     />
 
@@ -169,8 +169,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={author}
-                                        onChange={e => setAuthor(e.target.value)}
+                                        // value={author}
+                                        /// onChange={e => setAuthor(e.target.value)}
                                         placeholder="Terence McCathy"
                                     />
 
@@ -184,8 +184,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={ISBN}
-                                        onChange={e => setISBN(e.target.value)}
+                                        //value={ISBN}
+                                        // onChange={e => setISBN(e.target.value)}
                                         placeholder="978177074859"
                                     />
 
@@ -199,8 +199,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={edition}
-                                        onChange={e => setEdition(e.target.value)}
+                                        // value={edition}
+                                        // onChange={e => setEdition(e.target.value)}
                                         placeholder="4th"
                                     />
 
@@ -215,9 +215,7 @@ const MyBooks = () => {
                                         type="file"
 
                                         // value={image}
-                                        onChange={e => {
-                                            file = e.target.files[0]
-                                        }}
+
                                         placeholder="IMAGE"
                                     />
 
@@ -249,8 +247,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={univeristy}
-                                        onChange={e => setUniveristy(e.target.value)}
+                                        //  value={univeristy}
+                                        //  onChange={e => setUniveristy(e.target.value)}
                                         placeholder="UCT"
                                     />
 
@@ -264,8 +262,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={course}
-                                        onChange={e => setCourse(e.target.value)}
+                                        //  value={course}
+                                        // onChange={e => setCourse(e.target.value)}
                                         placeholder="CTV 109"
                                     />
 
@@ -279,8 +277,8 @@ const MyBooks = () => {
                                     <Input
                                         type="text"
                                         required
-                                        value={degree}
-                                        onChange={e => setDegree(e.target.value)}
+                                        //  value={degree}
+                                        //  onChange={e => setDegree(e.target.value)}
                                         placeholder="BSC Chem"
                                     />
 
