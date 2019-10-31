@@ -1,3 +1,12 @@
+/*
+This component is meant to render all the users'
+books to allow them to edit and deactive their books
+
+It its the API for the `getMyBooks` query. It has
+state to handle the editing of the book via modal
+
+*/
+
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText } from 'umqombothi-component-library'
