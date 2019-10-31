@@ -10,7 +10,10 @@ const BookModal = ({ onHide, children, ...props }) => {
     return (
         <>
             <div {...props} className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-white" >
-                <span onClick={onHide} >&times;</span>
+                <div className="flex">
+                    <span onClick={onHide} >&times;</span>
+                </div>
+
                 {children}
 
             </div>
