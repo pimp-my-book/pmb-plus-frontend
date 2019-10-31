@@ -114,6 +114,7 @@ query GET_MY_BOOKS($owner: String!){
     getMyBooks(owner: $owner){
         ID
         title
+        image
     }
 }
 `
