@@ -7,12 +7,17 @@ state to handle the editing of the book via modal
 
 */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 const MyBooks = () => {
+
+    //state
+    const [show, setShow] = useState(false)
+
+
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
         variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
     })
@@ -21,6 +26,10 @@ const MyBooks = () => {
     if (error) return `${error.message}`
 
     const books = data.getMyBooks
+
+    //Fucntions to handle closing and opening of modal
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
     return (
         <>
             <div>
