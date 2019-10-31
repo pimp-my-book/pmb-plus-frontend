@@ -20,13 +20,14 @@ import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 
 
-const RenderModal = (targetID) => {
+const RenderModal = (targetID, show) => {
 
 
     //query hook - for geting one book
 
+    console.log(Object.values(targetID)[0])
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
-        variables: { ID: targetID }
+        variables: { ID: Object.values(targetID)[0] }
     })
 
     if (loading) return 'loading your book...'
