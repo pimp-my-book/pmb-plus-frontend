@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 
 const MyBooks = () => {
@@ -19,7 +20,7 @@ const MyBooks = () => {
                     books.map(book => (
                         (
                             <div>
-                                {book.title}
+                                <HeadingTwo text={book.title} />
                             </div>
                         )
                     )
