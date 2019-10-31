@@ -56,7 +56,7 @@ const MyBooks = () => {
                     <form>
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"
-                            text="Lets sell your book"
+                            text="Time to edit your book"
                         />
 
 
@@ -290,7 +290,7 @@ const MyBooks = () => {
                                     <DarkPinkButton
                                         type="submit"
                                         text="Create account"
-                                        isLoading={mutationError ? !isLoading : isLoading}
+                                    //isLoading={mutationError ? !isLoading : isLoading}
                                     />
 
                                 </div>
