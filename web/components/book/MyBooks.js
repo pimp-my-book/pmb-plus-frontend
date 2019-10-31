@@ -4,7 +4,7 @@ import { GET_MY_BOOKS } from '../../graphql/Queries'
 
 const MyBooks = () => {
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { ID: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
+        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
     })
 
     if (loading) return 'loading...'
