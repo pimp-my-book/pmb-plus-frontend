@@ -22,9 +22,9 @@ const MyBooks = () => {
                             <div key={index}>
                                 {
                                     values.map(myBooks => (
-                                        {
-                                            myBooks.title
-                                        }
+                                        <div key={myBooks.ID}>
+                                            {myBooks.title}
+                                        </div>
                                     ))
                                 }
                             </div>
