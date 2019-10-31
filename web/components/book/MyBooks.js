@@ -18,7 +18,7 @@ const MyBooks = () => {
     //state
     const [show, setShow] = useState(false)
 
-
+    //query hook
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
         variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
     })
@@ -29,8 +29,8 @@ const MyBooks = () => {
     const books = data.getMyBooks
 
     //Fucntions to handle closing and opening of modal
-    const handleClose = () => { setShow(false) }
-    const handleShow = () => { setShow(true) }
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
     return (
         <>
             <div>
@@ -47,14 +47,15 @@ const MyBooks = () => {
                     )
                 }
             </div>
-            <BookModal
-                show={show ? show : null}
+            {show && <BookModal
+                show={show}
                 onHide={handleClose}
             >
                 Hi
-            </BookModal>
+            </BookModal>}
 
         </>
+
     )
 }
 

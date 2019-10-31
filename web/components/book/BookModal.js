@@ -6,10 +6,11 @@ It will consume a mutation to to edit the book
 
 import React from 'react'
 
-const BookModal = ({ show, onHide, children, ...props }) => {
+const BookModal = ({ onHide, children, ...props }) => {
     return (
         <>
-            <div show={show} onHide={onHide} {...props}>
+            <div {...props} >
+                <span onClick={onHide} >&times;</span>
                 {children}
 
             </div>
