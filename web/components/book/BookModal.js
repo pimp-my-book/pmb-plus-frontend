@@ -5,10 +5,11 @@ It will consume a mutation to to edit the book
 */
 
 import React from 'react'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
+import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
 const BookModal = ({ onHide, children, targetID, show, ...props }) => {
 
 
@@ -20,8 +21,9 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
     if (error) return `${error.message}`
 
     const editableBook = data.getOneBook
+    const [editBook] = useMutation(EDIT_BOOK_MUTATION)
 
-
+    let priceRef, descriptionRef, imageRef, editionRef, titleRef, authorRef, ISBNRef, gradeRef, locationRef, univeristyRef, courseRef, degreeRef
     return (
         <>
             <div show={show} {...props} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
