@@ -98,7 +98,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        //  value={location}
+                                        defaultValue={editableBook.location}
                                         // onChange={e => setLocation(e.target.value)}
                                         placeholder="Cape Town"
                                     />
@@ -112,7 +112,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Textarea
                                         type="text"
                                         required
-                                        //value={description}
+                                        defaultValue={editableBook.description}
                                         // onChange={e => setDescription(e.target.value)}
                                         placeholder="Used it for subject made me fail"
                                     />
@@ -144,7 +144,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={title}
+                                        defaultValue={editableBook.title}
                                         // onChange={e => setTitle(e.target.value)}
                                         placeholder="How On Earth?"
                                     />
@@ -159,7 +159,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={author}
+                                        defaultValue={editableBook.author}
                                         /// onChange={e => setAuthor(e.target.value)}
                                         placeholder="Terence McCathy"
                                     />
@@ -174,7 +174,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        //value={ISBN}
+                                        defaultValue={editableBook.ISBN}
                                         // onChange={e => setISBN(e.target.value)}
                                         placeholder="978177074859"
                                     />
@@ -189,7 +189,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={edition}
+                                        defaultValue={editableBook.edition}
                                         // onChange={e => setEdition(e.target.value)}
                                         placeholder="4th"
                                     />
@@ -237,7 +237,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        //  value={univeristy}
+                                        defaultValue={editableBook.univeristy}
                                         //  onChange={e => setUniveristy(e.target.value)}
                                         placeholder="UCT"
                                     />
@@ -252,7 +252,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        //  value={course}
+                                        defaultValue={editableBook.course}
                                         // onChange={e => setCourse(e.target.value)}
                                         placeholder="CTV 109"
                                     />
@@ -267,7 +267,7 @@ const RenderModal = ({ targetID, show }) => {
                                     <Input
                                         type="text"
                                         required
-                                        //  value={degree}
+                                        defaultValue={editableBook.degree}
                                         //  onChange={e => setDegree(e.target.value)}
                                         placeholder="BSC Chem"
                                     />
