@@ -20,20 +20,21 @@ import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 
 
-const RenderModal = (targetID, show) => {
+const RenderModal = ({ targetID, show }) => {
 
 
     //query hook - for geting one book
 
-    console.log(Object.values(targetID)[0])
+
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
-        variables: { ID: Object.values(targetID)[0] }
+        variables: { ID: targetID }
     })
 
     if (loading) return 'loading your book...'
     if (error) return `${error.message}`
 
     const editableBook = data.getOneBook
+    console.log(editableBook)
     return (
         <>
             <BookModal
@@ -69,7 +70,7 @@ const RenderModal = (targetID, show) => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={grade}
+                                        defaultValue={editableBook.grade}
                                         //   onChange={e => setGrade(e.target.value)}
                                         placeholder="A"
                                     />
@@ -83,7 +84,7 @@ const RenderModal = (targetID, show) => {
                                     <Input
                                         type="text"
                                         required
-                                        // value={price}
+                                        defaultValue={editableBook.price}
                                         //  onChange={e => setPrice(e.target.value)}
                                         placeholder="R4566"
                                     />
@@ -301,7 +302,7 @@ const MyBooks = () => {
     //state
     const [show, setShow] = useState(false)
 
-    const [targetID, setTargetID] = useState(0)
+    const [targetID, setTargetID] = useState("")
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
         variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
@@ -319,7 +320,7 @@ const MyBooks = () => {
     //Here we need to set the ID of the book in order to feed it to the query
     const handleShow = (ID) => {
         setShow(true)
-        setTargetID(ID)
+        setTargetID(parseInt(ID))
     }
     return (
         <>
