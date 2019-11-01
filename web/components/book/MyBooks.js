@@ -38,7 +38,8 @@ const RenderModal = (targetID, show) => {
         <>
             <BookModal
                 show={show}
-                onHide={handleClose}>
+            //onHide={handleClose}
+            >
 
                 <div className="flex justify-center mb-20">
                     <form>
@@ -336,7 +337,7 @@ const MyBooks = () => {
                     )
                 }
             </div>
-            {show && <RenderModal targetID={targetID} />}
+            {show && <RenderModal targetID={targetID} show={show} />}
 
         </>
 
