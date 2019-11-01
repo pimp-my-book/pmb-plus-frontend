@@ -10,8 +10,9 @@ import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkP
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
-const BookModal = ({ onHide, targetID, show, ...props }) => {
+const BookModal = ({ onHide, targetID, show }) => {
 
+    const [editBook] = useMutation(EDIT_BOOK_MUTATION)
 
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
         variables: { ID: targetID }
@@ -21,7 +22,6 @@ const BookModal = ({ onHide, targetID, show, ...props }) => {
     if (error) return `${error.message}`
 
     const editableBook = data.getOneBook
-    const [editBook] = useMutation(EDIT_BOOK_MUTATION)
 
     let priceRef, descriptionRef, imageRef, editionRef, titleRef, authorRef, ISBNRef, gradeRef, locationRef, univeristyRef, courseRef, degreeRef
 
@@ -49,13 +49,13 @@ const BookModal = ({ onHide, targetID, show, ...props }) => {
     }
     return (
         <>
-            <div show={show} {...props} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
+            <div show={show} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
                 <div className="flex">
                     <span onClick={onHide} >&times;</span>
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                        onSubmit={handleSubmit}
+                    //onSubmit={handleSubmit}
                     >
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"

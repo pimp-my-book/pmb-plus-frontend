@@ -63,7 +63,7 @@ const MyBooks = () => {
                     )
                 }
             </div>
-            {show && <BookModal targetID={targetID} show={show} />}
+            {show ? <BookModal targetID={targetID} show={show} /> : null}
 
         </>
 
