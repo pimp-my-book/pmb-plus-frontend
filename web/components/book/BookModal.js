@@ -10,7 +10,7 @@ import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkP
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
-const BookModal = ({ onHide, children, targetID, show, ...props }) => {
+const BookModal = ({ onHide, targetID, show, ...props }) => {
 
 
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
@@ -24,6 +24,29 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
     const [editBook] = useMutation(EDIT_BOOK_MUTATION)
 
     let priceRef, descriptionRef, imageRef, editionRef, titleRef, authorRef, ISBNRef, gradeRef, locationRef, univeristyRef, courseRef, degreeRef
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await editBook({
+            variables: {
+                input: {
+                    ID: targetID,
+                    price: priceRef,
+                    description: descriptionRef,
+                    image: imageRef,
+                    edition: editionRef,
+                    title: titleRef,
+                    author: authorRef,
+                    ISBN: ISBNRef,
+                    grade: gradeRef,
+                    location: locationRef,
+                    univeristy: univeristyRef,
+                    course: courseRef,
+                    degree: degreeRef
+                }
+            }
+        })
+    }
     return (
         <>
             <div show={show} {...props} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
@@ -32,28 +55,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                        onSubmit={async e => {
-                            e.preventDefault()
-                            await editBook({
-                                variables: {
-                                    input: {
-                                        ID: targetID,
-                                        price: priceRef,
-                                        description: descriptionRef,
-                                        image: imageRef,
-                                        edition: editionRef,
-                                        title: titleRef,
-                                        author: authorRef,
-                                        ISBN: ISBNRef,
-                                        grade: gradeRef,
-                                        location: locationRef,
-                                        univeristy: univeristyRef,
-                                        course: courseRef,
-                                        degree: degreeRef
-                                    }
-                                }
-                            })
-                        }}
+                        onSubmit={handleSubmit}
                     >
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"
@@ -83,7 +85,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         required
                                         defaultValue={editableBook.grade}
 
-                                        ref={node => { gradeRef = node }}
+                                    //ref={node => { gradeRef = node }}
                                     />
 
                                 </div>
@@ -96,7 +98,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.price}
-                                        ref={node => { priceRef = node }} placeholder="R4566"
+                                    // ref={node => { priceRef = node }} placeholder="R4566"
                                     />
 
                                 </div>
@@ -109,7 +111,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.location}
-                                        ref={node => { locationRef = node }} placeholder="Cape Town"
+                                    // ref={node => { locationRef = node }} placeholder="Cape Town"
                                     />
 
                                 </div>
@@ -122,7 +124,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.description}
-                                        ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
+                                    // ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
                                     />
 
                                 </div>
@@ -153,7 +155,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.title}
-                                        ref={node => { titleRef = node }} placeholder="How On Earth?"
+                                    // ref={node => { titleRef = node }} placeholder="How On Earth?"
                                     />
 
                                 </div>
@@ -167,7 +169,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.author}
-                                        ref={node => { authorRef = node }} placeholder="Terence McCathy"
+                                    //  ref={node => { authorRef = node }} placeholder="Terence McCathy"
                                     />
 
                                 </div>
@@ -181,7 +183,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.ISBN}
-                                        ref={node => { ISBNRef = node }} placeholder="978177074859"
+                                    //  ref={node => { ISBNRef = node }} placeholder="978177074859"
                                     />
 
                                 </div>
@@ -195,7 +197,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.edition}
-                                        ref={node => { editionRef = node }} placeholder="4th"
+                                    //  ref={node => { editionRef = node }} placeholder="4th"
                                     />
 
                                 </div>
@@ -242,7 +244,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.univeristy}
-                                        ref={node => { univeristyRef = node }} placeholder="UCT"
+                                    //  ref={node => { univeristyRef = node }} placeholder="UCT"
                                     />
 
                                 </div>
@@ -256,7 +258,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.course}
-                                        ref={node => { courseRef = node }} placeholder="CTV 109"
+                                    //  ref={node => { courseRef = node }} placeholder="CTV 109"
                                     />
 
                                 </div>
@@ -270,7 +272,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.degree}
-                                        ref={node => { degreeRef = node }} placeholder="BSC Chem"
+                                    //  ref={node => { degreeRef = node }} placeholder="BSC Chem"
                                     />
 
                                 </div>
