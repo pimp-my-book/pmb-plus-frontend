@@ -31,7 +31,30 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                     <span onClick={onHide} >&times;</span>
                 </div>
                 <div className="flex justify-center mb-20">
-                    <form>
+                    <form
+                        onSubmit={async e => {
+                            e.preventDefault()
+                            await editBook({
+                                variables: {
+                                    input: {
+                                        ID: targetID,
+                                        price: priceRef,
+                                        description: descriptionRef,
+                                        image: imageRef,
+                                        edition: editionRef,
+                                        title: titleRef,
+                                        author: authorRef,
+                                        ISBN: ISBNRef,
+                                        grade: gradeRef,
+                                        location: locationRef,
+                                        univeristy: univeristyRef,
+                                        course: courseRef,
+                                        degree: degreeRef
+                                    }
+                                }
+                            })
+                        }}
+                    >
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"
                             text="Time to edit your book"
