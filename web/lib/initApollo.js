@@ -32,7 +32,7 @@ function create(initialState, getToken) {
 
     const authLink = setContext(async (_, { headers }) => {
         const token = Cookie.get('token')
-        const anonymousUser = await Auth.currentCredentials()
+        // const anonymousUser = await Auth.currentUserCredentials()
 
         console.log(anonymousUser)
         return {
