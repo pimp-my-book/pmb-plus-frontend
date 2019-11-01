@@ -82,8 +82,8 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.grade}
-                                        //   onChange={e => setGrade(e.target.value)}
-                                        placeholder="A"
+
+                                        ref={node => { gradeRef = node }}
                                     />
 
                                 </div>
@@ -96,8 +96,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.price}
-                                        //  onChange={e => setPrice(e.target.value)}
-                                        placeholder="R4566"
+                                        ref={node => { priceRef = node }} placeholder="R4566"
                                     />
 
                                 </div>
@@ -110,8 +109,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.location}
-                                        // onChange={e => setLocation(e.target.value)}
-                                        placeholder="Cape Town"
+                                        ref={node => { locationRef = node }} placeholder="Cape Town"
                                     />
 
                                 </div>
@@ -124,8 +122,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.description}
-                                        // onChange={e => setDescription(e.target.value)}
-                                        placeholder="Used it for subject made me fail"
+                                        ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
                                     />
 
                                 </div>
@@ -156,8 +153,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.title}
-                                        // onChange={e => setTitle(e.target.value)}
-                                        placeholder="How On Earth?"
+                                        ref={node => { titleRef = node }} placeholder="How On Earth?"
                                     />
 
                                 </div>
@@ -171,8 +167,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.author}
-                                        /// onChange={e => setAuthor(e.target.value)}
-                                        placeholder="Terence McCathy"
+                                        ref={node => { authorRef = node }} placeholder="Terence McCathy"
                                     />
 
                                 </div>
@@ -186,8 +181,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.ISBN}
-                                        // onChange={e => setISBN(e.target.value)}
-                                        placeholder="978177074859"
+                                        ref={node => { ISBNRef = node }} placeholder="978177074859"
                                     />
 
                                 </div>
@@ -201,8 +195,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.edition}
-                                        // onChange={e => setEdition(e.target.value)}
-                                        placeholder="4th"
+                                        ref={node => { editionRef = node }} placeholder="4th"
                                     />
 
                                 </div>
@@ -249,8 +242,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.univeristy}
-                                        //  onChange={e => setUniveristy(e.target.value)}
-                                        placeholder="UCT"
+                                        ref={node => { univeristyRef = node }} placeholder="UCT"
                                     />
 
                                 </div>
@@ -264,8 +256,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.course}
-                                        // onChange={e => setCourse(e.target.value)}
-                                        placeholder="CTV 109"
+                                        ref={node => { courseRef = node }} placeholder="CTV 109"
                                     />
 
                                 </div>
@@ -279,8 +270,7 @@ const BookModal = ({ onHide, children, targetID, show, ...props }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.degree}
-                                        //  onChange={e => setDegree(e.target.value)}
-                                        placeholder="BSC Chem"
+                                        ref={node => { degreeRef = node }} placeholder="BSC Chem"
                                     />
 
                                 </div>
