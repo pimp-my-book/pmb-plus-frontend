@@ -55,7 +55,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                 </div>
                 <div className="flex justify-center mb-20">
                     <form
-                    //onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                     >
                         <HeadingOne
                             className="text-center s:text-left s:ml-5"
@@ -85,7 +85,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         required
                                         defaultValue={editableBook.grade}
 
-                                    //ref={node => { gradeRef = node }}
+                                        ref={node => { gradeRef = node }}
                                     />
 
                                 </div>
@@ -98,7 +98,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.price}
-                                    // ref={node => { priceRef = node }} placeholder="R4566"
+                                        ref={node => { priceRef = node }} placeholder="R4566"
                                     />
 
                                 </div>
@@ -111,7 +111,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.location}
-                                    // ref={node => { locationRef = node }} placeholder="Cape Town"
+                                        ref={node => { locationRef = node }} placeholder="Cape Town"
                                     />
 
                                 </div>
@@ -124,7 +124,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.description}
-                                    // ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
+                                        ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
                                     />
 
                                 </div>
@@ -155,7 +155,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.title}
-                                    // ref={node => { titleRef = node }} placeholder="How On Earth?"
+                                        ref={node => { titleRef = node }} placeholder="How On Earth?"
                                     />
 
                                 </div>
@@ -169,7 +169,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.author}
-                                    //  ref={node => { authorRef = node }} placeholder="Terence McCathy"
+                                        ref={node => { authorRef = node }} placeholder="Terence McCathy"
                                     />
 
                                 </div>
@@ -183,7 +183,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.ISBN}
-                                    //  ref={node => { ISBNRef = node }} placeholder="978177074859"
+                                        ref={node => { ISBNRef = node }} placeholder="978177074859"
                                     />
 
                                 </div>
@@ -197,7 +197,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.edition}
-                                    //  ref={node => { editionRef = node }} placeholder="4th"
+                                        ref={node => { editionRef = node }} placeholder="4th"
                                     />
 
                                 </div>
@@ -244,7 +244,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.univeristy}
-                                    //  ref={node => { univeristyRef = node }} placeholder="UCT"
+                                        ref={node => { univeristyRef = node }} placeholder="UCT"
                                     />
 
                                 </div>
@@ -258,7 +258,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.course}
-                                    //  ref={node => { courseRef = node }} placeholder="CTV 109"
+                                        ref={node => { courseRef = node }} placeholder="CTV 109"
                                     />
 
                                 </div>
@@ -272,7 +272,7 @@ const BookModal = ({ onHide, targetID, show }) => {
                                         type="text"
                                         required
                                         defaultValue={editableBook.degree}
-                                    //  ref={node => { degreeRef = node }} placeholder="BSC Chem"
+                                        ref={node => { degreeRef = node }} placeholder="BSC Chem"
                                     />
 
                                 </div>
