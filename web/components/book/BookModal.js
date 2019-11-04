@@ -9,6 +9,10 @@ export default class BookModal extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            isLoading: true
+        }
+
         this.priceRef = createRef()
         this.descriptionRef = createRef()
         this.imageRef = createRef()
@@ -54,7 +58,7 @@ export default class BookModal extends Component {
                                                     <form
                                                         onSubmit={async e => {
                                                             e.preventDefault()
-                                                            console.log(this.priceRef.current.value)
+                                                            this.setState({ isLoading: true })
                                                             await editBook({
                                                                 variables: {
                                                                     input: {
