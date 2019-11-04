@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { Query, Mutation } from '@apollo/react-components'
-
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
@@ -11,6 +10,18 @@ export default class BookModal extends Component {
         super(props)
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.priceRef = createRef()
+        this.descriptionRef = createRef()
+        this.imageRef = createRef()
+        this.editionRef = createRef()
+        this.titleRef = createRef()
+        this.authorRef = createRef()
+        this.ISBNRef = createRef()
+        this.gradeRef = createRef()
+        this.locationRef = createRef()
+        this.univeristyRef = createRef()
+        this.courseRef = createRef()
+        this.degreeRef = createRef()
 
 
     }
@@ -22,18 +33,18 @@ export default class BookModal extends Component {
             variables: {
                 input: {
                     ID: targetID,
-                    price: priceRef.value,
-                    description: descriptionRef.value,
-                    image: imageRef.value,
-                    edition: editionRef.value,
-                    title: titleRef.value,
-                    author: authorRef.value,
-                    ISBN: ISBNRef.value,
-                    grade: gradeRef.value,
-                    location: locationRef.value,
-                    univeristy: univeristyRef.value,
-                    course: courseRef.value,
-                    degree: degreeRef.value
+                    price: priceRef,
+                    description: descriptionRef,
+                    image: imageRef,
+                    edition: editionRef,
+                    title: titleRef,
+                    author: authorRef,
+                    ISBN: ISBNRef,
+                    grade: gradeRef,
+                    location: locationRef,
+                    univeristy: univeristyRef,
+                    course: courseRef,
+                    degree: degreeRef
                 }
             }
         })
@@ -53,7 +64,7 @@ export default class BookModal extends Component {
                         if (error) return `${error.message}`
 
                         const editableBook = data.getOneBook
-                        let priceRef, descriptionRef, imageRef, editionRef, titleRef, authorRef, ISBNRef, gradeRef, locationRef, univeristyRef, courseRef, degreeRef
+
 
                         return (
                             <Mutation
@@ -70,23 +81,23 @@ export default class BookModal extends Component {
                                                     <form
                                                         onSubmit={async e => {
                                                             e.preventDefault()
-                                                            console.log(priceRef.current)
+                                                            console.log(this.priceRef)
                                                             await editBook({
                                                                 variables: {
                                                                     input: {
                                                                         ID: targetID,
-                                                                        price: priceRef.current,
-                                                                        description: descriptionRef.current,
-                                                                        image: imageRef.current,
-                                                                        edition: editionRef.current,
-                                                                        title: titleRef.current,
-                                                                        author: authorRef.current,
-                                                                        ISBN: ISBNRef.current,
-                                                                        grade: gradeRef.current,
-                                                                        location: locationRef.current,
-                                                                        univeristy: univeristyRef.current,
-                                                                        course: courseRef.current,
-                                                                        degree: degreeRef.current
+                                                                        price: this.priceRef,
+                                                                        description: this.descriptionRef,
+                                                                        image: this.imageRef,
+                                                                        edition: this.editionRef,
+                                                                        title: this.titleRef,
+                                                                        author: this.authorRef,
+                                                                        ISBN: this.ISBNRef,
+                                                                        grade: this.gradeRef,
+                                                                        location: this.locationRef,
+                                                                        univeristy: this.univeristyRef,
+                                                                        course: this.courseRef,
+                                                                        degree: this.degreeRef
                                                                     }
                                                                 }
                                                             })
@@ -119,7 +130,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.grade}
-                                                                        ref={gradeRef}
+                                                                        ref={node => { gradeRef = node }}
                                                                     />
 
                                                                 </div>
@@ -132,7 +143,8 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.price}
-                                                                        ref={priceRef} placeholder="R4566"
+                                                                        ref={this.priceRef}
+
                                                                     />
 
                                                                 </div>
@@ -145,7 +157,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.location}
-                                                                        ref={locationRef} placeholder="Cape Town"
+                                                                        ref={node => { locationRef = node }} placeholder="Cape Town"
                                                                     />
 
                                                                 </div>
@@ -158,7 +170,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.description}
-                                                                        ref={descriptionRef} placeholder="Used it for subject made me fail"
+                                                                        ref={node => { descriptionRef = node }} placeholder="Used it for subject made me fail"
                                                                     />
 
                                                                 </div>
@@ -189,7 +201,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.title}
-                                                                        ref={titleRef} placeholder="How On Earth?"
+                                                                        ref={node => { titleRef = node }} placeholder="How On Earth?"
                                                                     />
 
                                                                 </div>
@@ -203,7 +215,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.author}
-                                                                        ref={authorRef} placeholder="Terence McCathy"
+                                                                        ref={node => { authorRef = node }} placeholder="Terence McCathy"
                                                                     />
 
                                                                 </div>
@@ -217,7 +229,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.ISBN}
-                                                                        ref={ISBNRef} placeholder="978177074859"
+                                                                        ref={node => { ISBNRef = node }} placeholder="978177074859"
                                                                     />
 
                                                                 </div>
@@ -231,7 +243,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.edition}
-                                                                        ref={editionRef} placeholder="4th"
+                                                                        ref={node => { editionRef = node }} placeholder="4th"
                                                                     />
 
                                                                 </div>
@@ -278,7 +290,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.univeristy}
-                                                                        ref={univeristyRef} placeholder="UCT"
+                                                                        ref={node => { univeristyRef = node }} placeholder="UCT"
                                                                     />
 
                                                                 </div>
@@ -292,7 +304,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.course}
-                                                                        ref={courseRef} placeholder="CTV 109"
+                                                                        ref={node => { courseRef = node }} placeholder="CTV 109"
                                                                     />
 
                                                                 </div>
@@ -306,7 +318,7 @@ export default class BookModal extends Component {
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.degree}
-                                                                        ref={degreeRef} placeholder="BSC Chem"
+                                                                        ref={node => { degreeRef = node }} placeholder="BSC Chem"
                                                                     />
 
                                                                 </div>
