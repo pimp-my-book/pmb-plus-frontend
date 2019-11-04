@@ -55,6 +55,7 @@ export default class BookModal extends Component {
                                                     <span onClick={this.props.onHide} >&times;</span>
                                                 </div>
                                                 <div className="flex justify-center mb-20">
+                                                    {error && <p>There is an issue</p>}
                                                     <form
                                                         onSubmit={async e => {
                                                             e.preventDefault()
