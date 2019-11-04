@@ -1,6 +1,6 @@
-import React, { forwardRect } from 'react';
+import React, { forwardRef } from 'react';
 
-const Input = forwardRect((props, ref) => {
+const Input = forwardRef((props, ref) => {
 
     const {
 

@@ -1,10 +1,10 @@
 import React, { Component, createRef } from 'react'
 import { Query, Mutation } from '@apollo/react-components'
-import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
+import { HeadingOne, HeadingThree, HeadingFive, BodyText, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
-
+import Input from '../inputs/Input'
 export default class BookModal extends Component {
     constructor(props) {
         super(props)
@@ -112,7 +112,7 @@ export default class BookModal extends Component {
                                                                     <BodyText
                                                                         text="Price"
                                                                     />
-                                                                    <input
+                                                                    <Input
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.price}
