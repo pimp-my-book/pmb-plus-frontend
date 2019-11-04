@@ -1,10 +1,10 @@
 /*
-
+, imageRef = useRef(null), editionRef = useRef(null), titleRef = useRef(null), authorRef = useRef(null), ISBNRef = useRef(null), gradeRef = useRef(null), locationRef = useRef(null), univeristyRef = useRef(null), courseRef = useRef(null), degreeRef = useRef(null)
 This is a modal that allows the user to edit their book.
 It will consume a mutation to to edit the book
 */
 
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import FormGrid from '../FormGrid'
@@ -13,6 +13,8 @@ import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
 const BookModal = ({ onHide, targetID, show }) => {
 
     const [editBook] = useMutation(EDIT_BOOK_MUTATION)
+
+
 
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
         variables: { ID: targetID }
@@ -23,27 +25,31 @@ const BookModal = ({ onHide, targetID, show }) => {
 
     const editableBook = data.getOneBook
 
-    let priceRef = useRef(null), descriptionRef = useRef(null), imageRef = useRef(null), editionRef = useRef(null), titleRef = useRef(null), authorRef = useRef(null), ISBNRef = useRef(null), gradeRef = useRef(null), locationRef = useRef(null), univeristyRef = useRef(null), courseRef = useRef(null), degreeRef = useRef(null)
+
+    let priceRef, descriptionRef, imageRef, editionRef, titleRef, authorRef, ISBNRef, gradeRef, locationRef, univeristyRef, courseRef, degreeRef
+
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(priceRef)
+        console.log(priceRef.value)
         await editBook({
             variables: {
                 input: {
                     ID: targetID,
-                    price: priceRef,
-                    description: descriptionRef,
-                    image: imageRef,
-                    edition: editionRef,
-                    title: titleRef,
-                    author: authorRef,
-                    ISBN: ISBNRef,
-                    grade: gradeRef,
-                    location: locationRef,
-                    univeristy: univeristyRef,
-                    course: courseRef,
-                    degree: degreeRef
+                    price: priceRef.value,
+                    description: descriptionRef.value,
+                    image: imageRef.value,
+                    edition: editionRef.value,
+                    title: titleRef.value,
+                    author: authorRef.value,
+                    ISBN: ISBNRef.value,
+                    grade: gradeRef.value,
+                    location: locationRef.value,
+                    univeristy: univeristyRef.value,
+                    course: courseRef.value,
+                    degree: degreeRef.value
                 }
             }
         })
