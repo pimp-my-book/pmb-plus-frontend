@@ -9,7 +9,6 @@ export default class BookModal extends Component {
     constructor(props) {
         super(props)
 
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.priceRef = createRef()
         this.descriptionRef = createRef()
         this.imageRef = createRef()
@@ -25,32 +24,6 @@ export default class BookModal extends Component {
 
 
     }
-
-    handleSubmit = async (event) => {
-        event.preventDefault()
-        console.log(priceRef.value)
-        await editBook({
-            variables: {
-                input: {
-                    ID: targetID,
-                    price: priceRef,
-                    description: descriptionRef,
-                    image: imageRef,
-                    edition: editionRef,
-                    title: titleRef,
-                    author: authorRef,
-                    ISBN: ISBNRef,
-                    grade: gradeRef,
-                    location: locationRef,
-                    univeristy: univeristyRef,
-                    course: courseRef,
-                    degree: degreeRef
-                }
-            }
-        })
-
-    }
-
     render() {
         const { targetID, show, onHide } = this.props
         return (
@@ -81,7 +54,7 @@ export default class BookModal extends Component {
                                                     <form
                                                         onSubmit={async e => {
                                                             e.preventDefault()
-                                                            console.log(this.priceRef)
+                                                            console.log(this.priceRef.current.value)
                                                             await editBook({
                                                                 variables: {
                                                                     input: {
@@ -139,7 +112,7 @@ export default class BookModal extends Component {
                                                                     <BodyText
                                                                         text="Price"
                                                                     />
-                                                                    <Input
+                                                                    <input
                                                                         type="text"
                                                                         required
                                                                         defaultValue={editableBook.price}
