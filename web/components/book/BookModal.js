@@ -49,7 +49,7 @@ export default class BookModal extends Component {
                             >
                                 {(editBook, { error, loading, called }) => {
                                     if (called && !error) {
-                                        <p>You have successfully edited this book</p>
+                                        return (<p>You have successfully edited this book</p>)
                                     } else {
                                         return (
                                             <>
