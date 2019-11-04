@@ -48,281 +48,285 @@ export default class BookModal extends Component {
                                 mutation={EDIT_BOOK_MUTATION}
                             >
                                 {(editBook, { error, loading, called }) => {
-                                    return (
-                                        <>
-                                            <div show={this.props.show} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
-                                                <div className="flex">
-                                                    <span onClick={this.props.onHide} >&times;</span>
-                                                </div>
-                                                <div className="flex justify-center mb-20">
-                                                    {error && <p>There is an issue</p>}
-                                                    <form
-                                                        onSubmit={async e => {
-                                                            e.preventDefault()
-                                                            this.setState({ isLoading: true })
-                                                            await editBook({
-                                                                variables: {
-                                                                    input: {
-                                                                        ID: targetID,
-                                                                        price: this.priceRef.current.value,
-                                                                        description: this.descriptionRef.current.value,
-                                                                        // image: this.imageRef.current.value,
-                                                                        edition: this.editionRef.current.value,
-                                                                        title: this.titleRef.current.value,
-                                                                        author: this.authorRef.current.value,
-                                                                        ISBN: this.ISBNRef.current.value,
-                                                                        grade: this.gradeRef.current.value,
-                                                                        location: this.locationRef.current.value,
-                                                                        univeristy: this.univeristyRef.current.value,
-                                                                        course: this.courseRef.current.value,
-                                                                        degree: this.degreeRef.current.value
+                                    if (called && !error) {
+                                        <p>You have successfully edited this book</p>
+                                    } else {
+                                        return (
+                                            <>
+                                                <div show={this.props.show} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
+                                                    <div className="flex">
+                                                        <span onClick={this.props.onHide} >&times;</span>
+                                                    </div>
+                                                    <div className="flex justify-center mb-20">
+                                                        {error && <p>There is an issue</p>}
+                                                        <form
+                                                            onSubmit={async e => {
+                                                                e.preventDefault()
+                                                                this.setState({ isLoading: true })
+                                                                await editBook({
+                                                                    variables: {
+                                                                        input: {
+                                                                            ID: targetID,
+                                                                            price: this.priceRef.current.value,
+                                                                            description: this.descriptionRef.current.value,
+                                                                            // image: this.imageRef.current.value,
+                                                                            edition: this.editionRef.current.value,
+                                                                            title: this.titleRef.current.value,
+                                                                            author: this.authorRef.current.value,
+                                                                            ISBN: this.ISBNRef.current.value,
+                                                                            grade: this.gradeRef.current.value,
+                                                                            location: this.locationRef.current.value,
+                                                                            univeristy: this.univeristyRef.current.value,
+                                                                            course: this.courseRef.current.value,
+                                                                            degree: this.degreeRef.current.value
+                                                                        }
                                                                     }
-                                                                }
-                                                            })
-                                                        }}
-                                                    >
-                                                        <HeadingOne
-                                                            className="text-center s:text-left s:ml-5"
-                                                            text="Time to edit your book"
-                                                        />
-
-                                                        {targetID}
-                                                        <hr
-                                                            className="border-greyDark"
-                                                        />
-                                                        {/* Start of top form container */}
-                                                        <FormGrid
-                                                            className="s:ml-10 mb-5"
+                                                                })
+                                                            }}
                                                         >
-                                                            <HeadingFive
-                                                                text="Starter Info"
-                                                                className="text-left"
+                                                            <HeadingOne
+                                                                className="text-center s:text-left s:ml-5"
+                                                                text="Time to edit your book"
                                                             />
-                                                            <div>
-                                                                {/* Grade*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Grade"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.grade}
-                                                                        ref={this.gradeRef}
-                                                                    />
 
-                                                                </div>
-                                                                {/* Price*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Price"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.price}
-                                                                        ref={this.priceRef}
-
-                                                                    />
-
-                                                                </div>
-                                                                {/* Location*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Where is your book? "
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.location}
-                                                                        ref={this.locationRef} placeholder="Cape Town"
-                                                                    />
-
-                                                                </div>
-                                                                {/* Description*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Describe your book"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.description}
-                                                                        ref={this.descriptionRef} placeholder="Used it for subject made me fail"
-                                                                    />
-
-                                                                </div>
-                                                            </div>
-                                                        </FormGrid>
-
-
-
-                                                        {/* End of top form container */}
-                                                        <hr
-                                                            className="border-greyDark"
-                                                        />
-                                                        {/* start of bottom form container */}
-                                                        <FormGrid
-                                                            className="s:ml-10"
-                                                        >
-                                                            <HeadingFive
-                                                                text="Book Info"
+                                                            {targetID}
+                                                            <hr
+                                                                className="border-greyDark"
                                                             />
-                                                            {/* start of account form elements */}
-                                                            <div>
-                                                                {/* Title*/}
+                                                            {/* Start of top form container */}
+                                                            <FormGrid
+                                                                className="s:ml-10 mb-5"
+                                                            >
+                                                                <HeadingFive
+                                                                    text="Starter Info"
+                                                                    className="text-left"
+                                                                />
                                                                 <div>
-                                                                    <BodyText
-                                                                        text="Title "
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.title}
-                                                                        ref={this.titleRef} placeholder="How On Earth?"
-                                                                    />
+                                                                    {/* Grade*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Grade"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.grade}
+                                                                            ref={this.gradeRef}
+                                                                        />
 
+                                                                    </div>
+                                                                    {/* Price*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Price"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.price}
+                                                                            ref={this.priceRef}
+
+                                                                        />
+
+                                                                    </div>
+                                                                    {/* Location*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Where is your book? "
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.location}
+                                                                            ref={this.locationRef} placeholder="Cape Town"
+                                                                        />
+
+                                                                    </div>
+                                                                    {/* Description*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Describe your book"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.description}
+                                                                            ref={this.descriptionRef} placeholder="Used it for subject made me fail"
+                                                                        />
+
+                                                                    </div>
                                                                 </div>
+                                                            </FormGrid>
 
-                                                                {/* Author */}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Author "
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.author}
-                                                                        ref={this.authorRef} placeholder="Terence McCathy"
-                                                                    />
 
-                                                                </div>
 
-                                                                {/* ISBN*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="ISBN"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.ISBN}
-                                                                        ref={this.ISBNRef} placeholder="978177074859"
-                                                                    />
-
-                                                                </div>
-
-                                                                {/* Edition */}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Edition"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.edition}
-                                                                        ref={this.editionRef} placeholder="4th"
-                                                                    />
-
-                                                                </div>
-
-                                                                {/* Picture URL */}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="URL"
-                                                                    />
-                                                                    <Input
-                                                                        type="file"
-
-                                                                        // value={image}
-
-                                                                        placeholder="IMAGE"
-                                                                    />
-
-                                                                </div>
-
-                                                                {/* end  of book form elements */}
-                                                            </div>
-                                                        </FormGrid>
-                                                        {/* end of bottom form container */}
-
-                                                        {/* End of top form container */}
-                                                        <hr
-                                                            className="border-greyDark"
-                                                        />
-                                                        {/* start of bottom form container */}
-                                                        <FormGrid
-                                                            className="s:ml-10"
-                                                        >
-                                                            <HeadingFive
-                                                                text="Academic Info"
+                                                            {/* End of top form container */}
+                                                            <hr
+                                                                className="border-greyDark"
                                                             />
-                                                            {/* start of Academic form elements */}
-                                                            <div>
-                                                                {/* univeristy*/}
+                                                            {/* start of bottom form container */}
+                                                            <FormGrid
+                                                                className="s:ml-10"
+                                                            >
+                                                                <HeadingFive
+                                                                    text="Book Info"
+                                                                />
+                                                                {/* start of account form elements */}
                                                                 <div>
-                                                                    <BodyText
-                                                                        text="Select univeristy "
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.univeristy}
-                                                                        ref={this.univeristyRef} placeholder="UCT"
-                                                                    />
+                                                                    {/* Title*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Title "
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.title}
+                                                                            ref={this.titleRef} placeholder="How On Earth?"
+                                                                        />
 
+                                                                    </div>
+
+                                                                    {/* Author */}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Author "
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.author}
+                                                                            ref={this.authorRef} placeholder="Terence McCathy"
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* ISBN*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="ISBN"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.ISBN}
+                                                                            ref={this.ISBNRef} placeholder="978177074859"
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* Edition */}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Edition"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.edition}
+                                                                            ref={this.editionRef} placeholder="4th"
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* Picture URL */}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="URL"
+                                                                        />
+                                                                        <Input
+                                                                            type="file"
+
+                                                                            // value={image}
+
+                                                                            placeholder="IMAGE"
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* end  of book form elements */}
                                                                 </div>
+                                                            </FormGrid>
+                                                            {/* end of bottom form container */}
 
-                                                                {/* cOURSE */}
+                                                            {/* End of top form container */}
+                                                            <hr
+                                                                className="border-greyDark"
+                                                            />
+                                                            {/* start of bottom form container */}
+                                                            <FormGrid
+                                                                className="s:ml-10"
+                                                            >
+                                                                <HeadingFive
+                                                                    text="Academic Info"
+                                                                />
+                                                                {/* start of Academic form elements */}
                                                                 <div>
-                                                                    <BodyText
-                                                                        text="Course "
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.course}
-                                                                        ref={this.courseRef} placeholder="CTV 109"
-                                                                    />
+                                                                    {/* univeristy*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Select univeristy "
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.univeristy}
+                                                                            ref={this.univeristyRef} placeholder="UCT"
+                                                                        />
 
+                                                                    </div>
+
+                                                                    {/* cOURSE */}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Course "
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.course}
+                                                                            ref={this.courseRef} placeholder="CTV 109"
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* dEGREE*/}
+                                                                    <div>
+                                                                        <BodyText
+                                                                            text="Degree"
+                                                                        />
+                                                                        <Input
+                                                                            type="text"
+                                                                            required
+                                                                            defaultValue={editableBook.degree}
+                                                                            ref={this.degreeRef} placeholder="BSC Chem"
+                                                                        />
+
+                                                                    </div>
+
+
+                                                                    {/* Buttons*/}
+                                                                    <div className="flex flex-col w-48 mt-3">
+                                                                        <DarkPinkButton
+                                                                            type="submit"
+                                                                            text="Create account"
+                                                                        //isLoading={mutationError ? !isLoading : isLoading}
+                                                                        />
+
+                                                                    </div>
+
+                                                                    {/* end  of accademic form elements */}
                                                                 </div>
-
-                                                                {/* dEGREE*/}
-                                                                <div>
-                                                                    <BodyText
-                                                                        text="Degree"
-                                                                    />
-                                                                    <Input
-                                                                        type="text"
-                                                                        required
-                                                                        defaultValue={editableBook.degree}
-                                                                        ref={this.degreeRef} placeholder="BSC Chem"
-                                                                    />
-
-                                                                </div>
+                                                            </FormGrid>
+                                                            {/* end of bottom form container */}
+                                                        </form>
+                                                    </div>
 
 
-                                                                {/* Buttons*/}
-                                                                <div className="flex flex-col w-48 mt-3">
-                                                                    <DarkPinkButton
-                                                                        type="submit"
-                                                                        text="Create account"
-                                                                    //isLoading={mutationError ? !isLoading : isLoading}
-                                                                    />
-
-                                                                </div>
-
-                                                                {/* end  of accademic form elements */}
-                                                            </div>
-                                                        </FormGrid>
-                                                        {/* end of bottom form container */}
-                                                    </form>
                                                 </div>
-
-
-                                            </div>
-                                        </>
-                                    )
+                                            </>
+                                        )
+                                    }
                                 }}
                             </Mutation>
                         )
