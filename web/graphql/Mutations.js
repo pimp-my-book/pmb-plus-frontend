@@ -21,20 +21,6 @@ mutation addBookMutation($input: addBookInput!){
 
 export const EDIT_BOOK_MUTATION = gql`
 mutation EDIT_BOOK_MUTATION($input: editBookInput){
-    editBook(input: $input){
-        ID    
-        price
-    description
-    image
-    edition
-    title
-    author
-    ISBN
-    grade
-    location
-    univeristy
-    course
-    degree
-    }
+    editBook(input: $input)
 }
 `
