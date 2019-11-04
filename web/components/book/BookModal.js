@@ -17,23 +17,23 @@ export default class BookModal extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(priceRef.current)
+        console.log(priceRef.value)
         await editBook({
             variables: {
                 input: {
                     ID: targetID,
-                    price: priceRef.current,
-                    description: descriptionRef.current,
-                    image: imageRef.current,
-                    edition: editionRef.current,
-                    title: titleRef.current,
-                    author: authorRef.current,
-                    ISBN: ISBNRef.current,
-                    grade: gradeRef.current,
-                    location: locationRef.current,
-                    univeristy: univeristyRef.current,
-                    course: courseRef.current,
-                    degree: degreeRef.current
+                    price: priceRef.value,
+                    description: descriptionRef.value,
+                    image: imageRef.value,
+                    edition: editionRef.value,
+                    title: titleRef.value,
+                    author: authorRef.value,
+                    ISBN: ISBNRef.value,
+                    grade: gradeRef.value,
+                    location: locationRef.value,
+                    univeristy: univeristyRef.value,
+                    course: courseRef.value,
+                    degree: degreeRef.value
                 }
             }
         })
