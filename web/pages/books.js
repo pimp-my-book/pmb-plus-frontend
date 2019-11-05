@@ -1,7 +1,7 @@
+import MyBooks from '../components/book/MyBooks'
 import Cookie from 'js-cookie'
-import ProfilePage from '../components/profile/ProfilePage'
-const profile = (props) => {
-    //console.log(props)
+
+const Books = () => {
     const hasCookie = Cookie.get('token')
 
     if (!hasCookie) {
@@ -14,14 +14,11 @@ const profile = (props) => {
     } else {
         return (
             <>
-                <ProfilePage />
+                <MyBooks />
             </>
         )
     }
 
-
-
 }
 
-
-export default profile
+export default Books

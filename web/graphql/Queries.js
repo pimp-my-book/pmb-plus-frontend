@@ -107,3 +107,14 @@ export const GET_ONE_BOOK = gql`
  }
  }
 `
+
+//GET_MY_BOOKS
+export const GET_MY_BOOKS = gql`
+query GET_MY_BOOKS($owner: String!){
+    getMyBooks(owner: $owner){
+        ID
+        title
+        image
+    }
+}
+`
