@@ -49,7 +49,7 @@ const MyBooks = () => {
     }
     return (
         <>
-            <div>
+            <div className="mb-20">
                 <HeadingOne text=" My books" />
 
                 {
