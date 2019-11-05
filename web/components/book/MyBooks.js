@@ -49,7 +49,7 @@ const MyBooks = () => {
     }
     return (
         <>
-            <div className="mb-20">
+            <div className={show ? 'hidden mb-20' : 'mb-20'}>
                 <HeadingOne text=" My books" />
 
                 {
