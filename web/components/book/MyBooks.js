@@ -107,7 +107,7 @@ const MyBooks = () => {
                                     <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} />
 
 
-                                    <img src={SoldIcon} alt="mark as sold" />
+                                    <img src={SoldIcon} alt="mark as sold" onClick={() => bookSold(book.ID)} />
                                 </div>
                             )
                         )
