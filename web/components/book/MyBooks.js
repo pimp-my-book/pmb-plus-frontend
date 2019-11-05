@@ -17,8 +17,7 @@ import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkP
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 import BookModal from './BookModal'
-import FormGrid from '../FormGrid'
-import { GET_ONE_BOOK } from '../../graphql/Queries'
+import { DEACTIVATE_BOOK } from '../../graphql/Mutations'
 import DeactivateIcon from '../../assets/delete_outline.svg'
 import SoldIcon from '../../assets/done_outline.svg'
 
@@ -42,7 +41,7 @@ const MyBooks = () => {
         getUserSub()
     })
     //deactivate mutation
-    const [deactivateBook] = useMutation()
+    const [deactivateBook] = useMutation(DEACTIVATE_BOOK)
 
 
 
