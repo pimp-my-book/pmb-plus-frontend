@@ -48,7 +48,7 @@ const MyBooks = () => {
 
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }//userSub.toString()}
+        variables: { owner: userSub.toString() }//userSub.toString()}
     })
 
 
@@ -71,14 +71,14 @@ const MyBooks = () => {
     //Function to deactivate book
     const bookDeactivation = (bookID) => {
         deactivateBook({
-            variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7', ID: bookID }
+            variables: { owner: userSub.toString(), ID: bookID }
         })
     }
 
     //Function to mark book as sold
     const bookSold = (bookID) => {
         markAsSold({
-            variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7', ID: bookID }
+            variables: { owner: userSub.toString(), ID: bookID }
         })
     }
 
@@ -105,7 +105,6 @@ const MyBooks = () => {
                         books.map(book => (
                             (
                                 <div className="flex flex-row p-10"
-
                                 >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
                                     <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} />
