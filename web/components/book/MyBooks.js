@@ -11,6 +11,7 @@ To be able to render the modal the component needs to be split up into two
 */
 
 import React, { useState } from 'react'
+import { Auth } from "aws-amplify";
 import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
@@ -23,13 +24,19 @@ import { GET_ONE_BOOK } from '../../graphql/Queries'
 
 const MyBooks = () => {
 
+
+    const auth = await Auth.currentUserPoolUser()
+
+    console.log(auth)
+
+
     //state
     const [show, setShow] = useState(false)
 
     const [targetID, setTargetID] = useState("")
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }
+        variables: { owner: '' }
     })
 
 
