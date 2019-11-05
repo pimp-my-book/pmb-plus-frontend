@@ -17,7 +17,7 @@ import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkP
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 import BookModal from './BookModal'
-import { DEACTIVATE_BOOK } from '../../graphql/Mutations'
+import { DEACTIVATE_BOOK, MARK_AS_SOLD } from '../../graphql/Mutations'
 import DeactivateIcon from '../../assets/delete_outline.svg'
 import SoldIcon from '../../assets/done_outline.svg'
 
@@ -42,7 +42,8 @@ const MyBooks = () => {
     })
     //deactivate mutation
     const [deactivateBook, { loading: mutationLoading, data: mutationData }] = useMutation(DEACTIVATE_BOOK)
-
+    //mark book as sold mutation
+    const [markAsSold, { loading: soldLoadingMutation, data: soldData }] = useMutation(MARK_AS_SOLD)
 
 
     //query hook - for users books
