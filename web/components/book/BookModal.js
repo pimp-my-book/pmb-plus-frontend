@@ -48,9 +48,14 @@ export default class BookModal extends Component {
                                 mutation={EDIT_BOOK_MUTATION}
                             >
                                 {(editBook, { error, loading, called }) => {
+                                    if (error) {
+                                        return (<p>Something went wrong</p>)
+                                    }
                                     if (called && !error) {
                                         return (<p>You have successfully edited this book</p>)
-                                    } else {
+                                    }
+
+                                    else {
                                         return (
                                             <>
                                                 <div show={this.props.show} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
@@ -58,7 +63,7 @@ export default class BookModal extends Component {
                                                         <span onClick={this.props.onHide} >&times;</span>
                                                     </div>
                                                     <div className="flex justify-center mb-20">
-                                                        {error && <p>There is an issue</p>}
+
                                                         <form
                                                             onSubmit={async e => {
                                                                 e.preventDefault()
