@@ -31,7 +31,6 @@ const MyBooks = () => {
 
     const [targetID, setTargetID] = useState("")
     const [userSub, setUserSub] = useState("")
-    const [isShown, setIsShown] = useState(false)
 
     //This effect gets the users cognito sub
 
@@ -48,7 +47,7 @@ const MyBooks = () => {
 
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: userSub.toString() }
+        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }//userSub.toString()}
     })
 
 
@@ -83,11 +82,11 @@ const MyBooks = () => {
                     {
                         books.map(book => (
                             (
-                                <div className="flex flex-row p-10">
+                                <div className="flex flex-row p-10"
+
+                                >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
-                                    {isShown && <div>
-                                        <img src={DeactivateIcon} alt="deactivate book" /> <img src={SoldIcon} alt="mark as sold" />
-                                    </div>}
+                                    <img src={DeactivateIcon} alt="deactivate book" /> <img src={SoldIcon} alt="mark as sold" />
                                 </div>
                             )
                         )
