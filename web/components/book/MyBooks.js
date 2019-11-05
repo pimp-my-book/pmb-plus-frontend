@@ -65,27 +65,37 @@ const MyBooks = () => {
         setShow(true)
         setTargetID(parseInt(ID))
     }
-    return (
-        <>
-            <div className={show ? 'hidden mb-20' : 'mb-20'}>
-                <HeadingOne text=" My books" />
 
-                {
-                    books.map(book => (
-                        (
-                            <div className="flex flex-row p-10">
-                                <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
-                            </div>
-                        )
-                    )
-                    )
-                }
+
+    if (books.length === 0) {
+        return (
+            <div>
+                You need to post some books
             </div>
-            {show ? <BookModal targetID={targetID} show={show} /> : null}
+        )
+    } else {
+        return (
+            <>
+                <div className={show ? 'hidden mb-20' : 'mb-20'}>
+                    <HeadingOne text=" My books" />
 
-        </>
+                    {
+                        books.map(book => (
+                            (
+                                <div className="flex flex-row p-10">
+                                    <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
+                                </div>
+                            )
+                        )
+                        )
+                    }
+                </div>
+                {show ? <BookModal targetID={targetID} show={show} /> : null}
 
-    )
+            </>
+
+        )
+    }
 }
 
 export default MyBooks
