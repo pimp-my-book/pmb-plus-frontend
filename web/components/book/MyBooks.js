@@ -12,7 +12,7 @@ To be able to render the modal the component needs to be split up into two
 
 import React, { useState, useEffect } from 'react'
 import { Auth } from "aws-amplify";
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
@@ -41,7 +41,8 @@ const MyBooks = () => {
         }
         getUserSub()
     })
-
+    //deactivate mutation
+    const [deactivateBook] = useMutation()
 
 
 
