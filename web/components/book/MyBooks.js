@@ -41,7 +41,7 @@ const MyBooks = () => {
         getUserSub()
     })
     //deactivate mutation
-    const [deactivateBook, { loading: mutationLoading, called }] = useMutation(DEACTIVATE_BOOK)
+    const [deactivateBook, { loading: mutationLoading, data: mutationData }] = useMutation(DEACTIVATE_BOOK)
 
 
 
@@ -87,7 +87,7 @@ const MyBooks = () => {
                     <HeadingOne text=" My books" />
 
                     {mutationLoading && <p>Busy deactivating your book</p>}
-                    {called && <p>Your book has been deactivated</p>}
+                    {mutationData && <p>Your book has been deactivated</p>}
                     {
                         books.map(book => (
                             (
