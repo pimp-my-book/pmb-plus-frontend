@@ -19,7 +19,8 @@ import Edit from '../../assets/edit.svg'
 import BookModal from './BookModal'
 import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
-
+import DeactivateIcon from '../../assets/delete_outline.svg'
+import SoldIcon from '../../assets/done_outline.svg'
 
 
 const MyBooks = () => {
