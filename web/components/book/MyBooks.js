@@ -97,6 +97,10 @@ const MyBooks = () => {
 
                     {mutationLoading && <p>Busy deactivating your book</p>}
                     {mutationData && <p>Your book has been deactivated</p>}
+
+                    {soldData && <p>Your book has been marked as sold</p>}
+
+                    {soldLoadingMutation && <p>Busy marking your book as sold</p>}
                     {
                         books.map(book => (
                             (
