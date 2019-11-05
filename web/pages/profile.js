@@ -1,5 +1,4 @@
-import Router from 'next/router'
-import Auth from "@aws-amplify/auth";
+
 import Cookie from 'js-cookie'
 import ProfilePage from '../components/profile/ProfilePage'
 const profile = (props) => {
