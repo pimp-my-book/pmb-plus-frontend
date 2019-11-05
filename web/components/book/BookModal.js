@@ -58,7 +58,7 @@ export default class BookModal extends Component {
                                     else {
                                         return (
                                             <>
-                                                <div show={this.props.show} className=" top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
+                                                <div show={this.props.show} className="absolute mb-20 top-0 bottom-0 left-0 right-0 flex justify-center align-center bg-white" >
                                                     <div className="flex">
                                                         <span onClick={this.props.onHide} >&times;</span>
                                                     </div>
@@ -94,7 +94,7 @@ export default class BookModal extends Component {
                                                                 text="Time to edit your book"
                                                             />
 
-                                                            {targetID}
+
                                                             <hr
                                                                 className="border-greyDark"
                                                             />
@@ -314,7 +314,7 @@ export default class BookModal extends Component {
                                                                     <div className="flex flex-col w-48 mt-3">
                                                                         <DarkPinkButton
                                                                             type="submit"
-                                                                            text="Create account"
+                                                                            text="Edit book"
                                                                         //isLoading={mutationError ? !isLoading : isLoading}
                                                                         />
 
