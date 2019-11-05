@@ -1,5 +1,6 @@
 import gql from "graphql-tag"
 
+//addBookMutation
 export const addBookMutation = gql`
 mutation addBookMutation($input: addBookInput!){
     addBook(input:$input){
@@ -19,8 +20,16 @@ mutation addBookMutation($input: addBookInput!){
 }
 `
 
+//EDIT_BOOK_MUTATION
 export const EDIT_BOOK_MUTATION = gql`
 mutation EDIT_BOOK_MUTATION($input: editBookInput){
     editBook(input: $input)
+}
+`
+
+//DEACTIVATE_BOOK
+export const DEACTIVATE_BOOK = gql`
+mutation DEACTIVATE_BOOK($owner: String!, $ID: Int!){
+    deactivateBook(owner:$owner,ID: $ID)
 }
 `
