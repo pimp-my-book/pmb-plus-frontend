@@ -41,7 +41,7 @@ const MyBooks = () => {
         getUserSub()
     })
     //deactivate mutation
-    const [deactivateBook] = useMutation(DEACTIVATE_BOOK)
+    const [deactivateBook, { loading: mutationLoading, called }] = useMutation(DEACTIVATE_BOOK)
 
 
 
@@ -86,6 +86,8 @@ const MyBooks = () => {
                 <div className={show ? 'hidden mb-20' : 'mb-20'}>
                     <HeadingOne text=" My books" />
 
+                    {mutationLoading && <p>Busy deactivating your book</p>}
+                    {called && <p>Your book has been deactivated</p>}
                     {
                         books.map(book => (
                             (
@@ -93,7 +95,10 @@ const MyBooks = () => {
 
                                 >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
-                                    <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} /> <img src={SoldIcon} alt="mark as sold" />
+                                    <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} />
+
+
+                                    <img src={SoldIcon} alt="mark as sold" />
                                 </div>
                             )
                         )
