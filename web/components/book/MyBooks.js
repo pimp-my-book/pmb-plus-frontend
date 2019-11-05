@@ -30,7 +30,7 @@ const MyBooks = () => {
 
     const [targetID, setTargetID] = useState("")
     const [userSub, setUserSub] = useState("")
-
+    const [isShown, setIsShown] = useState(false)
 
     //This effect gets the users cognito sub
 
