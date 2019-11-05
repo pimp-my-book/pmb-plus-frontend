@@ -25,10 +25,14 @@ import { GET_ONE_BOOK } from '../../graphql/Queries'
 const MyBooks = () => {
 
     //  declare state
+    //state
+    const [show, setShow] = useState(false)
 
+    const [targetID, setTargetID] = useState("")
     const [userSub, setUserSub] = useState("")
 
 
+    //This effect gets the users cognito sub
 
     useEffect(() => {
         async function getUserSub() {
@@ -40,10 +44,7 @@ const MyBooks = () => {
 
 
 
-    //state
-    const [show, setShow] = useState(false)
 
-    const [targetID, setTargetID] = useState("")
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
         variables: { owner: userSub.toString() }
