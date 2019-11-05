@@ -75,6 +75,14 @@ const MyBooks = () => {
         })
     }
 
+    //Function to mark book as sold
+    const bookSold = (bookID) => {
+        markAsSold({
+            variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7', ID: bookID }
+        })
+    }
+
+
     if (books.length === 0) {
         return (
             <div>
