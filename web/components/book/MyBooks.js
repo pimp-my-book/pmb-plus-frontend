@@ -12,14 +12,14 @@ To be able to render the modal the component needs to be split up into two
 
 import React, { useState, useEffect } from 'react'
 import { Auth } from "aws-amplify";
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Input, Textarea, DarkPinkButton } from 'umqombothi-component-library'
 import { GET_MY_BOOKS } from '../../graphql/Queries'
 import Edit from '../../assets/edit.svg'
 import BookModal from './BookModal'
-import FormGrid from '../FormGrid'
-import { GET_ONE_BOOK } from '../../graphql/Queries'
-
+import { DEACTIVATE_BOOK, MARK_AS_SOLD } from '../../graphql/Mutations'
+import DeactivateIcon from '../../assets/delete_outline.svg'
+import SoldIcon from '../../assets/done_outline.svg'
 
 
 const MyBooks = () => {
@@ -31,7 +31,6 @@ const MyBooks = () => {
     const [targetID, setTargetID] = useState("")
     const [userSub, setUserSub] = useState("")
 
-
     //This effect gets the users cognito sub
 
     useEffect(() => {
@@ -41,13 +40,15 @@ const MyBooks = () => {
         }
         getUserSub()
     })
-
-
+    //deactivate mutation
+    const [deactivateBook, { loading: mutationLoading, data: mutationData }] = useMutation(DEACTIVATE_BOOK)
+    //mark book as sold mutation
+    const [markAsSold, { loading: soldLoadingMutation, data: soldData }] = useMutation(MARK_AS_SOLD)
 
 
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: userSub.toString() }
+        variables: { owner: userSub.toString() }//userSub.toString()}
     })
 
 
@@ -67,6 +68,21 @@ const MyBooks = () => {
     }
 
 
+    //Function to deactivate book
+    const bookDeactivation = (bookID) => {
+        deactivateBook({
+            variables: { owner: userSub.toString(), ID: bookID }
+        })
+    }
+
+    //Function to mark book as sold
+    const bookSold = (bookID) => {
+        markAsSold({
+            variables: { owner: userSub.toString(), ID: bookID }
+        })
+    }
+
+
     if (books.length === 0) {
         return (
             <div>
@@ -79,11 +95,22 @@ const MyBooks = () => {
                 <div className={show ? 'hidden mb-20' : 'mb-20'}>
                     <HeadingOne text=" My books" />
 
+                    {mutationLoading && <p>Busy deactivating your book</p>}
+                    {mutationData && <p>Your book has been deactivated</p>}
+
+                    {soldData && <p>Your book has been marked as sold</p>}
+
+                    {soldLoadingMutation && <p>Busy marking your book as sold</p>}
                     {
                         books.map(book => (
                             (
-                                <div className="flex flex-row p-10">
+                                <div className="flex flex-row p-10"
+                                >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
+                                    <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} />
+
+
+                                    <img src={SoldIcon} alt="mark as sold" onClick={() => bookSold(book.ID)} />
                                 </div>
                             )
                         )
