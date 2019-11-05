@@ -73,7 +73,7 @@ class Page extends Component {
                     {this.props.children}
                 </div>
                 <Footer
-                    className="relative"
+                    className="s:relative md:relative   lapie:relative"
                 />
             </>
         )
