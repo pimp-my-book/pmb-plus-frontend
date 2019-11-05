@@ -93,7 +93,7 @@ const MyBooks = () => {
 
                                 >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
-                                    <img src={DeactivateIcon} alt="deactivate book" /> <img src={SoldIcon} alt="mark as sold" />
+                                    <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} /> <img src={SoldIcon} alt="mark as sold" />
                                 </div>
                             )
                         )
