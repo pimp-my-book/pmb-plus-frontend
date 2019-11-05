@@ -33,3 +33,11 @@ mutation DEACTIVATE_BOOK($owner: String!, $ID: Int!){
     deactivateBook(owner:$owner,ID: $ID)
 }
 `
+
+//MARK_AS_SOLD
+
+export const MARK_AS_SOLD = gql`
+mutation MARK_AS_SOLD($owner: String!, $ID: Int!){
+    markAsSold(owner:$owner,ID: $ID)
+}
+`
