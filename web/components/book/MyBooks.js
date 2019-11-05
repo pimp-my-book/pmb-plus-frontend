@@ -85,6 +85,9 @@ const MyBooks = () => {
                             (
                                 <div className="flex flex-row p-10">
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
+                                    {isShown && <div>
+                                        <img src={DeactivateIcon} alt="deactivate book" /> <img src={SoldIcon} alt="mark as sold" />
+                                    </div>}
                                 </div>
                             )
                         )
