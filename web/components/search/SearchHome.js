@@ -9,9 +9,17 @@ by their univeristy and allow the user to navigate
 to the page of books for that Univeristy
 
 */
+
+
 import React from 'react'
+import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree } from 'umqombothi-component-library'
+import { GET_BOOKS_BY_UNIVERSITY } from '../../graphql/Queries'
 const SearchHome = () => {
+    const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
+
+    if (loading) return `We are busy get them books...`
+    if (error) return `${error.message}`
     return (
         <>
             <div>
