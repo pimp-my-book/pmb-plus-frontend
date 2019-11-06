@@ -1,9 +1,12 @@
-import React from 'react'
 
-const SearchHome = () =>{
+import React from 'react'
+import { HeadingOne, HeadingThree } from 'umqombothi-component-library'
+const SearchHome = () => {
     return (
         <>
-Search page 
+            <div>
+                <HeadingOne text="Search" />
+            </div>
         </>
     )
 }

@@ -1,7 +1,9 @@
+import SearchHome from '../components/search/SearchHome'
 const Search = () => {
     return (
         <>
-            this is the search page
+            <SearchHome />
+
         </>
     )
 }
