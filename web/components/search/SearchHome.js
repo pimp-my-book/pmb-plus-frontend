@@ -6,6 +6,9 @@ const SearchHome = () => {
         <>
             <div>
                 <HeadingOne text="Search" />
+                <div>
+                    <HeadingThree text="Browse all" />
+                </div>
             </div>
         </>
     )
