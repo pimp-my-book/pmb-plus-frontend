@@ -20,6 +20,9 @@ const SearchHome = () => {
 
     if (loading) return `We are busy get them books...`
     if (error) return `${error.message}`
+
+    const books = data.getBooksByUniversity
+    console.log(books)
     return (
         <>
             <div>
