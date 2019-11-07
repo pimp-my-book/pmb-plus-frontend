@@ -10,6 +10,7 @@ import React, { useState } from 'react'
 import { useQuery, ApolloConsumer } from '@apollo/react-hooks'
 import { Input } from 'umqombothi-component-library'
 import Downshift from 'downshift'
+import { SEARCH_ALL_BOOKS } from '../../graphql/Queries'
 /*
 TO DO
 
@@ -23,9 +24,20 @@ const SearchBar = () => {
     //STATE FOR THE USERS SEARCH QUERY
     const [searchTerm, setSearchTerm] = useState("")
     //Search query to API
-    const { loading, error, data } = useQuery(useQuery, {
+    const { loading, error, data } = useQuery(SEARCH_ALL_BOOKS, {
         variables: { searchTerm: 'el' }
     })
+
+    const search = async (e, client) => {
+        const result = await client.query({
+            query: SEARCH_ALL_BOOKS,
+            variables: { searchTerm: searchTerm }
+        })
+        console.log(result)
+
+        setResults(result)
+
+    }
     return (
         <>
             <Input
