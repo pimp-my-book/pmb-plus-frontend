@@ -6,12 +6,22 @@ It uses Downshift for its Render Prop API
 
 */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery, ApolloConsumer } from '@apollo/react-hooks'
 import { Input } from 'umqombothi-component-library'
 import Downshift from 'downshift'
+/*
+TO DO
 
+- ADD STATE
+- ADD QUERY
+- ADD ON CHANGE FUNCTION
+*/
 const SearchBar = () => {
+    //STATE TO STORE THE SEARCH RESULTS
+    const [results, setResults] = useState([])
+    //STATE FOR THE USERS SEARCH QUERY
+    const [searchTerm, setSearchTerm] = useState("")
     return (
         <>
             <Input
