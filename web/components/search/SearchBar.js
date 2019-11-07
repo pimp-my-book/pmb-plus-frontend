@@ -38,12 +38,41 @@ const SearchBar = () => {
         setResults(result)
 
     }
+
+
     return (
         <>
-            <Input
+            <Downshift
+                itemToString={item => (item ? item.title : '')}
+            >
+                {({
+                    getInputProps,
+                    getItemProps,
+                    isOpen,
+                    inputValue,
+                    highlightedIndex
+                }) =>
 
-                placeholder="Search by title, ISBN or author"
-            />
+                    <div>
+                        <ApolloConsumer>
+                            {client => (
+                                <Input
+                                    {...getInputProps({
+                                        onChange: e => {
+                                            e.presist()
+                                            search(e, client)
+                                        }
+                                    })}
+                                    placeholder="Search by title, ISBN or author"
+                                />
+                            )}
+                        </ApolloConsumer>
+                    </div>
+
+                }
+
+            </Downshift>
+
         </>
     )
 }
