@@ -22,18 +22,11 @@ const SearchHome = () => {
     if (loading) return `We are busy get them books...`
     if (error) return `${error.message}`
 
-    //create a variable for the books
-    const books = data.getBooksByUniversity
-    console.log(books)
-    //Group books by Univeristies
-    const univeristies = books.reduce((a, r) => {
-        let key = a.univeristy
-        r[key] || []
-        r[key].push(a)
-        return r
-    }, {})
 
-    console.log(univeristies)
+    //Group books by Univeristies
+    const univeristies = data.getBooksByUniversity.reduce(function (r, a) { let key = a.univeristy; r[key] = r[key] || []; r[key].push(a); return r }, {})
+
+    console.log(Object.keys(univeristies))
     return (
         <>
             <div>
