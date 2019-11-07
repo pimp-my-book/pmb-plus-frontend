@@ -1,8 +1,10 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/react-hooks'
+import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
+
 import { GET_BOOKS_AT_A_UNIVERSITY } from '../../graphql/Queries'
-const Category = ({ books }) => {
+const Category = () => {
     const router = useRouter()
     const { uni } = router.query
     const { loading, data, error } = useQuery(GET_BOOKS_AT_A_UNIVERSITY, {
@@ -12,8 +14,8 @@ const Category = ({ books }) => {
     console.log(data)
     return (
         <>
-            This page will show all the categories for a certain book by univeristy
-            {books}
+            <HeadingOne text={`Books from ${uni} `} />
+
         </>
     )
 
