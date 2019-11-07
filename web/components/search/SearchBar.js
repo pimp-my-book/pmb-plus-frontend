@@ -24,14 +24,12 @@ const SearchBar = () => {
     //STATE FOR THE USERS SEARCH QUERY
     const [searchTerm, setSearchTerm] = useState("")
     //Search query to API
-    const { loading, error, data } = useQuery(SEARCH_ALL_BOOKS, {
-        variables: { searchTerm: 'el' }
-    })
+
 
     const search = async (e, client) => {
         const result = await client.query({
             query: SEARCH_ALL_BOOKS,
-            variables: { searchTerm: searchTerm }
+            variables: { searchTerm: e.target.value }
         })
         console.log(result)
 
@@ -59,7 +57,7 @@ const SearchBar = () => {
                                 <Input
                                     {...getInputProps({
                                         onChange: e => {
-                                            e.presist()
+                                            e.persist()
                                             search(e, client)
                                         }
                                     })}
