@@ -118,3 +118,17 @@ query GET_MY_BOOKS($owner: String!){
     }
 }
 `
+
+//getBooksAtAUniversity
+export const GET_BOOKS_AT_A_UNIVERSITY = gql`
+query GET_BOOKS_AT_A_UNIVERSITY($university: String!){
+    getBooksAtAUniversity(university:$university){
+        ID
+        title
+        grade
+        price
+        image
+        univeristy
+    }
+}
+`
