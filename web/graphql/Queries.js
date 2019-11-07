@@ -132,3 +132,14 @@ query GET_BOOKS_AT_A_UNIVERSITY($university: String!){
     }
 }
 `
+
+//searchAllBooks
+export const SEARCH_ALL_BOOKS = gql`
+query SEARCH_ALL_BOOKS($searchTerm: String!){
+    searchAllBooks(searchTerm: $searchTerm){
+        ID
+        title
+        image
+    }
+}
+`
