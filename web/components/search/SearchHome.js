@@ -33,6 +33,15 @@ const SearchHome = () => {
                 <HeadingOne text="Search" />
                 <div>
                     <HeadingThree text="Browse all" />
+                    {
+                        Object.keys(univeristies).map(item => {
+                            return (
+                                <div>
+                                    {item}
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>
