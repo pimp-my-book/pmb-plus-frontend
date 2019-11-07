@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-
+import { useQuery } from '@apollo/react-hooks'
+import { GET_BOOKS_AT_A_UNIVERSITY } from '../../graphql/Queries'
 const Category = ({ books }) => {
     const router = useRouter()
 
