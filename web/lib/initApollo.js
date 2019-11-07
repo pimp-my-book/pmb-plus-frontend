@@ -34,11 +34,12 @@ function create(initialState, getToken) {
         const token = Cookie.get('token')
 
         const anonymousUser = await Auth.currentCredentials()
-
+        console.log(anonymousUser)
+        //`Bearer ${anonymousUser.data.Credentials.sessionToken}`
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : `Bearer ${anonymousUser.data.Credentials.sessionToken}`
+                authorization: token ? `Bearer ${token}` : null
             }
         }
     })

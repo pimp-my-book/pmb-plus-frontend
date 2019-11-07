@@ -16,13 +16,24 @@ import { useQuery } from '@apollo/react-hooks'
 import { HeadingOne, HeadingThree } from 'umqombothi-component-library'
 import { GET_BOOKS_BY_UNIVERSITY } from '../../graphql/Queries'
 const SearchHome = () => {
+    //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
 
     if (loading) return `We are busy get them books...`
     if (error) return `${error.message}`
 
+    //create a variable for the books
     const books = data.getBooksByUniversity
     console.log(books)
+    //Group books by Univeristies
+    const univeristies = books.reduce((a, r) => {
+        let key = a.univeristy
+        r[key] || []
+        r[key].push(a)
+        return r
+    }, {})
+
+    console.log(univeristies)
     return (
         <>
             <div>
