@@ -46,7 +46,7 @@ const SearchHome = () => {
                                         as={`/categories/?uni=${item}`}
                                     >
                                         {item}
-                                        <Category books={univeristies} />
+
                                     </Link>
 
 
