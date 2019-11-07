@@ -22,6 +22,10 @@ const SearchBar = () => {
     const [results, setResults] = useState([])
     //STATE FOR THE USERS SEARCH QUERY
     const [searchTerm, setSearchTerm] = useState("")
+    //Search query to API
+    const { loading, error, data } = useQuery(useQuery, {
+        variables: { searchTerm: 'el' }
+    })
     return (
         <>
             <Input
@@ -32,4 +36,4 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default SearchBar 
