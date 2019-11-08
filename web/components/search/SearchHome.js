@@ -39,25 +39,28 @@ const SearchHome = () => {
                 <SearchBar />
                 <div>
                     <HeadingThree text="Browse all" />
-                    {
-                        Object.keys(univeristies).map(item => {
-                            return (
-                                <div>
-                                    <Link
+                    <div className="flex flex-col">
+                        {
+                            Object.keys(univeristies).map(item => {
+                                return (
+                                    <div >
+                                        <Link
 
-                                        href={`/categories/?uni=${item}`}
-                                        as={`/categories/?uni=${item}`}
-                                    >
-                                        <UniCard uniName={item} />
-
-
-                                    </Link>
+                                            href={`/categories/?uni=${item}`}
+                                            as={`/categories/?uni=${item}`}
+                                        >
+                                            <UniCard uniName={item} />
 
 
-                                </div>
-                            )
-                        })
-                    }
+                                        </Link>
+
+
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
                 </div>
             </div>
         </>
