@@ -5,6 +5,7 @@ const UniCard = ({ uniName }) => {
     return (
         <>
             <div>
+                <HeadingFive text={uniName} />
 
             </div>
         </>
