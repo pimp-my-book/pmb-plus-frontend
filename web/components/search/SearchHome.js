@@ -13,7 +13,6 @@ to the page of books for that Univeristy
 
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import Link from 'next/link'
 import { HeadingOne, HeadingThree } from 'umqombothi-component-library'
 import { GET_BOOKS_BY_UNIVERSITY } from '../../graphql/Queries'
 import Category from '../search/Category'
@@ -44,15 +43,11 @@ const SearchHome = () => {
                             Object.keys(univeristies).map(item => {
                                 return (
                                     <div >
-                                        <Link
 
-                                            href={`/categories/?uni=${item}`}
-                                            as={`/categories/?uni=${item}`}
-                                        >
-                                            <UniCard uniName={item} />
+                                        <UniCard uniName={item} />
 
 
-                                        </Link>
+
 
 
                                     </div>
