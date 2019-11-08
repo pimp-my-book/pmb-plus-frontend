@@ -4,20 +4,16 @@ for books via the title/isbn or author
 
 It uses Downshift for its Render Prop API
 
+The user is able to select a book and go view it
 */
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { useQuery, ApolloConsumer } from '@apollo/react-hooks'
 import { Input } from 'umqombothi-component-library'
 import Downshift from 'downshift'
 import { SEARCH_ALL_BOOKS } from '../../graphql/Queries'
-/*
-TO DO
 
-- ADD STATE
-- ADD QUERY
-- ADD ON CHANGE FUNCTION
-*/
 const SearchBar = () => {
     //STATE TO STORE THE SEARCH RESULTS
     const [results, setResults] = useState([])
@@ -56,6 +52,7 @@ const SearchBar = () => {
                             {client => (
                                 <Input
                                     {...getInputProps({
+                                        type: 'search',
                                         onChange: e => {
                                             e.persist()
                                             search(e, client)
@@ -74,7 +71,13 @@ const SearchBar = () => {
                                             index,
                                             item
                                         })}>
-                                        {item.title}
+                                        <Link
+                                            className="cursor-pointer"
+                                            href={`/viewBook?id=${item.ID}`}
+                                            as={`/viewBook?id=${item.ID}`}>
+                                            {item.title}
+                                        </Link>
+
                                     </li>
                                 ))}
                             </ul>
