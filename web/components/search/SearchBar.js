@@ -33,7 +33,7 @@ const SearchBar = () => {
         })
         console.log(result)
 
-        setResults(result)
+        setResults(result.data.searchAllBooks)
 
     }
 
@@ -65,6 +65,20 @@ const SearchBar = () => {
                                 />
                             )}
                         </ApolloConsumer>
+                        {isOpen && (
+                            <ul>
+                                {results.map((item, index) => (
+                                    <li
+                                        {...getItemProps({
+                                            key: item.id,
+                                            index,
+                                            item
+                                        })}>
+                                        {item.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
 
                 }
