@@ -1,4 +1,4 @@
-const colours = {
+export const colours = {
     pinkDarkest: '#ED0677',
     pinkDark: '#E06C9F',
     pink: '#E574BC',
@@ -32,4 +32,3 @@ const colours = {
     orangeLightest: '#F7B267',
 }
 
-export default colours
