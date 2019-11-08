@@ -14,7 +14,7 @@ const UniCard = ({ uniName }) => {
 
     return (
         <>
-            <div className={`w-1/4 h-16 shadow-xl rounded bg-${newColour}`}>
+            <div className={`w-3/4 h-16 shadow-xl rounded bg-${newColour}`}>
                 <HeadingFive className="p-2" text={uniName} />
 
             </div>

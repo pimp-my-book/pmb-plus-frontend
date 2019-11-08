@@ -19,7 +19,7 @@ import { GET_BOOKS_BY_UNIVERSITY } from '../../graphql/Queries'
 import Category from '../search/Category'
 import SearchBar from './SearchBar'
 import UniCard from '../card/UniCard'
-
+import SearchGrid from '../grids/SearchGrid'
 const SearchHome = () => {
     //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
@@ -39,7 +39,7 @@ const SearchHome = () => {
                 <SearchBar />
                 <div>
                     <HeadingThree text="Browse all" />
-                    <div className="flex flex-col">
+                    <SearchGrid>
                         {
                             Object.keys(univeristies).map(item => {
                                 return (
@@ -59,7 +59,7 @@ const SearchHome = () => {
                                 )
                             })
                         }
-                    </div>
+                    </SearchGrid>
 
                 </div>
             </div>
