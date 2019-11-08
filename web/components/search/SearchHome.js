@@ -18,6 +18,8 @@ import { HeadingOne, HeadingThree } from 'umqombothi-component-library'
 import { GET_BOOKS_BY_UNIVERSITY } from '../../graphql/Queries'
 import Category from '../search/Category'
 import SearchBar from './SearchBar'
+import UniCard from '../card/UniCard'
+
 const SearchHome = () => {
     //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
@@ -46,7 +48,8 @@ const SearchHome = () => {
                                         href={`/categories/?uni=${item}`}
                                         as={`/categories/?uni=${item}`}
                                     >
-                                        {item}
+                                        <UniCard uniName={item} />
+
 
                                     </Link>
 
