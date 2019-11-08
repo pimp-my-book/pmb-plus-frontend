@@ -16,7 +16,7 @@ const UniCard = ({ uniName }) => {
     return (
         <>
             <Link
-
+                className="cursor-pointer"
                 href={`/categories/?uni=${uniName}`}
                 as={`/categories/?uni=${uniName}`}
             >
