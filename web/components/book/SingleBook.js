@@ -69,7 +69,8 @@ const SingleBook = ({ }) => {
                         <img src={ConfIcon} alt="ISBN" /> <HeadingFive className="mr-2" text="ISBN" /> <BodyText className="p-1" text={book.ISBN} />
                     </div>
                     <div className="flex flex-row mt-5">
-                        <HeadingFive className="mr-2" text="Edition" /><BodyText className="p-1" text={book.edition} />
+
+                        <img src={LibBooks} alt="edition_icon" /> <HeadingFive className="mr-2" text="ISBN" />   <HeadingFive className="mr-2" text="Edition" /><BodyText className="p-1" text={book.edition} />
                     </div>
 
 
