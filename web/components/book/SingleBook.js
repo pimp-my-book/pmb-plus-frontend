@@ -13,6 +13,10 @@ import { GET_ONE_BOOK } from '../../graphql/Queries'
 import BookGrid from '../grids/BookGrid'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import MapPlaceholder from '../../assets/Map_Placeholder.svg'
+import Face from '../../assets/face.svg'
+import ConfIcon from '../../assets/confirmation_number.svg'
+import LibBooks from '../../assets/library_books.svg'
+
 const SingleBook = ({ }) => {
 
     const router = useRouter()
@@ -59,10 +63,10 @@ const SingleBook = ({ }) => {
                 <div className="p-5">
                     <HeadingTwo text="Book details" />
                     <div className="flex flex-row mt-5">
-                        <HeadingFive className="mr-2" text="Author" /> <BodyText className="p-1" text={book.author} />
+                        <img src={Face} alt="face_icon" /> <HeadingFive className="mr-2" text="Author" /> <BodyText className="p-1" text={book.author} />
                     </div>
                     <div className="flex flex-row mt-5">
-                        <HeadingFive className="mr-2" text="ISBN" /> <BodyText className="p-1" text={book.ISBN} />
+                        <img src={ConfIcon} alt="ISBN" /> <HeadingFive className="mr-2" text="ISBN" /> <BodyText className="p-1" text={book.ISBN} />
                     </div>
                     <div className="flex flex-row mt-5">
                         <HeadingFive className="mr-2" text="Edition" /><BodyText className="p-1" text={book.edition} />
