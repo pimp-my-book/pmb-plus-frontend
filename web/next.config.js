@@ -8,7 +8,9 @@ module.exports = withCSS(
     withTM({
         transpileModules: ["umqombothi-component-library"],
         target: 'serverless',
-
+        cssLoaderOptions: {
+            url: false
+        },
 
 
         webpack(config, options) {
