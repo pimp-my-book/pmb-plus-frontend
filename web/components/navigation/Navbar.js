@@ -7,11 +7,9 @@ FUNCTIONS:
 *children - to accept Additional JSX
 * content to accepts menu items in the nav drawer
 */
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap'
 import styled from 'styled-components'
-import PropTypes from 'prop-types';
-import '../../index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBarStyles = styled(Navbar)`

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
-import { Footer, NavigationBar } from 'umqombothi-component-library'
+import { Footer } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
 import Amplify, { Auth, Storage } from 'aws-amplify'
 import Cookie from 'js-cookie'
-
+import NavBar from '../components/navigation/Navbar'
 
 
 
@@ -54,18 +54,16 @@ class Page extends Component {
 
         return (
             <>
-                <NavigationBar
-                    content={
-                        <>
-                            <span
-                                onClick={this.handleLogout}
-                            >
-                                Logout
-                    </span>
-                        </>
-                    }
+                <NavBar
 
-                />
+
+                >
+                    <span
+                        onClick={this.handleLogout}
+                    >
+                        Logout
+                    </span>
+                </NavBar>
                 <div
 
                 >
