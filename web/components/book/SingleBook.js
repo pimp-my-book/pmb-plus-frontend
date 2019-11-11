@@ -32,7 +32,7 @@ const SingleBook = ({ }) => {
             <BookGrid>
 
                 {/*START:Top left spot */}
-                <div className="p-5">
+                <div className="p-32">
                     <img src={book.image} alt={`Image of ${book.title}`} />
                 </div>
                 {/*END: Top left spot */}
