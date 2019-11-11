@@ -135,6 +135,7 @@ What we want is to group all entries by unquie instance of a course
                                                 img={book.image}
                                                 price={book.price}
                                                 title={book.title}
+                                                location={book.location}
                                             />
 
                                         </div>
