@@ -18,7 +18,7 @@ const BookCard = ({
                 <HeadingFive text={`R ${price}`} />
                 <HeadingFive className="text-green" text={`Grade ${grade}`} />
                 <div className="flex flex-row">
-                    <img src={locationIcon} alt="location img" /> <BodyText text={location} />
+                    <img src={locationIcon} alt="location img" /> <BodyText text={location ? location : 'X'} />
                 </div>
             </div>
 
