@@ -19,7 +19,7 @@ const NavBarStyles = styled(Navbar)`
     border-top: #ED0677 8px solid;
 }
 `
-const NavigationBar = ({
+const NavBar = ({
     className = '',
     children,
     content
@@ -50,4 +50,4 @@ const NavigationBar = ({
 }
 
 
-export default NavigationBar
+export default NavBar
