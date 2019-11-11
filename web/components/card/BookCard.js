@@ -14,7 +14,7 @@ const BookCard = ({
             <div className="flex flex-col">
                 <HeadingFive text={title} />
                 <HeadingFive text={`R ${price}`} />
-                <HeadingFive text={`Grade ${grade}`} />
+                <HeadingFive className="text-green" text={`Grade ${grade}`} />
             </div>
 
         </div>
