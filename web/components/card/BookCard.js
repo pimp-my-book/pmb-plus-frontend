@@ -9,7 +9,7 @@ const BookCard = ({
     location
 }) => {
     return (
-        <div className="w-300 h-450 shadow">
+        <div className="w-300 h-450 shadow cursor-pointer">
             <div>
                 <img src={img} alt="book image" className="w-full h-64 " />
             </div>
