@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
-import { Footer } from 'umqombothi-component-library'
+import { Footer, HeadingFive } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
 import Amplify, { Auth, Storage } from 'aws-amplify'
+import { Nav } from 'react-bootstrap'
 import Cookie from 'js-cookie'
 import NavBar from '../components/navigation/Navbar'
 
@@ -54,15 +55,16 @@ class Page extends Component {
 
         return (
             <>
-                <NavBar
+                <NavBar>
+                    <Nav className="ml-auto">
+                        <Nav.Item>
+                            <HeadingFive className="text-white " text="Login" />
+                        </Nav.Item>
+                        <Nav.Item>
+                            <HeadingFive className="text-white ml-3" text="Sell" />
+                        </Nav.Item>
+                    </Nav>
 
-
-                >
-                    <span
-                        onClick={this.handleLogout}
-                    >
-                        Logout
-                    </span>
                 </NavBar>
                 <div
 
@@ -79,3 +81,13 @@ class Page extends Component {
 }
 
 export default Page
+
+/*
+
+
+<span
+                        onClick={this.handleLogout}
+                    >
+                        Logout
+                    </span>
+*/
