@@ -12,6 +12,7 @@ import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-compon
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import BookGrid from '../grids/BookGrid'
 import Avatar from '../../assets/Avatar_Shape.svg'
+import MapPlaceholder from '../../assets/Map_Placeholder.svg'
 const SingleBook = ({ }) => {
 
     const router = useRouter()
@@ -77,6 +78,7 @@ const SingleBook = ({ }) => {
                 <div className="d">
 
                     <HeadingFive text={`This book was posted near ${book.location}`} />
+                    <img src={MapPlaceholder} alt="map_placeholder" />
 
                 </div>
                 {/* END: bottom Right*/}
