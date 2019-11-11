@@ -38,6 +38,7 @@ const BooksByDegree = () => {
                                             img={book.image}
                                             price={book.price}
                                             title={book.title}
+                                            location={book.location}
                                         />
                                     </div>
                                 ))}

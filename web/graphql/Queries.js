@@ -29,6 +29,7 @@ query GET_BOOKS_BY_DEGREE{
         price
         image
         degree
+        location
     }
 }
 `
@@ -42,6 +43,8 @@ query GET_BOOKS_BY_COURSE{
         price
         image
         course
+        location
+
     }
 }
 `

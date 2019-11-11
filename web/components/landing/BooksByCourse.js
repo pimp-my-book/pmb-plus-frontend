@@ -107,15 +107,16 @@ What we want is to group all entries by unquie instance of a course
         }*/
     return (
         <>
-            <h1>Books by course</h1>
+
             {
                 Object.keys(result).map((item, index) => {
                     console.log(item, index)
                     let values = result[item]
                     console.log(values)
                     return (
-                        <div key={index}>
+                        <div key={index} >
                             <HeadingFive
+                                className="mt-5"
                                 text={`${item} books`}
                             />
 
@@ -135,6 +136,7 @@ What we want is to group all entries by unquie instance of a course
                                                 img={book.image}
                                                 price={book.price}
                                                 title={book.title}
+                                                location={book.location}
                                             />
 
                                         </div>
