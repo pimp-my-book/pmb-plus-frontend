@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeadingFive, BodyText } from 'umqombothi-component-library'
-import location from '../../assets/location_on.svg'
+import locationIcon from '../../assets/location_on.svg'
 const BookCard = ({
     grade,
     img,
@@ -18,7 +18,7 @@ const BookCard = ({
                 <HeadingFive text={`R ${price}`} />
                 <HeadingFive className="text-green" text={`Grade ${grade}`} />
                 <div className="flex flex-row">
-                    <img src={location} alt="location img" /> <BodyText text={location} />
+                    <img src={locationIcon} alt="location img" /> <BodyText text={location} />
                 </div>
             </div>
 
