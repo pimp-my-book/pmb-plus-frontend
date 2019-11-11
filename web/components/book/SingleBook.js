@@ -63,14 +63,14 @@ const SingleBook = ({ }) => {
                 <div className="p-5">
                     <HeadingTwo text="Book details" />
                     <div className="flex flex-row mt-5">
-                        <img src={Face} alt="face_icon" /> <HeadingFive className="mr-2" text="Author" /> <BodyText className="p-1" text={book.author} />
+                        <img src={Face} alt="face_icon" /> <HeadingFive className="mr-2 p-2" text="Author" /> <BodyText className="p-3" text={book.author} />
                     </div>
                     <div className="flex flex-row mt-5">
-                        <img src={ConfIcon} alt="ISBN" /> <HeadingFive className="mr-2" text="ISBN" /> <BodyText className="p-1" text={book.ISBN} />
+                        <img src={ConfIcon} alt="ISBN" /> <HeadingFive className="mr-2 p-2" text="ISBN" /> <BodyText className="p-3" text={book.ISBN} />
                     </div>
                     <div className="flex flex-row mt-5">
 
-                        <img src={LibBooks} alt="edition_icon" /> <HeadingFive className="mr-2" text="ISBN" />   <HeadingFive className="mr-2" text="Edition" /><BodyText className="p-1" text={book.edition} />
+                        <img src={LibBooks} alt="edition_icon" />   <HeadingFive className="mr-2 p-2" text="Edition" /><BodyText className="p-3" text={book.edition} />
                     </div>
 
 
