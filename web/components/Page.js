@@ -74,7 +74,7 @@ class Page extends Component {
                         <Nav.Item>
                             <HeadingFive className="text-white mt-3" text="Login" />
                         </Nav.Item>
-                        <Nav.Item className="flex ml-3">
+                        <Nav.Item className="flex lg:ml-3">
                             <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
                         </Nav.Item>
                     </div>
