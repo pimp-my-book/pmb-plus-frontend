@@ -31,7 +31,7 @@ const SearchHome = () => {
     if (loading) return (
 
         <>
-            <SearchGrid>
+            <SearchGrid className="p-5">
                 {rows}
             </SearchGrid>
         </>
