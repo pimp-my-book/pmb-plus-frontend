@@ -26,7 +26,7 @@ const NavBar = ({
 
     return (
         <NavBarStyles
-            className=' bg-blueDarkest flex items-center justify-between flex-wrap bg-green-darker p-6'
+            className=' bg-blueDarkest  bg-green-darker '
             expand="lg">
             <Navbar.Brand> <img
                 src="https://pmb-plus-assets.s3.amazonaws.com/pmb_plus_logo.svg"
@@ -37,8 +37,8 @@ const NavBar = ({
                 src="https://pmb-static-assests.s3.amazonaws.com/menu.svg"
                 alt="menu"
             /></Navbar.Toggle>
-            <Navbar.Collapse>
-                <Nav className="" aria-label="collapse-items">
+            <Navbar.Collapse className="lg:flex lg:justify-end">
+                <Nav className="s:flex s:justify-end" aria-label="collapse-items">
                     {children}
                 </Nav>
             </Navbar.Collapse>

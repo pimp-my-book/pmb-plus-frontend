@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
+import styled from 'styled-components'
 import { Footer, HeadingFive } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
@@ -24,6 +25,14 @@ Amplify.configure({
         bucket: process.env.s3Bucket_dev
     }
 })
+
+const NavStyles = styled.div`
+margin-left: 800px;
+
+@media (min-width: 375px){
+    margin-left: 0px;
+}
+`
 
 class Page extends Component {
 
@@ -56,14 +65,16 @@ class Page extends Component {
         return (
             <>
                 <NavBar>
-                    <Nav className="mr-auto">
+
+                    <div className="flex">
                         <Nav.Item>
                             <HeadingFive className="text-white " text="Login" />
                         </Nav.Item>
                         <Nav.Item>
                             <HeadingFive className="text-white ml-3" text="Sell" />
                         </Nav.Item>
-                    </Nav>
+                    </div>
+
 
                 </NavBar>
                 <div
