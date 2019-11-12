@@ -22,7 +22,7 @@ const BooksByDegree = () => {
                 Object.keys(result).map((item, index) => {
                     let values = result[item]
                     return (
-                        <div key={index}>
+                        <div key={index} className="mt-5">
                             <HeadingFive
                                 text={`${item} books`}
                             />
