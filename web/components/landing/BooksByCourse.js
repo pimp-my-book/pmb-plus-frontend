@@ -9,7 +9,12 @@ import BookCard from '../card/BookCard'
 import BookPlaceholder from '../loading/BookPlaceholder'
 const BooksByCourse = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_COURSE)
-    if (loading) return <BookPlaceholder />
+    if (loading) return (
+        <div >
+            <BookPlaceholder />
+            <BookPlaceholder />
+        </div>
+    )
     if (error) return `${error.message}`
 
     /*
