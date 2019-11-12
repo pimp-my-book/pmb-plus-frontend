@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
 import styled from 'styled-components'
-import { Footer, HeadingFive } from 'umqombothi-component-library'
+import { HeadingFive } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
 import Amplify, { Auth, Storage } from 'aws-amplify'
 import { Nav } from 'react-bootstrap'
 import Cookie from 'js-cookie'
 import NavBar from '../components/navigation/Navbar'
+import Footer from '../components/navigation/Footer'
 import CatIcon from '../assets/store.svg'
 import SellIcon from '../assets/local_grocery_store.svg'
 
@@ -86,7 +87,7 @@ class Page extends Component {
                     {this.props.children}
                 </div>
                 <Footer
-                    className="s:relative md:relative   lapie:relative"
+                    className="relative"
                 />
             </>
         )
