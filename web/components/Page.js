@@ -56,7 +56,7 @@ class Page extends Component {
         return (
             <>
                 <NavBar>
-                    <Nav className="ml-auto">
+                    <Nav className="mr-auto">
                         <Nav.Item>
                             <HeadingFive className="text-white " text="Login" />
                         </Nav.Item>
