@@ -11,8 +11,14 @@ const BooksByCourse = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_COURSE)
     if (loading) return (
         <div >
-            <BookPlaceholder />
-            <BookPlaceholder />
+            <div className="mb-5 mt-5 p-3">
+                <BookPlaceholder />
+
+            </div>
+            <div className="mb-5 mt-5 p-3">
+                <BookPlaceholder />
+
+            </div>
         </div>
     )
     if (error) return `${error.message}`
