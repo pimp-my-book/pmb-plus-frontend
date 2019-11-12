@@ -66,7 +66,10 @@ class Page extends Component {
             <>
                 <NavBar>
 
-                    <div className="flex">
+                    <div className="mr-32 flex justify-start">
+                        <HeadingFive className="text-white " text="Categories" />
+                    </div>
+                    <div className="flex s:flex-col">
                         <Nav.Item>
                             <HeadingFive className="text-white " text="Login" />
                         </Nav.Item>
@@ -77,9 +80,7 @@ class Page extends Component {
 
 
                 </NavBar>
-                <div
-
-                >
+                <div>
 
                     {this.props.children}
                 </div>
