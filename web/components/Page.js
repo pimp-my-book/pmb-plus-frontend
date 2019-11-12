@@ -8,7 +8,8 @@ import Amplify, { Auth, Storage } from 'aws-amplify'
 import { Nav } from 'react-bootstrap'
 import Cookie from 'js-cookie'
 import NavBar from '../components/navigation/Navbar'
-
+import CatIcon from '../assets/store.svg'
+import SellIcon from '../assets/local_grocery_store.svg'
 
 
 Amplify.configure({
@@ -67,9 +68,9 @@ class Page extends Component {
                 <NavBar>
 
                     <div className="mr-32 flex justify-start">
-                        <HeadingFive className="text-white " text="Categories" />
+                        <img src={CatIcon} alt="category_icon" /> <HeadingFive className="text-white mt-3" text="Categories" />
                     </div>
-                    <div className="flex s:flex-col">
+                    <div className="flex flex-row s:flex-col">
                         <Nav.Item>
                             <HeadingFive className="text-white " text="Login" />
                         </Nav.Item>
