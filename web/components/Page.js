@@ -70,12 +70,12 @@ class Page extends Component {
                     <div className="mr-32 flex justify-start">
                         <img src={CatIcon} alt="category_icon" /> <HeadingFive className="text-white mt-3" text="Categories" />
                     </div>
-                    <div className="flex flex-row s:flex-col">
+                    <div className="flex lg:flex-row s:flex-col">
                         <Nav.Item>
-                            <HeadingFive className="text-white " text="Login" />
+                            <HeadingFive className="text-white mt-3" text="Login" />
                         </Nav.Item>
-                        <Nav.Item>
-                            <HeadingFive className="text-white ml-3" text="Sell" />
+                        <Nav.Item className="flex ml-3">
+                            <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
                         </Nav.Item>
                     </div>
 
