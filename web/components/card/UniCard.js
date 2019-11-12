@@ -16,11 +16,11 @@ const UniCard = ({ uniName }) => {
     return (
         <>
             <Link
-                className="cursor-pointer"
+
                 href={`/categories/?uni=${uniName}`}
                 as={`/categories/?uni=${uniName}`}
             >
-                <div className={`w-3/4 h-24 shadow-xl mb-5 mt-5 rounded bg-${newColour}`}>
+                <div className={`w-3/4 h-24 shadow-xl mb-5 mt-5 rounded bg-${newColour} cursor-pointer`}>
                     <HeadingFive className="p-2" text={uniName} />
 
                 </div>

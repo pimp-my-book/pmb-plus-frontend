@@ -79,8 +79,8 @@ class Page extends Component {
                         </div>
                     </Link>
                     <div className="flex lg:flex-row s:flex-col">
-                        <Link href='/signin' to={'/signin'} className="cursor-pointer">
-                            <Nav.Item>
+                        <Link href='/signin' to={'/signin'} >
+                            <Nav.Item className="cursor-pointer">
                                 <HeadingFive className="text-white mt-3" text="Login" />
                             </Nav.Item>
                         </Link>
