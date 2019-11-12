@@ -79,12 +79,16 @@ class Page extends Component {
                         </div>
                     </Link>
                     <div className="flex lg:flex-row s:flex-col">
-                        <Nav.Item>
-                            <HeadingFive className="text-white mt-3" text="Login" />
-                        </Nav.Item>
-                        <Nav.Item className="flex lg:ml-3">
-                            <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
-                        </Nav.Item>
+                        <Link href='/signin' to={'/signin'} className="cursor-pointer">
+                            <Nav.Item>
+                                <HeadingFive className="text-white mt-3" text="Login" />
+                            </Nav.Item>
+                        </Link>
+                        <Link href='/book' to={'/book'} className="cursor-pointer">
+                            <Nav.Item className="flex lg:ml-3 cursor-pointer">
+                                <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
+                            </Nav.Item>
+                        </Link>
                     </div>
 
 
