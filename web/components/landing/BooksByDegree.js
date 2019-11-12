@@ -17,7 +17,7 @@ const BooksByDegree = () => {
 
     return (
         <>
-            <h1>Books by degree</h1>
+
             {
                 Object.keys(result).map((item, index) => {
                     let values = result[item]
