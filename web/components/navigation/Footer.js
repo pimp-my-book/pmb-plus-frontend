@@ -1,13 +1,17 @@
 import React from 'react';
 import { BodyText, HeadingFive, CaptionText } from 'umqombothi-component-library'
+import styled from 'styled-components'
 
+const FooterStyles = styled.footer`
 
+border-bottom: #ED0677 8px solid;
+`
 
 const Footer = ({
     className
 }) => {
     return (
-        <footer
+        <FooterStyles
             className={`${className} w-full fixed-bottom bottom-0 left-0  absolute bg-blueDarkest border-bottom`}
         >
             <div className="flex x:flex-row s:flex-col md:flex-row p-5">
@@ -111,7 +115,7 @@ const Footer = ({
                 </div>
             </div>
 
-        </footer>
+        </FooterStyles>
     )
 }
 
