@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
-import { Footer, NavigationBar } from 'umqombothi-component-library'
+import styled from 'styled-components'
+import { HeadingFive } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
 //import Auth from "@aws-amplify/auth";
 import Amplify, { Auth, Storage } from 'aws-amplify'
+import { Nav } from 'react-bootstrap'
 import Cookie from 'js-cookie'
-
-
+import NavBar from '../components/navigation/Navbar'
+import Footer from '../components/navigation/Footer'
+import CatIcon from '../assets/store.svg'
+import SellIcon from '../assets/local_grocery_store.svg'
 
 
 Amplify.configure({
@@ -23,6 +27,14 @@ Amplify.configure({
         bucket: process.env.s3Bucket_dev
     }
 })
+
+const NavStyles = styled.div`
+margin-left: 800px;
+
+@media (min-width: 375px){
+    margin-left: 0px;
+}
+`
 
 class Page extends Component {
 
@@ -54,26 +66,28 @@ class Page extends Component {
 
         return (
             <>
-                <NavigationBar
-                    content={
-                        <>
-                            <span
-                                onClick={this.handleLogout}
-                            >
-                                Logout
-                    </span>
-                        </>
-                    }
+                <NavBar>
 
-                />
-                <div
+                    <div className="mr-32 flex justify-start">
+                        <img src={CatIcon} alt="category_icon" /> <HeadingFive className="text-white mt-3" text="Categories" />
+                    </div>
+                    <div className="flex lg:flex-row s:flex-col">
+                        <Nav.Item>
+                            <HeadingFive className="text-white mt-3" text="Login" />
+                        </Nav.Item>
+                        <Nav.Item className="flex lg:ml-3">
+                            <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
+                        </Nav.Item>
+                    </div>
 
-                >
+
+                </NavBar>
+                <div>
 
                     {this.props.children}
                 </div>
                 <Footer
-                    className="s:relative md:relative   lapie:relative"
+                    className="relative"
                 />
             </>
         )
@@ -81,3 +95,13 @@ class Page extends Component {
 }
 
 export default Page
+
+/*
+
+
+<span
+                        onClick={this.handleLogout}
+                    >
+                        Logout
+                    </span>
+*/

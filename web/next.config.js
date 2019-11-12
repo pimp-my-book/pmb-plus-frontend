@@ -1,27 +1,16 @@
-const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants')
 require('dotenv').config()
 const withTM = require("next-transpile-modules");
 const withCSS = require("@zeit/next-css");
-const compose = require('next-compose')
-
-
-
-const isDev = phase = process.env.NODE_ENV === 'development' && process.env.NODE_ENV !== 'production'
-
-//get the prod stage
-const isProd = phase = process.env.NODE_ENV !== 'development' && process.env.NODE_ENV === 'production'
-
-const isStaging = process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'production'
-
-console.log(`isDev:${isDev} isProd:${isProd} isStaging:${isStaging}`)
 
 
 module.exports = withCSS(
+
     withTM({
         transpileModules: ["umqombothi-component-library"],
         target: 'serverless',
-
-        // assetPrefix: 'pmb-plus-web-2-dev-attachmentsbucket-1jeigd7yk56z1',
+        cssLoaderOptions: {
+            url: false
+        },
 
 
         webpack(config, options) {
