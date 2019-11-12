@@ -19,11 +19,23 @@ import Category from '../search/Category'
 import SearchBar from './SearchBar'
 import UniCard from '../card/UniCard'
 import SearchGrid from '../grids/SearchGrid'
+import SearchPlaceholder from '../loading/SearchPlaceholder'
 const SearchHome = () => {
     //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
 
-    if (loading) return `We are busy get them books...`
+    let rows = []
+    for (let i = 0; i < 12; i++) {
+        rows.push(<SearchPlaceholder key={i} />)
+    }
+    if (loading) return (
+
+        <>
+            <SearchGrid>
+                {rows}
+            </SearchGrid>
+        </>
+    )
     if (error) return `${error.message}`
 
 
