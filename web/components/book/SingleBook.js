@@ -17,6 +17,7 @@ import Face from '../../assets/face.svg'
 import ConfIcon from '../../assets/confirmation_number.svg'
 import LibBooks from '../../assets/library_books.svg'
 import ViewBookPlaceholder from '../../components/loading/ViewBookPlaceholder'
+import placeholer from '../../assets/placeholder_image.svg'
 
 const SingleBook = ({ }) => {
 
@@ -42,7 +43,7 @@ const SingleBook = ({ }) => {
 
                 {/*START:Top left spot */}
                 <div className="p-32">
-                    <img src={book.image} alt={`Image of ${book.title}`} />
+                    <img src={book.image ? book.image : placeholer} alt={`Image of ${book.title}`} />
                 </div>
                 {/*END: Top left spot */}
 
