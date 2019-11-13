@@ -45,12 +45,12 @@ const SearchHome = () => {
     console.log(Object.keys(univeristies))
     return (
         <>
-            <div>
+            <div className="p-3">
                 <HeadingOne text="Search" />
                 <SearchBar />
                 <div>
                     <HeadingThree text="Browse all" />
-                    <SearchGrid>
+                    <SearchGrid >
                         {
                             Object.keys(univeristies).map(item => {
                                 return (
