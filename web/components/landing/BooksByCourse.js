@@ -6,10 +6,21 @@ import Link from 'next/link'
 import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
-
+import BookPlaceholder from '../loading/BookPlaceholder'
 const BooksByCourse = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_COURSE)
-    if (loading) return 'loading..'
+    if (loading) return (
+        <div >
+            <div className="mb-5 mt-5 p-3">
+                <BookPlaceholder />
+
+            </div>
+            <div className="mb-5 mt-5 p-3">
+                <BookPlaceholder />
+
+            </div>
+        </div>
+    )
     if (error) return `${error.message}`
 
     /*

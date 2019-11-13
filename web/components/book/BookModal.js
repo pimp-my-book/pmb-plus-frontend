@@ -5,6 +5,8 @@ import FormGrid from '../FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
 import Input from '../inputs/Input'
+import MyBooksPlaceholder from '../../components/loading/MyBooksPlaceholder'
+
 export default class BookModal extends Component {
     constructor(props) {
         super(props)
@@ -37,7 +39,10 @@ export default class BookModal extends Component {
                     variables={{ ID: targetID }}
                 >
                     {({ error, loading, data }) => {
-                        if (loading) return 'loading your book...'
+                        if (loading) return (
+                            <>
+                                <MyBooksPlaceholder />
+                            </>)
                         if (error) return `${error.message}`
 
                         const editableBook = data.getOneBook

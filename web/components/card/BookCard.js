@@ -10,7 +10,7 @@ const BookCard = ({
     location
 }) => {
     return (
-        <div className="w-300 h-450 shadow cursor-pointer">
+        <div className="w-300 h-490 shadow cursor-pointer mb-5">
             <div>
                 <img src={img ? img : placeholer} alt="book image" className="w-full h-64 " />
             </div>
@@ -19,7 +19,7 @@ const BookCard = ({
                 <HeadingFive text={`R ${price}`} />
                 <HeadingFive className="text-green" text={`Grade ${grade}`} />
                 <div className="flex flex-row">
-                    <img src={locationIcon} alt="location img" /> <BodyText text={location ? location : 'X'} />
+                    <img src={locationIcon} alt="location img" className="mb-8" /> <BodyText text={location ? location : 'X'} />
                 </div>
             </div>
 

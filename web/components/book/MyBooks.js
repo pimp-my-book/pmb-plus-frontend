@@ -20,7 +20,7 @@ import BookModal from './BookModal'
 import { DEACTIVATE_BOOK, MARK_AS_SOLD } from '../../graphql/Mutations'
 import DeactivateIcon from '../../assets/delete_outline.svg'
 import SoldIcon from '../../assets/done_outline.svg'
-
+import MyBooksPlaceholder from '../../components/loading/MyBooksPlaceholder'
 
 const MyBooks = () => {
 
@@ -48,11 +48,14 @@ const MyBooks = () => {
 
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: userSub.toString() }//userSub.toString()}
+        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }//userSub.toString()}
     })
 
 
-    if (loading) return 'loading...'
+    if (loading) return (
+        <>
+            <MyBooksPlaceholder />
+        </>)
     if (error) return `${error.message}`
 
     const books = data.getMyBooks
@@ -105,6 +108,7 @@ const MyBooks = () => {
                         books.map(book => (
                             (
                                 <div className="flex flex-row p-10"
+                                    key={book.ID}
                                 >
                                     <img className="w-24 h-24 mr-10" src={book.image} alt="book image" />  <HeadingFive className="mr-10" text={book.title ? book.title : 'Blank Title'} />  <img src={Edit} alt="edit icon" onClick={() => handleShow(book.ID)} />
                                     <img src={DeactivateIcon} alt="deactivate book" onClick={() => bookDeactivation(book.ID)} />

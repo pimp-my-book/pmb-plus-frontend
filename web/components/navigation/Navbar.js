@@ -28,7 +28,7 @@ const NavBar = ({
         <NavBarStyles
             className=' bg-blueDarkest  bg-green-darker '
             expand="lg">
-            <Navbar.Brand> <img
+            <Navbar.Brand href="/"> <img
                 src="https://pmb-plus-assets.s3.amazonaws.com/pmb_plus_logo.svg"
                 alt="PMB +"
             /></Navbar.Brand>

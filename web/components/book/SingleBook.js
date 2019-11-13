@@ -16,6 +16,8 @@ import MapPlaceholder from '../../assets/Map_Placeholder.svg'
 import Face from '../../assets/face.svg'
 import ConfIcon from '../../assets/confirmation_number.svg'
 import LibBooks from '../../assets/library_books.svg'
+import ViewBookPlaceholder from '../../components/loading/ViewBookPlaceholder'
+import placeholer from '../../assets/placeholder_image.svg'
 
 const SingleBook = ({ }) => {
 
@@ -25,7 +27,11 @@ const SingleBook = ({ }) => {
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
         variables: { ID: parseInt(id) }
     })
-    if (loading) return 'loading..'
+    if (loading) return (
+        <div className="mb-5" >
+            <ViewBookPlaceholder />
+        </div>
+    )
     if (error) return `${error.message}`
 
     // get the data from the array provided by the api
@@ -37,7 +43,7 @@ const SingleBook = ({ }) => {
 
                 {/*START:Top left spot */}
                 <div className="p-32">
-                    <img src={book.image} alt={`Image of ${book.title}`} />
+                    <img src={book.image ? book.image : placeholer} alt={`Image of ${book.title}`} />
                 </div>
                 {/*END: Top left spot */}
 
@@ -48,11 +54,11 @@ const SingleBook = ({ }) => {
                     <div className="flex flex-row mt-5">
                         <HeadingFive className="mr-2" text="Price" />  <HeadingFive className="text-green" text={`R ${book.price}`} />
                     </div>
-                    <div className="flex flex-row mt-5 bg-orangeLightest rounded-full w-24">
-                        <HeadingFive className="mr-2 p-1 text-orangeDarkest" text="Grade" />      <HeadingFive text={book.grade} className="text-orangeDarkest p-1" />
+                    <div className="flex flex-row mt-5 bg-orangeLightest rounded-lg w-32 ">
+                        <HeadingFive className="mr-2 text-justify text-orangeDarkest ml-2 " text={`Grade ${book.grade ? book.grade : 'N/A'}`} />
                     </div>
                     <div className="flex flex-row mt-5">
-                        <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerName} />
+                        <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerName ? book.ownerName : 'There appears to be no owner for this book'} />
                     </div>
 
 

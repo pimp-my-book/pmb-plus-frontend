@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { HeadingFive } from 'umqombothi-component-library'
 //import Amplify from "@aws-amplify/core";
@@ -67,17 +68,27 @@ class Page extends Component {
         return (
             <>
                 <NavBar>
+                    <Link href='/search' to='/search'>
+                        <div className="mr-32 flex justify-start cursor-pointer">
 
-                    <div className="mr-32 flex justify-start">
-                        <img src={CatIcon} alt="category_icon" /> <HeadingFive className="text-white mt-3" text="Categories" />
-                    </div>
+
+                            <img src={CatIcon} alt="category_icon" />
+                            <HeadingFive className="text-white mt-3" text="Categories" />
+
+
+                        </div>
+                    </Link>
                     <div className="flex lg:flex-row s:flex-col">
-                        <Nav.Item>
-                            <HeadingFive className="text-white mt-3" text="Login" />
-                        </Nav.Item>
-                        <Nav.Item className="flex lg:ml-3">
-                            <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
-                        </Nav.Item>
+                        <Link href='/signin' to='/signin' >
+                            <Nav.Item className="cursor-pointer">
+                                <HeadingFive className="text-white mt-3" text="Login" />
+                            </Nav.Item>
+                        </Link>
+                        <Link href='/book' to='/book' className="cursor-pointer">
+                            <Nav.Item className="flex lg:ml-3 cursor-pointer">
+                                <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
+                            </Nav.Item>
+                        </Link>
                     </div>
 
 

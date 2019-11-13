@@ -7,7 +7,7 @@ const Books = () => {
     if (!hasCookie) {
         return (
             <div>
-                You need to be logged in
+                <MyBooks />
             </div>
 
         )
