@@ -68,7 +68,7 @@ class Page extends Component {
         return (
             <>
                 <NavBar>
-                    <Link href='/search' to={'/search'}>
+                    <Link href='/search' to='/search'>
                         <div className="mr-32 flex justify-start cursor-pointer">
 
 
@@ -79,12 +79,12 @@ class Page extends Component {
                         </div>
                     </Link>
                     <div className="flex lg:flex-row s:flex-col">
-                        <Link href='/signin' to={'/signin'} >
+                        <Link href='/signin' to='/signin' >
                             <Nav.Item className="cursor-pointer">
                                 <HeadingFive className="text-white mt-3" text="Login" />
                             </Nav.Item>
                         </Link>
-                        <Link href='/book' to={'/book'} className="cursor-pointer">
+                        <Link href='/book' to='/book' className="cursor-pointer">
                             <Nav.Item className="flex lg:ml-3 cursor-pointer">
                                 <img src={SellIcon} alt="sell_icon" /> <HeadingFive className="text-white mr-5 ml-1 mt-3" text="Sell" />
                             </Nav.Item>
