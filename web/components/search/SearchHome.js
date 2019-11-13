@@ -24,15 +24,14 @@ const SearchHome = () => {
     //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
 
-    let rows = []
-    for (let i = 0; i < 12; i++) {
-        rows.push(<SearchPlaceholder key={i} />)
-    }
+
     if (loading) return (
 
         <>
             <SearchGrid className="p-5">
-                {rows}
+                {Array(12)
+                    .fill('')
+                    .map(i => <SearchPlaceholder key={i} />)}
             </SearchGrid>
         </>
     )

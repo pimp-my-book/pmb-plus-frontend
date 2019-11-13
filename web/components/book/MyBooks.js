@@ -48,7 +48,7 @@ const MyBooks = () => {
 
     //query hook - for users books
     const { loading, data, error } = useQuery(GET_MY_BOOKS, {
-        variables: { owner: userSub.toString() }//userSub.toString()}
+        variables: { owner: '94c3ae75-5a32-4c44-bc17-e80cbfc006a7' }//userSub.toString()}
     })
 
 

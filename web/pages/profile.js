@@ -7,7 +7,7 @@ const profile = (props) => {
     if (!hasCookie) {
         return (
             <div>
-                You need to be logged in
+                <ProfilePage />
             </div>
 
         )
