@@ -16,6 +16,7 @@ import MapPlaceholder from '../../assets/Map_Placeholder.svg'
 import Face from '../../assets/face.svg'
 import ConfIcon from '../../assets/confirmation_number.svg'
 import LibBooks from '../../assets/library_books.svg'
+import ViewBookPlaceholder from '../../components/loading/ViewBookPlaceholder'
 
 const SingleBook = ({ }) => {
 
@@ -25,7 +26,11 @@ const SingleBook = ({ }) => {
     const { loading, data, error } = useQuery(GET_ONE_BOOK, {
         variables: { ID: parseInt(id) }
     })
-    if (loading) return 'loading..'
+    if (loading) return (
+        <div className="mb-5" >
+            <ViewBookPlaceholder />
+        </div>
+    )
     if (error) return `${error.message}`
 
     // get the data from the array provided by the api
