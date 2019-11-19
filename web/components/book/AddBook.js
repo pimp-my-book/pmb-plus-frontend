@@ -57,13 +57,14 @@ const AddBook = () => {
                         <form
                             onSubmit={async e => {
                                 e.preventDefault()
+                                console.log(file)
                                 const attachment = file ? await s3Upload(file) : null
                                 const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
-                                //console.log(attachment)
-                                // console.log(s3URI)
+                                console.log(attachment)
+                                console.log(s3URI)
                                 setIsLoading(true)
                                 setImage(`${s3URI}`)
-                                //console.log(image)
+                                console.log(image)
                                 await addBook({
                                     variables: {
                                         input: {
@@ -123,14 +124,14 @@ const AddBook = () => {
                                     {/* Price*/}
                                     <div>
                                         <BodyText
-                                            text="Price"
+                                            text="Price (R)"
                                         />
                                         <Input
                                             type="text"
                                             required
                                             value={price}
                                             onChange={e => setPrice(e.target.value)}
-                                            placeholder="R4566"
+                                            placeholder="456.00"
                                         />
 
                                     </div>
@@ -250,7 +251,7 @@ const AddBook = () => {
 
                                             // value={image}
                                             onChange={e => {
-                                                file = e.target.files[0]
+                                                setFile(e.target.files[0])
                                             }}
                                             placeholder="IMAGE"
                                         />

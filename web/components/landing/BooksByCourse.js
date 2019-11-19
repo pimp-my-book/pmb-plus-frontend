@@ -112,12 +112,7 @@ What we want is to group all entries by unquie instance of a course
             items: 1,
         },
     }
-    /*
-        for (var i = 0, len = result.length; i < len; i++) {
-            for (var j = 0, len2 = result[i].length; j < len2; j++) {
-                console.log(result[i][j])
-            }
-        }*/
+
     return (
         <>
 
