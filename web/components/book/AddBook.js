@@ -7,7 +7,7 @@ import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton
 import SuccessImage from '../../assets/fogg-success-1.svg'
 import { addBookMutation } from '../../graphql/Mutations'
 import { s3Upload } from '../../lib/awsLib'
-import FormGrid from '../FormGrid'
+import FormGrid from '../grids/FormGrid'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")

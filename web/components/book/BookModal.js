@@ -1,7 +1,7 @@
 import React, { Component, createRef } from 'react'
 import { Query, Mutation } from '@apollo/react-components'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Textarea, DarkPinkButton } from 'umqombothi-component-library'
-import FormGrid from '../FormGrid'
+import FormGrid from '../grids/FormGrid'
 import { GET_ONE_BOOK } from '../../graphql/Queries'
 import { EDIT_BOOK_MUTATION } from '../../graphql/Mutations'
 import Input from '../inputs/Input'
