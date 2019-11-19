@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeadingOne } from 'umqombothi-component-library'
-import ErrorPic from '../../assets/fogg-fatal-error-3.png'
+import ErrorPic from '../../assets/fogg-fatal.svg'
 const ErrorPage = () => {
     return (
         <>
