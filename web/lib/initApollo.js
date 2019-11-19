@@ -24,7 +24,7 @@ function create(initialState, getToken) {
     //process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_PROD :
     //'http://localhost:4000/graphql'
     const httpLink = createHttpLink({
-        uri: process.env.serviceEndpoint_DEV, // Server URL (must be absolute)
+        uri: 'http://localhost:4000/graphql', //process.env.serviceEndpoint_DEV, // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch
@@ -34,12 +34,12 @@ function create(initialState, getToken) {
         const token = Cookie.get('token')
 
         const anonymousUser = await Auth.currentCredentials()
-        console.log(anonymousUser)
+        console.log(Object.values(anonymousUser.params.Logins)[0])
         //`Bearer ${anonymousUser.data.Credentials.sessionToken}`
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : `Bearer ${anonymousUser.data.Credentials.sessionToken}`
+                authorization: token ? `Bearer ${token}` : `Bearer ${Object.values(anonymousUser.params.Logins)[0]}`
             }
         }
     })
