@@ -4,10 +4,10 @@ import { Storage } from 'aws-amplify'
 import { useMutation, Mutation } from '@apollo/react-hooks';
 import Cookie from 'js-cookie'
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
-import SuccessImage from '../assets/fogg-success-1.svg'
-import { addBookMutation } from '../graphql/Mutations'
-import { s3Upload } from '../lib/awsLib'
-import FormGrid from './FormGrid'
+import SuccessImage from '../../assets/fogg-success-1.svg'
+import { addBookMutation } from '../../graphql/Mutations'
+import { s3Upload } from '../../lib/awsLib'
+import FormGrid from '../FormGrid'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
