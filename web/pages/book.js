@@ -1,4 +1,4 @@
-import AddBook from '../components/AddBook'
+import AddBook from '../components/book/AddBook'
 const Book = () => {
     return (
         <AddBook />

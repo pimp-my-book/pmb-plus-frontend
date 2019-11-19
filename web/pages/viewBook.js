@@ -1,3 +1,4 @@
+import React from 'react'
 import SingleBook from '../components/book/SingleBook'
 
 const viewBook = () => {

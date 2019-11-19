@@ -4,10 +4,10 @@ import { Storage } from 'aws-amplify'
 import { useMutation, Mutation } from '@apollo/react-hooks';
 import Cookie from 'js-cookie'
 import { Alert, Textarea, HeadingOne, HeadingTwo, HeadingFive, Input, LinkButton, BodyText, DarkPinkButton, HeadingFour } from 'umqombothi-component-library'
-import SuccessImage from './fogg-success-1.svg'
-import { addBookMutation } from '../graphql/Mutations'
-import { s3Upload } from '../lib/awsLib'
-import FormGrid from './FormGrid'
+import SuccessImage from '../../assets/fogg-success-1.svg'
+import { addBookMutation } from '../../graphql/Mutations'
+import { s3Upload } from '../../lib/awsLib'
+import FormGrid from '../grids/FormGrid'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
@@ -27,72 +27,9 @@ const AddBook = () => {
 
     //File upload state
     let [file, setFile] = useState(null)
-    const [imageURL, setimageURL] = useState("")
-
-
-    const handleFileChange = async event => {
-        file = event.target.files[0]
-
-        try {
-
-            //window.LOG_LEVEL = 'DEBUG';
-            const attachment = file ? await s3Upload(file) : null
-            const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
-            //console.log(attachment)
-            // console.log(s3URI)
-
-            setImage(`${s3URI}`)
-            //console.log(image)
-
-
-            // console.log(data)
-            // setPosted(true)
-
-        } catch (e) {
-            alert(e)
-        }
-
-
-        setFile(file)
-        // console.log(file)
-    }
-
-
-    const handleSubmit = async (event) => {
-
-        event.preventDefault()
-
-        try {
 
 
 
-
-            addBook({
-                variables: {
-                    input: {
-                        price: price,
-                        description: description,
-                        image: image,
-                        edition: edition,
-                        title: title,
-                        author: author,
-                        ISBN: ISBN,
-                        grade: grade,
-                        location: location,
-                        univeristy: univeristy,
-                        course: course,
-                        degree: degree,
-                    }
-                }
-            })
-            // console.log(data)
-            setPosted(true)
-
-        } catch (e) {
-            alert(e)
-        }
-
-    }
 
     const renderPostBook = () => {
         const hasCookie = Cookie.get('token')
@@ -120,13 +57,14 @@ const AddBook = () => {
                         <form
                             onSubmit={async e => {
                                 e.preventDefault()
+                                console.log(file)
                                 const attachment = file ? await s3Upload(file) : null
                                 const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
-                                //console.log(attachment)
-                                // console.log(s3URI)
+                                console.log(attachment)
+                                console.log(s3URI)
                                 setIsLoading(true)
                                 setImage(`${s3URI}`)
-                                //console.log(image)
+                                console.log(image)
                                 await addBook({
                                     variables: {
                                         input: {
@@ -186,14 +124,14 @@ const AddBook = () => {
                                     {/* Price*/}
                                     <div>
                                         <BodyText
-                                            text="Price"
+                                            text="Price (R)"
                                         />
                                         <Input
                                             type="text"
                                             required
                                             value={price}
                                             onChange={e => setPrice(e.target.value)}
-                                            placeholder="R4566"
+                                            placeholder="456.00"
                                         />
 
                                     </div>
@@ -313,7 +251,7 @@ const AddBook = () => {
 
                                             // value={image}
                                             onChange={e => {
-                                                file = e.target.files[0]
+                                                setFile(e.target.files[0])
                                             }}
                                             placeholder="IMAGE"
                                         />

@@ -20,6 +20,7 @@ import SearchBar from './SearchBar'
 import UniCard from '../card/UniCard'
 import SearchGrid from '../grids/SearchGrid'
 import SearchPlaceholder from '../loading/SearchPlaceholder'
+import ErrorPage from '../error/ErrorPage'
 const SearchHome = () => {
     //get the data from the api
     const { loading, data, error } = useQuery(GET_BOOKS_BY_UNIVERSITY)
@@ -35,7 +36,7 @@ const SearchHome = () => {
             </SearchGrid>
         </>
     )
-    if (error) return `${error.message}`
+    if (error) return <ErrorPage />
 
 
     //Group books by Univeristies

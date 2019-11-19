@@ -7,6 +7,8 @@ import 'react-multi-carousel/lib/styles.css'
 import { GET_BOOKS_BY_COURSE } from '../../graphql/Queries'
 import BookCard from '../card/BookCard'
 import BookPlaceholder from '../loading/BookPlaceholder'
+import ErrorPage from '../error/ErrorPage'
+
 const BooksByCourse = () => {
     const { loading, error, data } = useQuery(GET_BOOKS_BY_COURSE)
     if (loading) return (
@@ -21,7 +23,7 @@ const BooksByCourse = () => {
             </div>
         </div>
     )
-    if (error) return `${error.message}`
+    if (error) return <ErrorPage />
 
     /*
 This the pseduo code for getting all the course by degree:
@@ -110,12 +112,7 @@ What we want is to group all entries by unquie instance of a course
             items: 1,
         },
     }
-    /*
-        for (var i = 0, len = result.length; i < len; i++) {
-            for (var j = 0, len2 = result[i].length; j < len2; j++) {
-                console.log(result[i][j])
-            }
-        }*/
+
     return (
         <>
 

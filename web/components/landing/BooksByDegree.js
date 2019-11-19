@@ -22,7 +22,7 @@ const BooksByDegree = () => {
             </div>
         </div>
     )
-    if (error) return `${error.message}`
+    if (error) return <></>
 
     const result = data.getBooksByDegree.reduce(function (r, a) { let key = a.degree; r[key] = r[key] || []; r[key].push(a); return r }, {})
     console.log(data.getBooksByDegree)

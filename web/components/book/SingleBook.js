@@ -18,6 +18,7 @@ import ConfIcon from '../../assets/confirmation_number.svg'
 import LibBooks from '../../assets/library_books.svg'
 import ViewBookPlaceholder from '../../components/loading/ViewBookPlaceholder'
 import placeholer from '../../assets/placeholder_image.svg'
+import ErrorPage from '../error/ErrorPage'
 
 const SingleBook = ({ }) => {
 
@@ -32,7 +33,7 @@ const SingleBook = ({ }) => {
             <ViewBookPlaceholder />
         </div>
     )
-    if (error) return `${error.message}`
+    if (error) return <ErrorPage />
 
     // get the data from the array provided by the api
     const book = data.getOneBook
