@@ -5,6 +5,7 @@ import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-compon
 import BookCard from '../card/BookCard'
 import CategoryPlaceholder from '../loading/CategoryPlaceholder'
 import { GET_BOOKS_AT_A_UNIVERSITY } from '../../graphql/Queries'
+import ErrorPage from '../error/ErrorPage'
 const Category = () => {
     const router = useRouter()
     const { uni } = router.query
@@ -13,7 +14,7 @@ const Category = () => {
     })
 
     if (loading) return <CategoryPlaceholder />
-    if (error) return `${error.message}`
+    if (error) return <ErrorPage />
     console.log(data)
 
     const books = data.getBooksAtAUniversity
