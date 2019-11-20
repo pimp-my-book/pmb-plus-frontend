@@ -24,7 +24,7 @@ function create(initialState, getToken) {
     //process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_PROD :
     //'http://localhost:4000/graphql'
     const httpLink = createHttpLink({
-        uri: process.env.serviceEndpoint_DEV, // Server URL (must be absolute)
+        uri: 'http://localhost:4000/graphql',//process.env.serviceEndpoint_DEV, // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch
@@ -33,13 +33,23 @@ function create(initialState, getToken) {
     const authLink = setContext(async (_, { headers }) => {
         const token = Cookie.get('token')
 
-        const anonymousUser = await Auth.currentCredentials()
-        console.log(Object.values(anonymousUser.params.Logins)[0])
+        // const anonymousUser = await Auth.currentCredentials()
+        //console.log(Object.values(anonymousUser.params.Logins)[0])
         //`Bearer ${anonymousUser.data.Credentials.sessionToken}`
+
+        let guestToken
+
+        if (!token) {
+            await Auth.signIn(process.env.GUEST_USERNAME, process.env.GUEST_PASSWORD)
+                .then(data => guestToken = data.signInUserSession.accessToken.jwtToken)
+                .catch(err => console.log(err))
+        }
+        console.log(guestToken)
+
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : `Bearer ${Object.values(anonymousUser.params.Logins)[0]}`
+                authorization: token ? `Bearer ${token}` : `Bearer ${guestToken}`
             }
         }
     })
