@@ -38,10 +38,10 @@ function create(initialState, getToken) {
         //`Bearer ${anonymousUser.data.Credentials.sessionToken}`
 
         let guestToken
-
+        // guestToken = data.signInUserSession.idToken.jwtToken
         if (!token) {
             await Auth.signIn(process.env.GUEST_USERNAME, process.env.GUEST_PASSWORD)
-                .then(data => guestToken = data.signInUserSession.accessToken.jwtToken)
+                .then(data => guestToken = data.signInUserSession.idToken.jwtToken)
                 .catch(err => console.log(err))
         }
         console.log(guestToken)
