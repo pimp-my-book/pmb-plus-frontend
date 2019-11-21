@@ -1,5 +1,2 @@
-pmbPlus:
-  component: serverless-next.js
-
-resources:
-  - ${file(assets-pmbplus.yml)}
+myNextApp:
+ component: serverless-next.js
