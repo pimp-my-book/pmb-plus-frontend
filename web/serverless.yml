@@ -1,32 +1,5 @@
-service: pmb-plus-web-2
-
-#frameworkVersion: "1.35.1"
-plugins:
-  - serverless-nextjs-plugin
-
-
-provider:
-  name: aws
-  runtime: nodejs8.10
-  stage: dev
-  region: us-east-1
-  environment:
-      SLS_DEBUG: true
-
-
-
-
-
-package:
-  exclude:
-    - ./**
-
-custom:
-  serverless-nextjs:
-    assetsBucketName: pmb-plus-web-2-dev-attachmentsbucket-1jeigd7yk56z1
-    staticDir: ./static
-    createAssetBucket: false
-    cloudFront: true
+pmbPlus:
+  component: serverless-next.js
 
 resources:
   - ${file(assets-pmbplus.yml)}
