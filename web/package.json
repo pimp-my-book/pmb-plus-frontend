@@ -46,6 +46,7 @@
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "next-compose": "^0.0.2",
+    "serverless-next.js": "^1.6.0",
     "serverless-nextjs-plugin": "^2.3.0"
   },
   "jest": {
