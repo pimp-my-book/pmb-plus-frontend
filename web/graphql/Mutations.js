@@ -41,3 +41,16 @@ mutation MARK_AS_SOLD($owner: String!, $ID: Int!){
     markAsSold(owner:$owner,ID: $ID)
 }
 `
+
+//showEmail
+export const SHOW_EMAIL = gql`
+mutation SHOW_EMAIL($showEmail: Boolean,$userID: String){
+    showEmail(showEmail:$showEmail,userID:$userID)
+}
+`
+
+//showNumber
+
+//hideEmail
+
+//hideNumber
