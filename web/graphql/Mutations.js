@@ -61,4 +61,10 @@ mutation HIDE_EMAIL($showEmail: Boolean,$userID: String){
     hideEmail(showEmail:$showEmail,userID:$userID)
 }
 `
+
 //hideNumber
+export const HIDE_NUMBER = gql`
+mutation HIDE_NUMBER($showNumber: Boolean,$userID: String){
+    hideNumber(showNumber:$showNumber,userID:$userID)
+}
+`
