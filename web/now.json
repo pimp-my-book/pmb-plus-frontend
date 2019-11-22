@@ -1,0 +1,17 @@
+{
+    "env": {
+        "REGION": "@REGION",
+        "UserPoolID_Dev": "@UserPoolID_Dev",
+        "UserPoolClientID_Dev": "@UserPoolClientID_Dev",
+        "IdentityPoolId_Dev": "@IdentityPoolId_Dev",
+        "s3Bucket_dev": "@s3Bucket_dev",
+        "serviceEndpoint_DEV": "@serviceEndpoint_DEV",
+        "serviceEndpoint_PROD": "@serviceEndpoint_PROD",
+        "UserPoolID_PROD": "@UserPoolID_PROD",
+        "UserPoolClientID_PROD": "@UserPoolClientID_PROD",
+        "IdentityPoolId_PROD": "@IdentityPoolId_PROD",
+        "s3Bucket_PROD": "@s3Bucket_PROD",
+        "GUEST_USERNAME": "@GUEST_USERNAME",
+        "GUEST_PASSWORD": "@GUEST_PASSWORD"
+    }
+}
