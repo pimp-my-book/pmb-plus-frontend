@@ -146,3 +146,13 @@ query SEARCH_ALL_BOOKS($searchTerm: String!){
     }
 }
 `
+// getUsersSettings
+export const GET_USERS_SETTINGS = gql`
+query GET_USERS_SETTINGS($userID: String!){
+    getUsersSettings(userID: $userID){
+        ID
+        showEmail
+        showNumber
+    }
+}
+`
