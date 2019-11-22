@@ -1,6 +1,5 @@
 {
     "env": {
-        "REGION": "@REGION",
         "UserPoolID_Dev": "@UserPoolID_Dev",
         "UserPoolClientID_Dev": "@UserPoolClientID_Dev",
         "IdentityPoolId_Dev": "@IdentityPoolId_Dev",

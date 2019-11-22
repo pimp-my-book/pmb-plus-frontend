@@ -17,7 +17,7 @@ import SellIcon from '../assets/local_grocery_store.svg'
 Amplify.configure({
     Auth: {
         mandatorySignIn: false,
-        region: process.env.REGION,
+        region: 'us-east-1',
         userPoolId: process.env.UserPoolID_Dev,
         identityPoolId: process.env.IdentityPoolId_Dev,
         userPoolWebClientId: process.env.UserPoolClientID_Dev
