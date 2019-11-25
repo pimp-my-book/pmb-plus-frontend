@@ -3,19 +3,30 @@ This is the user's Profile page that will allow them to navigate
 to their books and chats
 
 */
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'
+import Amplify, { Auth, Storage } from 'aws-amplify'
 
 const ProfilePage = ({ }) => {
+
+    //state for the users name
+    const [name, setName] = useState("")
+
+    //fetch the user's name from cognito
+    const usersName = Auth.currentSession()
+        .then(data => setName(data.idToken.payload['custom:FullName']))
+        .catch(e => console.log(e))
+
+
     return (
         <>
             <div className="flex flex-col ml-32">
                 <div className="flex flex-row p-20">
-                    <HeadingOne text="User's name" className="mr-10" />
+                    <HeadingOne text={`${name}`} className="mr-10" />
                     <img src={Avatar} alt="Avatar image" />
 
                 </div>
