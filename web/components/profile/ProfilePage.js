@@ -37,6 +37,7 @@ const ProfilePage = ({ }) => {
     const handleMutation = () => {
         setIsLoading(true)
         showEmail({ variables: { showEmail: true, userID: userId } })
+        setIsLoading(false)
     }
 
     return (
@@ -49,7 +50,7 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div>
-                    <DarkPinkButton text="Make my number visiable" />
+                    <DarkPinkButton text="Make my number visiable" isLoading={isLoading} />
                 </div>
 
                 <div className=" p-20">
