@@ -36,7 +36,6 @@
     "react-content-loader": "^4.3.2",
     "react-dom": "^16.8.6",
     "react-multi-carousel": "^2.3.0",
-    "react-switch": "^5.0.1",
     "styled-components": "^4.3.2",
     "umqombothi-component-library": "^1.0.1"
   },

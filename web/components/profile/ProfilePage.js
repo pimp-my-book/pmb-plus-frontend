@@ -18,7 +18,7 @@ const ProfilePage = ({ }) => {
     //state for the users name
     const [name, setName] = useState("")
 
-    //fetch the user's name from cognito
+    //fetch the user's name from cognito #ED0677
     const usersName = Auth.currentSession()
         .then(data => setName(data.idToken.payload['custom:FullName']))
         .catch(e => console.log(e))
