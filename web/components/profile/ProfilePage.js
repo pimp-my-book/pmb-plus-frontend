@@ -5,15 +5,18 @@ to their books and chats
 */
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Switch from 'react-switch'
-import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
+import { useQuery, useMutation } from '@apollo/react-hooks'
+import { HeadingOne, HeadingTwo, DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'
 import Amplify, { Auth, Storage } from 'aws-amplify'
-
+import { GET_USERS_SETTINGS } from '../../graphql/Queries'
+import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/Mutations'
 
 const ProfilePage = ({ }) => {
+
+
 
     //state for the users name
     const [name, setName] = useState("")
@@ -34,7 +37,7 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div>
-
+                    <DarkPinkButton text="Make my number visiable" />
                 </div>
 
                 <div className=" p-20">

@@ -6,7 +6,7 @@ const withCSS = require("@zeit/next-css");
 module.exports = withCSS(
 
     withTM({
-        transpileModules: ["umqombothi-component-library"],
+        transpileModules: ["umqombothi-component-library", "react-input-switch"],
         target: 'serverless',
         cssLoaderOptions: {
             url: false
