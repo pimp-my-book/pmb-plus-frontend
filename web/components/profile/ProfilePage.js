@@ -16,16 +16,28 @@ import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/
 
 const ProfilePage = ({ }) => {
 
+    //showEmail mutation
+    const [showEmail, { loading: showEmailLoading }] = useMutation(SHOW_EMAIL)
 
+    const [isLoading, setIsLoading] = useState(false)
 
-    //state for the users name
+    //state for the users name + ID
     const [name, setName] = useState("")
-
+    const [userId, setUserId] = useState("")
     //fetch the user's name from cognito #ED0677
     const usersName = Auth.currentSession()
-        .then(data => setName(data.idToken.payload['custom:FullName']))
+
+
+        .then(data => {
+            setUserId(data.idToken.payload.sub)
+            setName(data.idToken.payload['custom:FullName'])
+        })
         .catch(e => console.log(e))
 
+    const handleMutation = () => {
+        setIsLoading(true)
+        showEmail({ variables: { showEmail: true, userID: userId } })
+    }
 
     return (
         <>
