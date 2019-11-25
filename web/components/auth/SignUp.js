@@ -31,7 +31,7 @@ const SignUp = ({ }) => {
                 username: email,
                 password: password,
                 attributes: {
-                    'custom:FullName': fullName, 'custom:University': univeristy, 'custom:Degree': degree, 'custom:Address': address
+                    'custom:FullName': fullName, 'custom:University': univeristy, 'custom:Degree': degree, 'custom:Address': address, 'custom:phoneNumber': phoneNumber
                 }
             })
 
