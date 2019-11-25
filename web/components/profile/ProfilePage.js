@@ -5,11 +5,13 @@ to their books and chats
 */
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Switch from 'react-switch'
 import { HeadingOne, HeadingTwo, HeadingFive, BodyText } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'
 import Amplify, { Auth, Storage } from 'aws-amplify'
+
 
 const ProfilePage = ({ }) => {
 
@@ -28,6 +30,10 @@ const ProfilePage = ({ }) => {
                 <div className="flex flex-row p-20">
                     <HeadingOne text={`${name}`} className="mr-10" />
                     <img src={Avatar} alt="Avatar image" />
+
+                </div>
+
+                <div>
 
                 </div>
 
