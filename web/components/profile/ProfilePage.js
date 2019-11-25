@@ -13,7 +13,7 @@ import Bookmark from '../../assets/collections_bookmark.svg'
 const ProfilePage = ({ }) => {
     return (
         <>
-            <div>
+            <div className="flex flex-col ml-32">
                 <div className="flex flex-row p-20">
                     <HeadingOne text="User's name" className="mr-10" />
                     <img src={Avatar} alt="Avatar image" />
