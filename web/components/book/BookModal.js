@@ -1,3 +1,12 @@
+/*
+This component is incomplete:
+
+* ability to upload another image
+* The footer hangs on the modal!! use REACT_BOOTSTRAP
+
+
+*/
+
 import React, { Component, createRef } from 'react'
 import { Query, Mutation } from '@apollo/react-components'
 import { HeadingOne, HeadingThree, HeadingFive, BodyText, Textarea, DarkPinkButton } from 'umqombothi-component-library'
