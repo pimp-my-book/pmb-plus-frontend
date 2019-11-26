@@ -10,7 +10,7 @@ import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'
 import Amplify, { Auth, Storage } from 'aws-amplify'
-
+import ManageSettings from './ManageSettings'
 const ProfilePage = ({ }) => {
     //state for the users name + ID
     const [name, setName] = useState("")
@@ -50,9 +50,7 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div>
-                    {showEmailLoading && <p>Busy </p>}
-                    {called && <p>your settings have been updated</p>}
-                    <DarkPinkButton onClick={handleMutation()} text="Make my number visiable" isLoading={showEmailLoading} />
+                    <ManageSettings />
                 </div>
 
                 <div className=" p-20">
