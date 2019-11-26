@@ -1,3 +1,10 @@
+/*
+Basically we are allowing the user to signin via the Cognito API.
+
+If anything happens unexpectantly then the alert will popup with an error message
+
+*/
+
 import React, { useState } from 'react'
 import { Auth } from "aws-amplify";
 import Router from 'next/router'
