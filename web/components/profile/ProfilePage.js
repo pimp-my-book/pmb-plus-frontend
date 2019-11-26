@@ -3,7 +3,7 @@ This is the user's Profile page that will allow them to navigate
 to their books and chats
 
 */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingTwo, DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
@@ -15,30 +15,40 @@ import { GET_USERS_SETTINGS } from '../../graphql/Queries'
 import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/Mutations'
 
 const ProfilePage = ({ }) => {
-
-    //showEmail mutation
-    const [showEmail, { loading: showEmailLoading }] = useMutation(SHOW_EMAIL)
-
-    const [isLoading, setIsLoading] = useState(false)
-
     //state for the users name + ID
     const [name, setName] = useState("")
     const [userId, setUserId] = useState("")
-    //fetch the user's name from cognito #ED0677
-    const usersName = Auth.currentSession()
+    // showEmail mutation
+    const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL)
+
+    useEffect(() => {
+
+        //fetch the user's name from cognito #ED0677
+        const usersName = Auth.currentSession()
 
 
-        .then(data => {
-            setUserId(data.idToken.payload.sub)
-            setName(data.idToken.payload['custom:FullName'])
-        })
-        .catch(e => console.log(e))
+            .then(data => {
+                setUserId(data.idToken.payload.sub)
+                setName(data.idToken.payload['custom:FullName'])
+            })
+            .catch(e => console.log(e))
 
+
+    })
     const handleMutation = () => {
-        setIsLoading(true)
         showEmail({ variables: { showEmail: true, userID: userId } })
-        setIsLoading(false)
+
+        //setIsLoading(true)
+        //setIsLoading(false)
     }
+
+
+    //const [isLoading, setIsLoading] = useState(false)
+
+
+
+
+
 
     return (
         <>
@@ -50,7 +60,9 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div>
-                    <DarkPinkButton text="Make my number visiable" isLoading={isLoading} />
+                    {showEmailLoading && <p>Busy </p>}
+                    {called && <p>your settings have been updated</p>}
+                    <DarkPinkButton onClick={handleMutation()} text="Make my number visiable" isLoading={showEmailLoading} />
                 </div>
 
                 <div className=" p-20">
