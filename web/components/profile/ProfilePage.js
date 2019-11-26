@@ -5,7 +5,7 @@ to their books and chats
 */
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { HeadingOne, HeadingTwo, DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
+import { HeadingOne, HeadingTwo } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'

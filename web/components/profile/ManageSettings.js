@@ -1,30 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_USERS_SETTINGS } from '../../graphql/Queries'
 import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/Mutations'
 
 /*
-  const handleMutation = () => {
-        showEmail({ variables: { showEmail: true, userID: userId } })
-
-        //setIsLoading(true)
-        //setIsLoading(false)
-    }
+  
 
 
-        const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL)
 
-                    <DarkPinkButton onClick={handleMutation()} text="Make my number visiable" isLoading={showEmailLoading} />
+                   
 
 
-                     {showEmailLoading && <p>Busy </p>}
-                    {called && <p>your settings have been updated</p>}
+                  
                  
 */
 const ManageSettings = ({ userId, name }) => {
+    const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL, { variables: { showEmail: true, userID: userId } })
+
+
+
     return (
         <>
-            manage my settings {userId} {name}
+            manage my settings
+            {showEmailLoading && <p>Busy </p>}
+            {called && !showEmailLoading && <p>your settings have been updated</p>}
+            <DarkPinkButton onClick={showEmail} text="Make my number visiable" isLoading={showEmailLoading} />
         </>
     )
 }
