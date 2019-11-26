@@ -16,6 +16,7 @@ import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/
                  
 */
 const ManageSettings = ({ userId, name }) => {
+    const { loading: queryLoading, error: queryError, data } = useQuery(GET_USERS_SETTINGS, { variables: { userID: userId } })
     const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL, { variables: { showEmail: true, userID: userId } })
 
 
