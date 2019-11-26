@@ -20,13 +20,17 @@ const ManageSettings = ({ userId, name }) => {
     const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL, { variables: { showEmail: true, userID: userId } })
 
 
+    if (queryError) return <p>Error...</p>
+    if (queryLoading) return <p>Loading...</p>
 
+    const settings = data.getUsersSettings
+    console.log(data)
     return (
         <>
             manage my settings
             {showEmailLoading && <p>Busy </p>}
             {called && !showEmailLoading && <p>your settings have been updated</p>}
-            <DarkPinkButton onClick={showEmail} text="Make my number visiable" isLoading={showEmailLoading} />
+            <DarkPinkButton onClick={showEmail} text={settings.showNumber = true ? 'Hide your number' : 'Show your number'} isLoading={showEmailLoading} />
         </>
     )
 }
