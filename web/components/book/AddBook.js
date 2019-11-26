@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { Storage } from 'aws-amplify'
 import { useMutation, Mutation } from '@apollo/react-hooks';
 import Cookie from 'js-cookie'
