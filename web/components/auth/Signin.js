@@ -10,29 +10,6 @@ const Signin = ({
 }) => {
 
 
-    const hanldeChange = (e) => {
-
-
-        // e.persist()
-        const { name, value } = e.target
-        setValues({
-            ...values, [name]: value
-        })
-        // setValues(values => ({ ...values, [e.target.name]: e.target.value }))
-
-    }
-
-    const hanldeChange2 = (e) => {
-
-
-        setpassword(
-
-            e.target.value
-        );
-
-
-    }
-
 
 
 
