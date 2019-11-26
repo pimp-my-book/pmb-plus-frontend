@@ -50,7 +50,7 @@ const ProfilePage = ({ }) => {
                 </div>
 
                 <div>
-                    <ManageSettings />
+                    <ManageSettings userId={userId} name={name} />
                 </div>
 
                 <div className=" p-20">

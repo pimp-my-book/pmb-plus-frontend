@@ -21,10 +21,10 @@ import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/
                     {called && <p>your settings have been updated</p>}
                  
 */
-const ManageSettings = ({ }) => {
+const ManageSettings = ({ userId, name }) => {
     return (
         <>
-            manage my settings
+            manage my settings {userId} {name}
         </>
     )
 }
