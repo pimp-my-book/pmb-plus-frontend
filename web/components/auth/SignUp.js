@@ -1,3 +1,24 @@
+/*
+Sign up form allows the user to signup to the service. 
+
+First the user will enter their details in the form with the following state:
+
+email
+password
+confirmPassword
+fullName
+univeristy
+phoneNumber
+degree
+address
+
+Then once the form is submited, a confirmation code is sent to
+their email and a the <RenderConfirmationForm/> is rendered to
+accept the confirmationCode, then the user can go ahead and enter the 
+code and get redirected.
+ 
+*/
+
 import React, { useState } from 'react'
 import Auth from "@aws-amplify/auth";
 import Router from 'next/router'
