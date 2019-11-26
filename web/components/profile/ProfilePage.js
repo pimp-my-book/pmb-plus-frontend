@@ -5,21 +5,17 @@ to their books and chats
 */
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useQuery, useMutation } from '@apollo/react-hooks'
 import { HeadingOne, HeadingTwo, DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
 import Avatar from '../../assets/Avatar_Shape.svg'
 import Chat from '../../assets/chat_bubble.svg'
 import Bookmark from '../../assets/collections_bookmark.svg'
 import Amplify, { Auth, Storage } from 'aws-amplify'
-import { GET_USERS_SETTINGS } from '../../graphql/Queries'
-import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/Mutations'
 
 const ProfilePage = ({ }) => {
     //state for the users name + ID
     const [name, setName] = useState("")
     const [userId, setUserId] = useState("")
     // showEmail mutation
-    const [showEmail, { loading: showEmailLoading, called }] = useMutation(SHOW_EMAIL)
 
     useEffect(() => {
 
@@ -35,12 +31,6 @@ const ProfilePage = ({ }) => {
 
 
     })
-    const handleMutation = () => {
-        showEmail({ variables: { showEmail: true, userID: userId } })
-
-        //setIsLoading(true)
-        //setIsLoading(false)
-    }
 
 
     //const [isLoading, setIsLoading] = useState(false)
