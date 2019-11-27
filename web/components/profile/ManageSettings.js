@@ -54,10 +54,11 @@ const ManageSettings = ({ userId, name }) => {
         <>
             manage my settings
             {showNumberLoading && <p>Busy making your number visiable </p>}
-            {called && !showEmailLoading && <p>your number is now visable on all posts</p>}
+            {called && !showNumberLoading && <p>your number is now visable on all posts</p>}
+
             {hideNumberLoading && <p>Busy hiding your number</p>}
             {hideMutation && !hideNumberLoading && <p>Your number is now hidden from all posts</p>}
-            <DarkPinkButton onClick={settings.showNumber = true ? hideNumber : showNumber} text={settings.showNumber = true ? 'Show your number' : 'Hide your number'} isLoading={showNumberLoading ? showNumberLoading : hideNumberLoading} />
+            <DarkPinkButton onClick={settings.showNumber === true ? hideNumber : showNumber} text={settings.showNumber === true ? 'Hide your number' : 'Show your number'} isLoading={showNumberLoading ? showNumberLoading : hideNumberLoading} />
         </>
     )
 }
