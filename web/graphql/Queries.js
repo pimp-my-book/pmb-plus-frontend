@@ -153,6 +153,7 @@ query GET_USERS_SETTINGS($userID: String!){
         ID
         showEmail
         showNumber
+        __typename
     }
 }
 `
