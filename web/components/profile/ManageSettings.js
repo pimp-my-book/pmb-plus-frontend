@@ -39,6 +39,14 @@ const ManageSettings = ({ userId, name }) => {
                 data: { settings: settings.concat([showNumber]) }
             })
 
+        },
+        optimisticResponse: {
+            __typename: "Mutation",
+            showNumber: {
+                id: userID,
+                __typename: "Settings",
+                content: showNumber
+            }
         }
     })
 
