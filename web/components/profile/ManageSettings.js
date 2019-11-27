@@ -32,11 +32,12 @@ const ManageSettings = ({ userId, name }) => {
     const [showNumber, { loading: showNumberLoading, called }] = useMutation(SHOW_NUMBER, {
         variables: { showNumber: true, userID: userId },
         update(cache, { data: { showNumber } }) {
-            const { settings } = cache.readQuery({ query: GET_USERS_SETTINGS });
+            const { settings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { showNumber: true, userID: userId } });
 
             cache.writeQuery({
                 query: GET_USERS_SETTINGS,
-                data: { settings: settings.concat([showNumber]) }
+                data: { settings: settings.concat([showNumber]) },
+                variables: { showNumber: true, userID: userId }
             })
 
         },
@@ -51,7 +52,28 @@ const ManageSettings = ({ userId, name }) => {
     })
 
 
-    const [hideNumber, { loading: hideNumberLoading, called: hideMutation }] = useMutation(HIDE_NUMBER, { variables: { showNumber: false, userID: userId } })
+    const [hideNumber, { loading: hideNumberLoading, called: hideMutation }] = useMutation(HIDE_NUMBER, {
+        variables: { showNumber: false, userID: userId },
+        update(cache, { data: { hideNumber } }) {
+            const { settings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { hideNumber: false, userID: userId } });
+
+            cache.writeQuery({
+                query: GET_USERS_SETTINGS,
+                data: { settings: settings.concat([showNumber]) },
+                variables: { hideNumber: false, userID: userId }
+            })
+
+        },
+        optimisticResponse: {
+            __typename: "Mutation",
+            showNumber: {
+                id: userID,
+                __typename: "Settings",
+                content: hideNumber
+            }
+        }
+
+    })
 
     if (queryError) return <p>Error...</p>
     if (queryLoading) return <p>Loading...</p>
