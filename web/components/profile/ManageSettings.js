@@ -31,7 +31,7 @@ const ManageSettings = ({ userId, name }) => {
     const { loading: queryLoading, error: queryError, data } = useQuery(GET_USERS_SETTINGS, { variables: { userID: userId } })
     const [settingsID, setSettingsID] = useState("")
 
-    const [showNumber, { loading: showNumberLoading, called }] = useMutation(SHOW_NUMBER, {
+    const [showNumber, { loading: showNumberLoading, called, error: showErrorMutation }] = useMutation(SHOW_NUMBER, {
         variables: { showNumber: true, userID: userId },
         update(cache, { data: { showNumber, ID } }) {
             const { getUsersSettings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { userID: userId } });
@@ -49,7 +49,7 @@ const ManageSettings = ({ userId, name }) => {
     })
 
 
-    const [hideNumber, { loading: hideNumberLoading, called: hideMutation }] = useMutation(HIDE_NUMBER, {
+    const [hideNumber, { loading: hideNumberLoading, called: hideMutation, error: hideErrorMutation }] = useMutation(HIDE_NUMBER, {
         variables: { showNumber: false, userID: userId },
         update(cache, { data: { showNumber, ID } }) {
             const { getUsersSettings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { userID: userId } });
@@ -97,8 +97,10 @@ const ManageSettings = ({ userId, name }) => {
 
                 {showNumberLoading && <Alert message="Making your number visiable." />}
                 {called && !showNumberLoading && <Alert message="Your number is visable." />}
+                {!showNumberLoading && called && showErrorMutation && <Alert error message="Can't show your number" />}
 
                 {hideNumberLoading && <Alert message="Hiding your number" />}
+                {!showNumberLoading && called && showErrorMutation && <Alert error message="Can't hide your number" />}
                 {hideMutation && !hideNumberLoading && <Alert message="Your number is hidden." />}
                 <div>
                     <BodyText text="You can easily change whether you want your phone number to be visible on your posts." />
