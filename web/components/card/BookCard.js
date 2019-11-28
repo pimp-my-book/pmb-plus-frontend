@@ -28,7 +28,7 @@ const BookCard = ({
         <Link
             className="cursor-pointer"
             href='/viewBook/id'
-            as={`/viewBook/${book.ID}`}>
+            as={`/viewBook/${ID}`}>
             <div className="w-300 h-490 shadow cursor-pointer mb-5">
                 <div>
                     <img src={img ? img : placeholer} alt="book image" className="w-full h-64 " />

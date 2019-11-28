@@ -47,6 +47,7 @@ const BooksByDegree = () => {
                                 {values.map(book => (
                                     <div key={book.ID}>
                                         <BookCard
+                                            ID={book.ID}
                                             grade={book.grade}
                                             img={book.image}
                                             price={book.price}
