@@ -19,7 +19,7 @@ import LibBooks from '../../assets/library_books.svg'
 import ViewBookPlaceholder from '../../components/loading/ViewBookPlaceholder'
 import placeholer from '../../assets/placeholder_image.svg'
 import ErrorPage from '../error/ErrorPage'
-
+import Phone from '../../assets/phone.svg'
 const SingleBook = ({ }) => {
 
     const router = useRouter()
@@ -65,7 +65,7 @@ const SingleBook = ({ }) => {
                     </div>
                     {book.ownerPhone &&
                         <div className="flex flex-row mt-5">
-                            <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerPhone} />
+                            <img src={Phone} alt="avatar" />  <HeadingFive className="ml-5" text={book.ownerPhone} />
                         </div>
                     }
 
