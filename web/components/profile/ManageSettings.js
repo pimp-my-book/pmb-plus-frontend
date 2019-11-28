@@ -21,7 +21,7 @@ Caching
 */
 
 import React, { useEffect, useState } from 'react'
-import { DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
+import { DarkPinkButton, Alert, BodyText } from 'umqombothi-component-library'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_USERS_SETTINGS } from '../../graphql/Queries'
 import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/Mutations'
@@ -93,13 +93,19 @@ const ManageSettings = ({ userId, name }) => {
 
     return (
         <>
-            manage my settings
-            {showNumberLoading && <p>Busy making your number visiable </p>}
-            {called && !showNumberLoading && <p>your number is now visable on all posts</p>}
+            <div className="ml-20">
 
-            {hideNumberLoading && <p>Busy hiding your number</p>}
-            {hideMutation && !hideNumberLoading && <p>Your number is now hidden from all posts</p>}
-            <DarkPinkButton onClick={settings.showNumber === true ? hideNumber : showNumber} text={settings.showNumber === true ? 'Hide your number' : 'Show your number'} isLoading={showNumberLoading ? showNumberLoading : hideNumberLoading} />
+                {showNumberLoading && <Alert message="Making your number visiable." />}
+                {called && !showNumberLoading && <Alert message="Your number is visable." />}
+
+                {hideNumberLoading && <Alert message="Hiding your number" />}
+                {hideMutation && !hideNumberLoading && <Alert message="Your number is hidden." />}
+                <div>
+                    <BodyText text="You can easily change whether you want your phone number to be visible on your posts." />
+                    <DarkPinkButton onClick={settings.showNumber === true ? hideNumber : showNumber} text={settings.showNumber === true ? 'Hide my number' : 'Show my number'} isLoading={showNumberLoading ? showNumberLoading : hideNumberLoading} />
+                </div>
+
+            </div>
         </>
     )
 }
