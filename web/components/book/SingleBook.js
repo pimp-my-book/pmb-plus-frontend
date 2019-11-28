@@ -59,9 +59,15 @@ const SingleBook = ({ }) => {
                     <div className=" mt-5 text-center bg-orangeLightest rounded-lg w-32 ">
                         <HeadingFive className="mr-2  text-orangeDarkest ml-2 " text={`Grade ${book.grade ? book.grade : 'N/A'}`} />
                     </div>
+
                     <div className="flex flex-row mt-5">
                         <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerName ? book.ownerName : 'There appears to be no owner for this book'} />
                     </div>
+                    {book.ownerPhone &&
+                        <div className="flex flex-row mt-5">
+                            <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerPhone} />
+                        </div>
+                    }
 
 
                 </div>
