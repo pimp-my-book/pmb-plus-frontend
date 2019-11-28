@@ -20,7 +20,7 @@ Caching
                  
 */
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DarkPinkButton, LightPinkButton } from 'umqombothi-component-library'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_USERS_SETTINGS } from '../../graphql/Queries'
@@ -29,57 +29,68 @@ import { SHOW_EMAIL, SHOW_NUMBER, HIDE_EMAIL, HIDE_NUMBER } from '../../graphql/
 
 const ManageSettings = ({ userId, name }) => {
     const { loading: queryLoading, error: queryError, data } = useQuery(GET_USERS_SETTINGS, { variables: { userID: userId } })
+    const [settingsID, setSettingsID] = useState("")
+
     const [showNumber, { loading: showNumberLoading, called }] = useMutation(SHOW_NUMBER, {
         variables: { showNumber: true, userID: userId },
-        update(cache, { data: { showNumber } }) {
-            const { settings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { showNumber: true, userID: userId } });
+        update(cache, { data: { showNumber, ID } }) {
+            const { getUsersSettings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { userID: userId } });
 
+            getUsersSettings.showNumber = showNumber
             cache.writeQuery({
                 query: GET_USERS_SETTINGS,
-                data: { settings: settings.concat([showNumber]) },
+                data: { getUsersSettings },
                 variables: { showNumber: true, userID: userId }
             })
 
         },
-        optimisticResponse: {
-            __typename: "Mutation",
-            showNumber: {
-                id: userID,
-                __typename: "Settings",
-                content: showNumber
-            }
-        }
+        optimisticResponse: optimisticResponseShow
+
     })
 
 
     const [hideNumber, { loading: hideNumberLoading, called: hideMutation }] = useMutation(HIDE_NUMBER, {
         variables: { showNumber: false, userID: userId },
-        update(cache, { data: { hideNumber } }) {
-            const { settings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { hideNumber: false, userID: userId } });
+        update(cache, { data: { showNumber, ID } }) {
+            const { getUsersSettings } = cache.readQuery({ query: GET_USERS_SETTINGS, variables: { userID: userId } });
+            getUsersSettings.showNumber = showNumber
 
             cache.writeQuery({
                 query: GET_USERS_SETTINGS,
-                data: { settings: settings.concat([showNumber]) },
-                variables: { hideNumber: false, userID: userId }
+                data: { getUsersSettings },
+                variables: { showNumber: false, userID: userId }
             })
 
         },
-        optimisticResponse: {
-            __typename: "Mutation",
-            showNumber: {
-                id: userID,
-                __typename: "Settings",
-                content: hideNumber
-            }
-        }
+        optimisticResponse: optimisticResponseHide
+
 
     })
-
     if (queryError) return <p>Error...</p>
     if (queryLoading) return <p>Loading...</p>
 
     const settings = data.getUsersSettings
-    console.log(settings.showNumber)
+
+    const optimisticResponseShow = {
+        __typename: "Mutation",
+        SHOW_NUMBER: {
+            ID: settings.ID,
+            __typename: "Settings",
+            showNumber: showNumber
+        }
+    }
+
+    const optimisticResponseHide = {
+        __typename: "Mutation",
+        HIDE_NUMBER: {
+            ID: settings.ID,
+            __typename: "Settings",
+            showNumber: showNumber
+        }
+    }
+
+    console.log(settings)
+
     return (
         <>
             manage my settings
