@@ -66,8 +66,8 @@ const ManageSettings = ({ userId, name }) => {
 
 
     })
-    if (queryError) return <p>Error...</p>
-    if (queryLoading) return <p>Loading...</p>
+    if (queryError) return <BodyText text="Something went wrong while loading your settings" />
+    if (queryLoading) return <></>
 
     const settings = data.getUsersSettings
 
@@ -93,7 +93,7 @@ const ManageSettings = ({ userId, name }) => {
 
     return (
         <>
-            <div className="ml-20">
+            <div className="ml-20 mt-20">
 
                 {showNumberLoading && <Alert message="Making your number visiable." />}
                 {called && !showNumberLoading && <Alert message="Your number is visable." />}
