@@ -107,6 +107,7 @@ export const GET_ONE_BOOK = gql`
 			ownerName
 			owner
 			dateUploaded
+            ownerPhone
  }
  }
 `

@@ -37,6 +37,7 @@ const SingleBook = ({ }) => {
 
     // get the data from the array provided by the api
     const book = data.getOneBook
+    console.log(book)
     return (
 
         <div className="s:flex s:flex-col">
@@ -51,12 +52,12 @@ const SingleBook = ({ }) => {
 
                 {/*START: Top Right*/}
                 <div className="p-10">
-                    <HeadingOne text={book.title} />
+                    <HeadingTwo text={book.title} />
                     <div className="flex flex-row mt-5">
                         <HeadingFive className="mr-2" text="Price" />  <HeadingFive className="text-green" text={`R ${book.price}`} />
                     </div>
-                    <div className="flex flex-row mt-5 bg-orangeLightest rounded-lg w-32 ">
-                        <HeadingFive className="mr-2 text-justify text-orangeDarkest ml-2 " text={`Grade ${book.grade ? book.grade : 'N/A'}`} />
+                    <div className=" mt-5 text-center bg-orangeLightest rounded-lg w-32 ">
+                        <HeadingFive className="mr-2  text-orangeDarkest ml-2 " text={`Grade ${book.grade ? book.grade : 'N/A'}`} />
                     </div>
                     <div className="flex flex-row mt-5">
                         <img src={Avatar} alt="avatar" />  <HeadingFive text={book.ownerName ? book.ownerName : 'There appears to be no owner for this book'} />

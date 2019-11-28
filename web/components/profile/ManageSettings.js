@@ -89,7 +89,7 @@ const ManageSettings = ({ userId, name }) => {
         }
     }
 
-    console.log(settings)
+    //console.log(settings)
 
     return (
         <>
