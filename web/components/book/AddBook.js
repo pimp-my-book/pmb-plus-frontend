@@ -1,5 +1,31 @@
+/*
+Add book - allows the user to upload a book to the platform
+
+On render the <renderPostBook/> is shown but blocked with
+an if statement to check if the user has a cookie. [THIS IS A WORKAROUND]
+
+Once the user has submitted the form with the following state:
+title
+description
+author
+grade
+price
+edition
+image
+location
+ISBN
+degree
+course
+univeristy
+
+then posted === true
+
+WHILE the mutation is going off, a call to S3 is being made to uplaod the image into the bucket. 
+and the <renderConfirmtionForm/> is rendered
+
+*/
+
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { Storage } from 'aws-amplify'
 import { useMutation, Mutation } from '@apollo/react-hooks';
 import Cookie from 'js-cookie'

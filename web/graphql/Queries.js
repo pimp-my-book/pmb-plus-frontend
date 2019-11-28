@@ -107,6 +107,7 @@ export const GET_ONE_BOOK = gql`
 			ownerName
 			owner
 			dateUploaded
+            ownerPhone
  }
  }
 `
@@ -143,6 +144,17 @@ query SEARCH_ALL_BOOKS($searchTerm: String!){
         ID
         title
         image
+    }
+}
+`
+// getUsersSettings
+export const GET_USERS_SETTINGS = gql`
+query GET_USERS_SETTINGS($userID: String!){
+    getUsersSettings(userID: $userID){
+        ID
+        showEmail
+        showNumber
+        __typename
     }
 }
 `

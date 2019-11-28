@@ -1,3 +1,21 @@
+/*
+Forgot password
+
+Basicall this components hits the cognito API to allow the user to 
+request a password reset.
+
+steps:
+1 the user enters their emaill address, then a code is sent to their email
+2. Then they need to enter the code provided via their email
+3. Once the code is accepted, they can go ahaead and set a new password.
+
+There are three components that are rendered based on state
+
+the <RenderRequestCodeForm/> is rendered on load, then isSendingCode === true
+so the <RenderConfirmationForm/> is rendered then codeSent === true and confirmed === true
+so the <RenderSuccessMessage/> can be rendered
+*/
+
 import React, { useState } from 'react'
 import Auth from '@aws-amplify/auth'
 import styled from 'styled-components'

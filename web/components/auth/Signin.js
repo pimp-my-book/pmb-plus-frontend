@@ -1,3 +1,10 @@
+/*
+Basically we are allowing the user to signin via the Cognito API.
+
+If anything happens unexpectantly then the alert will popup with an error message
+
+*/
+
 import React, { useState } from 'react'
 import { Auth } from "aws-amplify";
 import Router from 'next/router'
@@ -9,29 +16,6 @@ const Signin = ({
     props
 }) => {
 
-
-    const hanldeChange = (e) => {
-
-
-        // e.persist()
-        const { name, value } = e.target
-        setValues({
-            ...values, [name]: value
-        })
-        // setValues(values => ({ ...values, [e.target.name]: e.target.value }))
-
-    }
-
-    const hanldeChange2 = (e) => {
-
-
-        setpassword(
-
-            e.target.value
-        );
-
-
-    }
 
 
 

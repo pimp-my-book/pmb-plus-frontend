@@ -1,3 +1,16 @@
+/*
+The book card is meant to render a book.
+
+It has the following props: 
+grade,
+    img,
+    price,
+    title,
+    location
+
+    If the image is not defined it renders a fall back
+*/
+
 import React from 'react'
 import { HeadingFive, BodyText } from 'umqombothi-component-library'
 import locationIcon from '../../assets/location_on.svg'

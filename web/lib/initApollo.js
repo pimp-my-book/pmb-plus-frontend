@@ -44,12 +44,12 @@ function create(initialState, getToken) {
                 .then(data => guestToken = data.signInUserSession.idToken.jwtToken)
                 .catch(err => console.log(err))
         }
-        console.log(guestToken)
+        // console.log(guestToken)
 
         return {
             headers: {
                 ...headers,
-                authorization: token ? `Bearer ${token}` : null
+                authorization: token ? `Bearer ${token}` : `Bearer ${guestToken}`
             }
         }
     })
