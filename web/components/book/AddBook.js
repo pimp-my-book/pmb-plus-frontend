@@ -34,6 +34,7 @@ import SuccessImage from '../../assets/fogg-success-1.svg'
 import { addBookMutation } from '../../graphql/Mutations'
 import { s3Upload } from '../../lib/awsLib'
 import FormGrid from '../grids/FormGrid'
+import NeedToLogin from '../error/NeedToLogin'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
@@ -63,9 +64,7 @@ const AddBook = () => {
         if (!hasCookie) {
             return (
 
-                <div>
-                    You need to be logged in
-               </div>
+                <NeedToLogin />
             )
         }
         else {
