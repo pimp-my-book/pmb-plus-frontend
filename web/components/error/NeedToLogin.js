@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { HeadingTwo, LinkButton } from 'umqombothi-component-library'
-import Login from '../../assets/Login.png'
+import Login from '../../assets/login.png'
 const NeedToLogin = () => {
     return (
         <>
