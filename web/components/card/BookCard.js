@@ -24,6 +24,7 @@ const BookCard = ({
     title,
     location
 }) => {
+
     return (
         <Link
 

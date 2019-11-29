@@ -85,7 +85,7 @@ const AddBook = () => {
                                 e.preventDefault()
                                 console.log(file)
                                 const attachment = file ? await s3Upload(file) : null
-                                const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
+                                const s3URI = `https://pmb-plus-backend-dev-attachmentsbucket-jd0uqhf65247.s3.amazonaws.com/public/${attachment}`
                                 console.log(attachment)
                                 console.log(s3URI)
                                 setIsLoading(true)
@@ -352,7 +352,7 @@ const AddBook = () => {
                                     <div className="flex flex-col w-48 mt-3">
                                         <DarkPinkButton
                                             type="submit"
-                                            text="Create account"
+                                            text="Create post"
                                             isLoading={mutationError ? !isLoading : isLoading}
                                         />
 
