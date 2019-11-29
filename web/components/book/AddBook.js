@@ -34,6 +34,7 @@ import SuccessImage from '../../assets/fogg-success-1.svg'
 import { addBookMutation } from '../../graphql/Mutations'
 import { s3Upload } from '../../lib/awsLib'
 import FormGrid from '../grids/FormGrid'
+import NeedToLogin from '../error/NeedToLogin'
 const AddBook = () => {
     const [posted, setPosted] = useState(false)
     const [title, setTitle] = useState("")
@@ -63,9 +64,7 @@ const AddBook = () => {
         if (!hasCookie) {
             return (
 
-                <div>
-                    You need to be logged in
-               </div>
+                <NeedToLogin />
             )
         }
         else {
@@ -85,7 +84,7 @@ const AddBook = () => {
                                 e.preventDefault()
                                 console.log(file)
                                 const attachment = file ? await s3Upload(file) : null
-                                const s3URI = await Storage.get(`${attachment}`, { level: 'public' })
+                                const s3URI = `https://pmb-plus-backend-dev-attachmentsbucket-jd0uqhf65247.s3.amazonaws.com/public/${attachment}`
                                 console.log(attachment)
                                 console.log(s3URI)
                                 setIsLoading(true)
@@ -352,8 +351,8 @@ const AddBook = () => {
                                     <div className="flex flex-col w-48 mt-3">
                                         <DarkPinkButton
                                             type="submit"
-                                            text="Create account"
-                                            isLoading={mutationError ? !isLoading : isLoading}
+                                            text="Create post"
+                                            isLoading={mutationError ? null : isLoading}
                                         />
 
                                     </div>

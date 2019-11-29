@@ -133,22 +133,20 @@ What we want is to group all entries by unquie instance of a course
                                 arrows={false}
                                 responsive={responsive}>
                                 {values.map(book => (
-                                    <Link
-                                        className="cursor-pointer"
-                                        href={`/viewBook?id=${book.ID}`}
-                                        as={`/viewBook?id=${book.ID}`}>
-                                        <div key={book.ID} className="mb-5">
 
-                                            <BookCard
-                                                grade={book.grade}
-                                                img={book.image}
-                                                price={book.price}
-                                                title={book.title}
-                                                location={book.location}
-                                            />
+                                    <div key={book.ID} className="mb-5">
 
-                                        </div>
-                                    </Link>
+                                        <BookCard
+                                            ID={book.ID}
+                                            grade={book.grade}
+                                            img={book.image}
+                                            price={book.price}
+                                            title={book.title}
+                                            location={book.location}
+                                        />
+
+                                    </div>
+
                                 ))}
                             </Carousel>
 
