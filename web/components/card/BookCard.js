@@ -28,8 +28,10 @@ const BookCard = ({
     return (
         <Link
 
-            href='/viewBook?[id]'
-            as={`/viewBook?id=${ID}`}>
+            href={{
+                pathname: '/viewBook',
+                query: { id: ID }
+            }}>
             <div className="w-300 h-490 shadow cursor-pointer mb-5">
                 <div>
                     <img src={img ? img : placeholer} alt="book image" className="w-full h-64 " />
