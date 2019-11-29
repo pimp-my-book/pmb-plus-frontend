@@ -353,7 +353,7 @@ const AddBook = () => {
                                         <DarkPinkButton
                                             type="submit"
                                             text="Create post"
-                                            isLoading={mutationError ? !isLoading : isLoading}
+                                            isLoading={mutationError ? null : isLoading}
                                         />
 
                                     </div>
