@@ -26,6 +26,7 @@ const Category = () => {
                     return (
                         <div>
                             <BookCard
+                                ID={book.ID}
                                 grade={book.grade}
                                 img={book.image}
                                 price={book.price}
