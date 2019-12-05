@@ -1,4 +1,4 @@
-service: pmb-plus-web-2
+service: pmb-plus-web-3
 
 #frameworkVersion: "1.35.1"
 plugins:
@@ -23,7 +23,7 @@ package:
 
 custom:
   serverless-nextjs:
-    assetsBucketName: pmb-plus-web-2-dev-attachmentsbucket-1jeigd7yk56z1
+    #assetsBucketName: pmb-plus-web-3-dev-attachmentsbucket-1jeigd7yk56z1
     staticDir: ./static
     createAssetBucket: false
     cloudFront: true
