@@ -13,6 +13,7 @@ import Footer from '../components/navigation/Footer'
 import CatIcon from '../assets/store.svg'
 import SellIcon from '../assets/local_grocery_store.svg'
 
+const isDev = process.env.env_stage === 'development'
 
 Amplify.configure({
     Auth: {
