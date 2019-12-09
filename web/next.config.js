@@ -40,7 +40,8 @@ module.exports = withCSS(
             'IdentityPoolId_PROD': process.env.IdentityPoolId_PROD,
             's3Bucket_PROD': process.env.s3Bucket_PROD,
             'GUEST_USERNAME': process.env.GUEST_USERNAME,
-            'GUEST_PASSWORD': process.env.GUEST_PASSWORD
+            'GUEST_PASSWORD': process.env.GUEST_PASSWORD,
+            'ENV_STAGE': process.env.ENV_STAGE
 
         }
 
