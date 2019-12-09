@@ -41,7 +41,9 @@ module.exports = withCSS(
             's3Bucket_PROD': process.env.s3Bucket_PROD,
             'GUEST_USERNAME': process.env.GUEST_USERNAME,
             'GUEST_PASSWORD': process.env.GUEST_PASSWORD,
-            'ENV_STAGE': process.env.ENV_STAGE
+            'ENV_STAGE': process.env.ENV_STAGE,
+            'PROD_GUEST_USERNAME': process.env.PROD_GUEST_USERNAME,
+            'PROD_GUEST_PASSW0RD': process.env.PROD_GUEST_PASSW0RD
 
         }
 
