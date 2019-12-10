@@ -19,14 +19,13 @@ Amplify.configure({
     Auth: {
         mandatorySignIn: false,
         region: 'us-east-1',
-        region: config.cognito.REGION,
         userPoolId: config.cognito.USER_POOL_ID,
         identityPoolId: config.cognito.IDENTITY_POOL_ID,
         userPoolWebClientId: config.cognito.APP_CLIENT_ID
     },
     Storage: {
         region: process.env.REGION,
-        identityPoolId: config.cognito.APP_CLIENT_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
         bucket: isDev ? process.env.s3Bucket_dev : process.env.s3Bucket_PROD
     }
 })
