@@ -22,9 +22,9 @@ const prod = {
     }
 };
 
-const config = process.env.env_stage === 'development'
-    ? prod
-    : dev;
+const config = process.env.ENV_STAGE === 'development'
+    ? dev
+    : prod;
 
 
 export default {
