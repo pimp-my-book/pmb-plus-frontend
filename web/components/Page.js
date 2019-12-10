@@ -15,48 +15,7 @@ import SellIcon from '../assets/local_grocery_store.svg'
 //import config from '../config'
 const isDev = process.env.env_stage === 'development'
 
-const dev = {
 
-    cognito: {
-        USERNAME: process.env.GUEST_USERNAME,
-        PASSWORD: process.env.GUEST_PASSWORD,
-        USER_POOL_ID: process.env.UserPoolID_Dev,
-        APP_CLIENT_ID: process.env.UserPoolClientID_Dev,
-        IDENTITY_POOL_ID: process.env.IdentityPoolId_Dev
-
-    }
-};
-
-const prod = {
-
-    cognito: {
-        USERNAME: process.env.PROD_GUEST_USERNAME,
-        PASSWORD: process.env.PROD_GUEST_PASSW0RD,
-        USER_POOL_ID: process.env.UserPoolID_PROD,
-        APP_CLIENT_ID: process.env.UserPoolClientID_PROD,
-        IDENTITY_POOL_ID: process.env.IdentityPoolId_PROD,
-    }
-};
-
-const config = process.env.ENV_STAGE === 'development'
-    ? dev
-    : prod;
-
-
-Amplify.configure({
-    Auth: {
-        mandatorySignIn: false,
-        region: 'us-east-1',
-        userPoolId: config.cognito.USER_POOL_ID,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        userPoolWebClientId: config.cognito.APP_CLIENT_ID
-    },
-    Storage: {
-        region: process.env.REGION,
-        identityPoolId: config.cognito.IDENTITY_POOL_ID,
-        bucket: isDev ? process.env.s3Bucket_dev : process.env.s3Bucket_PROD
-    }
-})
 
 const NavStyles = styled.div`
 margin-left: 800px;
@@ -93,7 +52,48 @@ class Page extends Component {
 
     render() {
 
+        const dev = {
 
+            cognito: {
+                USERNAME: process.env.GUEST_USERNAME,
+                PASSWORD: process.env.GUEST_PASSWORD,
+                USER_POOL_ID: process.env.UserPoolID_Dev,
+                APP_CLIENT_ID: process.env.UserPoolClientID_Dev,
+                IDENTITY_POOL_ID: process.env.IdentityPoolId_Dev
+
+            }
+        };
+
+        const prod = {
+
+            cognito: {
+                USERNAME: process.env.PROD_GUEST_USERNAME,
+                PASSWORD: process.env.PROD_GUEST_PASSW0RD,
+                USER_POOL_ID: process.env.UserPoolID_PROD,
+                APP_CLIENT_ID: process.env.UserPoolClientID_PROD,
+                IDENTITY_POOL_ID: process.env.IdentityPoolId_PROD,
+            }
+        };
+
+        const config = process.env.ENV_STAGE === 'development'
+            ? dev
+            : prod;
+
+
+        Amplify.configure({
+            Auth: {
+                mandatorySignIn: false,
+                region: 'us-east-1',
+                userPoolId: config.cognito.USER_POOL_ID,
+                identityPoolId: config.cognito.IDENTITY_POOL_ID,
+                userPoolWebClientId: config.cognito.APP_CLIENT_ID
+            },
+            Storage: {
+                region: process.env.REGION,
+                identityPoolId: config.cognito.IDENTITY_POOL_ID,
+                bucket: isDev ? process.env.s3Bucket_dev : process.env.s3Bucket_PROD
+            }
+        })
         return (
             <>
                 <NavBar>
