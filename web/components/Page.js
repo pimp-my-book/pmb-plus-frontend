@@ -19,14 +19,14 @@ Amplify.configure({
     Auth: {
         mandatorySignIn: false,
         region: 'us-east-1',
-        userPoolId: process.env.UserPoolID_Dev,
-        identityPoolId: process.env.IdentityPoolId_Dev,
-        userPoolWebClientId: process.env.UserPoolClientID_Dev
+        userPoolId: isDev ? process.env.UserPoolID_Dev : process.env.UserPoolID_PROD,
+        identityPoolId: isDev ? process.env.IdentityPoolId_Dev : process.env.IdentityPoolId_PROD,
+        userPoolWebClientId: isDev ? process.env.UserPoolClientID_Dev : process.env.UserPoolClientID_PROD
     },
     Storage: {
         region: process.env.REGION,
-        identityPoolId: process.env.IdentityPoolId_Dev,
-        bucket: process.env.s3Bucket_dev
+        identityPoolId: isDev ? process.env.IdentityPoolId_Dev : process.env.IdentityPoolId_PROD,
+        bucket: isDev ? process.env.s3Bucket_dev : process.env.s3Bucket_PROD
     }
 })
 
