@@ -12,8 +12,36 @@ import NavBar from '../components/navigation/Navbar'
 import Footer from '../components/navigation/Footer'
 import CatIcon from '../assets/store.svg'
 import SellIcon from '../assets/local_grocery_store.svg'
-import config from '../config'
+//import config from '../config'
 const isDev = process.env.env_stage === 'development'
+
+const dev = {
+
+    cognito: {
+        USERNAME: process.env.GUEST_USERNAME,
+        PASSWORD: process.env.GUEST_PASSWORD,
+        USER_POOL_ID: process.env.UserPoolID_Dev,
+        APP_CLIENT_ID: process.env.UserPoolClientID_Dev,
+        IDENTITY_POOL_ID: process.env.IdentityPoolId_Dev
+
+    }
+};
+
+const prod = {
+
+    cognito: {
+        USERNAME: process.env.PROD_GUEST_USERNAME,
+        PASSWORD: process.env.PROD_GUEST_PASSW0RD,
+        USER_POOL_ID: process.env.UserPoolID_PROD,
+        APP_CLIENT_ID: process.env.UserPoolClientID_PROD,
+        IDENTITY_POOL_ID: process.env.IdentityPoolId_PROD,
+    }
+};
+
+const config = process.env.ENV_STAGE === 'development'
+    ? dev
+    : prod;
+
 
 Amplify.configure({
     Auth: {
