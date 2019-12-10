@@ -1,12 +1,9 @@
 
-
 const dev = {
 
     cognito: {
-        REGION: process.env.REACT_APP_REGION,
-        USER_POOL_ID: process.env.REACT_APP_UserPoolID_Dev,
-        APP_CLIENT_ID: process.env.REACT_APP_UserPoolClientID_Dev,
-        IDENTITY_POOL_ID: process.env.REACT_APP_IdentityPoolId_Dev,
+        USERNAME: process.env.GUEST_USERNAME,
+        PASSWORD: process.env.GUEST_PASSWORD
 
     }
 };
@@ -14,14 +11,12 @@ const dev = {
 const prod = {
 
     cognito: {
-        REGION: process.env.REACT_APP_REGION,
-        USER_POOL_ID: process.env.REACT_APP_UserPoolID_PROD,
-        APP_CLIENT_ID: process.env.REACT_APP_UserPoolClientID_PROD,
-        IDENTITY_POOL_ID: process.env.REACT_APP_IdentityPoolId_PROD,
+        USERNAME: process.env.PROD_GUEST_USERNAME,
+        PASSWORD: process.env.PROD_GUEST_PASSW0RD
     }
 };
 
-const config = process.env.NODE_ENV === 'prod'
+const config = process.env.env_stage === 'development'
     ? prod
     : dev;
 
