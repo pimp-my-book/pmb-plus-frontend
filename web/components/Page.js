@@ -12,20 +12,21 @@ import NavBar from '../components/navigation/Navbar'
 import Footer from '../components/navigation/Footer'
 import CatIcon from '../assets/store.svg'
 import SellIcon from '../assets/local_grocery_store.svg'
-
+import config from '../config'
 const isDev = process.env.env_stage === 'development'
 
 Amplify.configure({
     Auth: {
         mandatorySignIn: false,
         region: 'us-east-1',
-        userPoolId: isDev ? process.env.UserPoolID_Dev : process.env.UserPoolID_PROD,
-        identityPoolId: isDev ? process.env.IdentityPoolId_Dev : process.env.IdentityPoolId_PROD,
-        userPoolWebClientId: isDev ? process.env.UserPoolClientID_Dev : process.env.UserPoolClientID_PROD
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
     },
     Storage: {
         region: process.env.REGION,
-        identityPoolId: isDev ? process.env.IdentityPoolId_Dev : process.env.IdentityPoolId_PROD,
+        identityPoolId: config.cognito.APP_CLIENT_ID,
         bucket: isDev ? process.env.s3Bucket_dev : process.env.s3Bucket_PROD
     }
 })

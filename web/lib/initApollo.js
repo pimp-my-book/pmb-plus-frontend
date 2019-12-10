@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch'
 import Cookie from 'js-cookie'
 import { Auth } from "aws-amplify";
 import getConfig from 'next/config'
-
+import config from '../config'
 
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
 let apolloClient = null
@@ -21,12 +21,12 @@ function create(initialState, getToken) {
     // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
     const isBrowser = typeof window !== 'undefined'
 
-    console.log(process.env.NODE_ENV)
+    console.log(`${process.env.env_stage} - it me`)
     //process.env.NODE_ENV === 'development' ? process.env.serviceEndpoint_PROD :
     //'http://localhost:4000/graphql'
     const isDev = process.env.env_stage === 'development'
     const httpLink = createHttpLink({
-        uri: isDev ? process.env.serviceEndpoint_DEV : process.env.serviceEndpoint_PROD, // Server URL (must be absolute)
+        uri: isDev ? process.env.serviceEndpoint_PROD : process.env.serviceEndpoint_DEV, // Server URL (must be absolute)
         credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
         // Use fetch() polyfill on the server
         fetch: !isBrowser && fetch
@@ -41,8 +41,12 @@ function create(initialState, getToken) {
 
         let guestToken
         // guestToken = data.signInUserSession.idToken.jwtToken
+
+
+        console.log(config)
+
         if (!token) {
-            await Auth.signIn(process.env.GUEST_USERNAME, process.env.GUEST_PASSWORD)
+            await Auth.signIn(config.cognito.USERNAME, config.cognito.PASSWORD)
                 .then(data => guestToken = data.signInUserSession.idToken.jwtToken)
                 .catch(err => console.log(err))
         }
