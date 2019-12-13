@@ -79,6 +79,7 @@ class Page extends Component {
             ? dev
             : prod;
 
+        console.log(config)
 
         Amplify.configure({
             Auth: {
